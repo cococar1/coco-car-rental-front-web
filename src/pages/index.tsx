@@ -3,8 +3,14 @@ import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { MainLayout } from "@/layouts/MainLayout";
 import MainForm from "@/containers/home/MainForm";
-import { ContainerContentHome, ContainerContentServiceHome } from "@/containers/home/mainfrom.styles";
+import {
+  ContainerContentHome,
+  ContainerContentServiceHome,
+} from "@/containers/home/mainfrom.styles";
 import HomeServices from "@/containers/home/services";
+import ContainerNewAutos from "@/containers/home/NewAuto";
+import ContainerNewAutosHome from "@/containers/home/NewAuto";
+import { SecctionNewAutos } from "@/containers/home/global.style";
 
 export default function Home() {
   return (
@@ -16,11 +22,14 @@ export default function Home() {
             <h2>La mejor manera de encontrar el vehículo perfecto</h2>
             <p>Las mejores opciones para que reserves y aproveches</p>
           </div>
-        <HomeServices></HomeServices>
+          <HomeServices></HomeServices>
         </ContainerContentServiceHome>
-        
       </ContainerContentHome>
-
+      <SecctionNewAutos>
+        <h2>Conoce nuestra flota</h2>
+        <p>Las mejores opciones para que reserves y aproveches</p>
+        <ContainerNewAutosHome></ContainerNewAutosHome>
+      </SecctionNewAutos>
     </MainLayout>
   );
 }
