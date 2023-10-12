@@ -9,4 +9,5 @@ export const ButtonPrincipalContainer = styled.button`
   width: 155px;
   padding: 13px 0px 14px 0px;
   border-radius: 10px;
+  cursor: pointer;
 `;

@@ -28,7 +28,7 @@ export const MainLayout = ({
 
 const MainLayoutContainer = styled.main`
   width: 100%;
-  max-width: 90rem;
+  /* max-width: 90rem; */
   min-width: 250px;
-  margin: 0 auto;
+  margin: 0 0;
 `;

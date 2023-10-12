@@ -1,13 +1,26 @@
-import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
+
 import styles from "@/styles/Home.module.css";
 import { MainLayout } from "@/layouts/MainLayout";
-
-const inter = Inter({ subsets: ["latin"] });
+import MainForm from "@/containers/home/MainForm";
+import { ContainerContentHome, ContainerContentServiceHome } from "@/containers/home/mainfrom.styles";
+import HomeServices from "@/containers/home/services";
 
 export default function Home() {
-  return <MainLayout>
-    <div></div>
-  </MainLayout>;
+  return (
+    <MainLayout>
+      <MainForm />
+      <ContainerContentHome>
+        <ContainerContentServiceHome>
+          <div>
+            <h2>La mejor manera de encontrar el vehículo perfecto</h2>
+            <p>Las mejores opciones para que reserves y aproveches</p>
+          </div>
+        <HomeServices></HomeServices>
+        </ContainerContentServiceHome>
+        
+      </ContainerContentHome>
+
+    </MainLayout>
+  );
 }

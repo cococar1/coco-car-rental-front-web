@@ -9,49 +9,49 @@ import { ButtonPrincipalContainer } from "@/ui/ButtonPrincipalUi/buttonPrincipal
 export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
   const router = useRouter();
   const mainRoute = router.pathname.split("/")[1];
+  console.log(useScrollPosition());
   const scrollPosition = useScrollPosition() > 10;
-
+  console.log(router.pathname);
   return (
     <NavbarContainer scrollPosition={scrollPosition}>
       <nav>
-        <picture>
-          <Link href="/">
-            {/* <Image
+        <div>
+          <picture>
+            <div>
+              <Link href="/">
+                {/* <Image
               src="/img/logo.png"
               width={160}
               height={100}
               alt="Logo "
               priority
             /> */}
-            Logo
-          </Link>
-        </picture>
+                Logo
+              </Link>
+            </div>
+          </picture>
+        </div>
         <ul>
-          <NavItem>
-            <Link href="/inicio"> Inicio</Link>
+          <NavItem isActive={true}>
+            <Link href="/"> Inicio</Link>
           </NavItem>
-        </ul>{" "}
-        <ul>
-          <NavItem>
+
+          <NavItem isActive={mainRoute === "nosotros"}>
             <Link href="/nosotros"> Sobre nosotros</Link>
           </NavItem>
-        </ul>{" "}
-        <ul>
+
           <NavItem>
             <Link href="/adicionales"> Adicionales</Link>
           </NavItem>
-        </ul>{" "}
-        <ul>
+
           <NavItem>
             <Link href="/reservas">Reservas</Link>
           </NavItem>
-        </ul>{" "}
-        <ul>
+
           <NavItem>
             <Link href="/faq"> FAQ</Link>
           </NavItem>
-        </ul>
-        <ul>
+
           <NavItem>
             <Link href="/contacto"> Contacto</Link>
           </NavItem>
@@ -59,6 +59,17 @@ export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
         <ul>
           <li>
             <ButtonPrincipalContainer>Iniciar Sessión</ButtonPrincipalContainer>
+          </li>
+          <li>
+            <ButtonPrincipalContainer
+              style={
+                scrollPosition
+                  ? { color: "#e96f45", background: "transparent" }
+                  : { background: "transparent" }
+              }
+            >
+              Registrate
+            </ButtonPrincipalContainer>
           </li>
         </ul>
       </nav>
