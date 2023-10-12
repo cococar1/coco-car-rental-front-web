@@ -1,5 +1,6 @@
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import React from 'react'
+import Document, { DocumentContext } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -10,7 +11,8 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) => {
-            return sheet.collectStyles(<App {...props} />);
+            const StyledApp = () => <App {...props} />;
+            return sheet.collectStyles(<React.Fragment><App {...props} /></React.Fragment>);
           },
         });
 
@@ -27,17 +29,5 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
-  }
-
-  render() {
-    return (
-      <Html>
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
   }
 }
