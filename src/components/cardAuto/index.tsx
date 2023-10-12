@@ -34,7 +34,7 @@ const CardAuto: React.FC<CardAutoProps> = () => {
             src={
               "https://res.cloudinary.com/dfifwhrxn/image/upload/v1697128986/test-web/sv2wvoq689rl7vsxtd3l.png"
             }
-            alt="card"
+            alt=""
             fill
           />
         </ContainerImagePrincipal>
