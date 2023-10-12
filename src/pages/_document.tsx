@@ -1,4 +1,3 @@
-import React from 'react'
 import Document, { DocumentContext } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
@@ -11,8 +10,8 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) => {
-            const StyledApp = () => <App {...props} />;
-            return sheet.collectStyles(<React.Fragment><App {...props} /></React.Fragment>);
+            const StyledApp = () => <App {...props} ></App>;
+            return sheet.collectStyles(<StyledApp />);
           },
         });
 
