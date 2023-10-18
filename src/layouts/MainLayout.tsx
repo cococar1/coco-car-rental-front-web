@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
 import { useContext } from "react";
 import styled from "styled-components";
@@ -21,7 +22,7 @@ export const MainLayout = ({
       // role={loggedUser ? loggedUser.role : ""}
       />
       <MainLayoutContainer>{children}</MainLayoutContainer>
-      {/* {!nofooter && <Footer />} */}
+      {!nofooter && <Footer />}
     </>
   );
 };
