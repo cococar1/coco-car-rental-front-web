@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const ContainerFooter = styled.footer`
   align-items: center;
-  /* background-color: red; */
+  background-color: #fafafa;
   text-align: center;
   display: flex;
   justify-content: space-around;
