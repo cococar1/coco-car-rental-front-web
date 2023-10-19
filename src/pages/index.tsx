@@ -11,6 +11,8 @@ import HomeServices from "@/containers/home/services";
 import ContainerNewAutos from "@/containers/home/NewAuto";
 import ContainerNewAutosHome from "@/containers/home/NewAuto";
 import { SecctionNewAutos } from "@/containers/home/global.style";
+import SectionDetails from "@/containers/home/details";
+import ContainerDetailData from "@/components/containerDetailData";
 
 export default function Home() {
   return (
@@ -30,6 +32,8 @@ export default function Home() {
         <p>Las mejores opciones para que reserves y aproveches</p>
         <ContainerNewAutosHome></ContainerNewAutosHome>
       </SecctionNewAutos>
+      <SectionDetails>
+      </SectionDetails>
     </MainLayout>
   );
 }
