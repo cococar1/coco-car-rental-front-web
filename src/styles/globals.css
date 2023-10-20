@@ -1,4 +1,9 @@
 * {
-  font-family: DM Sans;
-
+  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
+  
+}
+h2{
+  font-weight: 300;
 }

@@ -1,3 +1,4 @@
+import { colors, font } from "@/styles/theme";
 import styled from "styled-components";
 
 export const ContainerDetails = styled.div`
@@ -10,6 +11,13 @@ export const ContainerDetails = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  h2 {
+    color: ${colors.titleBlack};
+    font-weight: ${font.fontWeightTitle};
+  }
+  p {
+    color: ${colors.secondaryBlack};
+  }
 `;
 
 export const ContainerDetailsContent = styled.div`

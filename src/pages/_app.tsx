@@ -2,10 +2,10 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { ToastContainer } from "react-toastify";
 import { ApolloProvider } from "@apollo/client";
-import { DM_Sans } from "@next/font/google";
+import { Nunito_Sans } from "@next/font/google";
 import { useApollo } from "../services/client";
 
-const DMSans = DM_Sans({ subsets: ["latin"] });
+const NunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState);
@@ -20,9 +20,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <style jsx global>
         {`
           html {
-            font-family: ${DMSans.style.fontFamily};
+            font-family: ${NunitoSans.style.fontFamily};
           }
           * {
+          font-family: ${NunitoSans.style.fontFamily};
+
             margin: 0;
           }
         `}

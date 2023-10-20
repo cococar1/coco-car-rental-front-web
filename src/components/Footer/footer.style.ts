@@ -1,3 +1,4 @@
+import { colors } from "@/styles/theme";
 import styled, { css } from "styled-components";
 
 export const ContainerFooter = styled.footer`
@@ -10,7 +11,10 @@ export const ContainerFooter = styled.footer`
   height: 260px;
   p {
     font-size: 14px;
-    color: #6d7783;
+    color:${colors.secondaryBlack};
+  }
+  a{
+    color: ${colors.textBlack};
   }
 `;
 

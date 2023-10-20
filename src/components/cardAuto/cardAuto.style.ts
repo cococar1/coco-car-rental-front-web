@@ -52,12 +52,11 @@ export const ContainerContent = styled.div`
   margin-top: 20px;
   h3 {
     font-style: normal;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
 
     width: 100%;
     line-height: normal;
-    /* font-family: DM Sans; */
     font-weight: 500;
   }
   p {

@@ -32,7 +32,7 @@ export const NavbarContainer = styled.header<{
     justify-content: space-between;
 
     /* height: inherit; */
-    font-family: DM Sans;
+    font-family: 'Nunito Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

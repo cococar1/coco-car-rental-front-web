@@ -1,3 +1,4 @@
+import { colors } from "@/styles/theme";
 import styled from "styled-components";
 
 export const ContainerService = styled.div`
@@ -14,8 +15,7 @@ export const ContainerService = styled.div`
   border-radius: 20px;
   text-align: center;
   text-align: center;
-  font-family: DM Sans;
-  font-style: normal;
+  font-family: 'Nunito Sans', sans-serif;  font-style: normal;
   font-weight: 400;
   line-height: normal;
   /* padding-bottom: 0; */
@@ -26,7 +26,7 @@ export const ContainerService = styled.div`
   }
 
   h3 {
-    color: #333;
+    color: ${colors.textBlack};
     font-size: 16px;
     font-weight: 400;
     padding: 0px 20px;
@@ -34,6 +34,6 @@ export const ContainerService = styled.div`
   }
   p {
     font-size: 12px;
-    color: var(--deshabilitado, #a8b0bb);
+    color: ${colors.secondaryBlack}
   }
 `;
