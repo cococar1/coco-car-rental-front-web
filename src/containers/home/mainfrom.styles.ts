@@ -41,7 +41,6 @@ export const ContainerContentServiceHome = styled.div`
 
     /* margin-bottom: 60px; */
     /* padding-bottom: 50px; */
-    /* background-color: red; */
     /* display: flex; */
     /* height: 500px; */
 
@@ -61,3 +60,65 @@ export const ContainerContentServiceHome = styled.div`
     }
   }
 `;
+
+export const ContainerFormHome = styled.div`
+  position: absolute;
+  width: 464px;
+  height: 45%;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  transform: translate(50%, 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const ContainerTextFormHome = styled.div`
+  width: 464px;
+
+  h1 {
+    color: #ffffff;
+    font-size: 40px;
+    text-align: start;
+    font-weight: ${font.fontWeightTitle};
+  }
+  p {
+    margin-top: 10px;
+    color: #ffffff;
+    font-weight:200;
+  }
+`;
+
+export const ContainerFormHomeInputs = styled.form`
+  display: flex;
+  flex-direction: column;
+  div{
+    margin-top: 5px;
+  }
+`;
+
+export const FormHomeContainerSelect =styled.div`
+margin-top: 20px !important;
+
+`
+export const FormHomeContainerColumn = styled.div`
+  display: flex;
+  gap: 20px;
+
+  div {
+    /* background-color: black;
+  display: flex;
+  flex-direction: column; */
+    div {
+      margin-top: 20px;
+    }
+  }
+`;
+
+
+export const ContainerButtonForm =styled.div`
+width: 100%;
+margin-top: 20px;
+`

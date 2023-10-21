@@ -9,7 +9,6 @@ import { ButtonPrincipalContainer } from "@/ui/ButtonPrincipalUi/buttonPrincipal
 export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
   const router = useRouter();
   const mainRoute = router.pathname.split("/")[1];
-  console.log(useScrollPosition());
   const scrollPosition = useScrollPosition() > 10;
   console.log(router.pathname);
   return (
