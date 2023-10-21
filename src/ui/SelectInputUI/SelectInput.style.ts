@@ -25,6 +25,7 @@ export const ContainerSelectInput = styled.div<{
     background-size: 30px;
     background-repeat: no-repeat;
     background-position: right center;
+    padding: 5px;
   }
 
 `;
