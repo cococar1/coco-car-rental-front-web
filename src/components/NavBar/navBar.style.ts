@@ -22,7 +22,7 @@ export const NavbarContainer = styled.header<{
     "0px 2px 8px -4px rgba(31,27,45,0.12), 0px 4px 16px rgba(31,27,45,0.5)"};
 
   position: sticky;
-  z-index: 1000;
+  z-index: 10000;
   top: 0;
   /* height: 60px; */
 

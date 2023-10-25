@@ -6,6 +6,7 @@ export const SectionBannerContainer = styled.section`
   padding-bottom: 50px;
   margin-top: -80px;
   position: relative;
+  overflow: hidden;
 `;
 
 export const BannerImage = styled.div`
