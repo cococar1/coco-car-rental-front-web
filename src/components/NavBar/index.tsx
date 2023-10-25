@@ -31,7 +31,7 @@ export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
           </picture>
         </div>
         <ul>
-          <NavItem isActive={true}>
+          <NavItem isActive={mainRoute === "/"}>
             <Link href="/"> Inicio</Link>
           </NavItem>
 

@@ -5,5 +5,6 @@ const colors = {
 };
 const font = {
   fontWeightTitle: 600,
+  fontWeightText: 200,
 };
 export { colors, font };
