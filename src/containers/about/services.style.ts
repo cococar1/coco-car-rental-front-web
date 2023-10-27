@@ -42,8 +42,9 @@ margin-top: 10px;
   position: absolute;
   /* background-color: red; */
   display: flex;
-  justify-content: space-around;
-  width:65%;
+  justify-content: center;
+  width:100%;
+  gap: 30px;
   bottom: 0;
   padding: 20px;
 `;
