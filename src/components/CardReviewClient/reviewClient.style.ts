@@ -23,7 +23,7 @@ export const ElementCardReviewClient = styled.div`
 export const ContainerImage = styled.div`
   width: 78.343px;
   height: 78.343px;
-  background-color: yellow;
+
   border-radius: 50%;
   display: flex;
   justify-content: center;

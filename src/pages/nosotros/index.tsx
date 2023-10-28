@@ -1,18 +1,23 @@
-import SectionBanner from "@/containers/about/Banner";
+import SectionBanner from "@/components/Banner/Banner";
 import SectionDescription from "@/containers/about/Description";
 import SectionReviewClients from "@/containers/about/ReviewClients";
 import SectionServices from "@/containers/about/Services";
 import { MainLayout } from "@/layouts/MainLayout";
+import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 
 interface AboutPageProps {}
 
 const AboutPage: React.FC<AboutPageProps> = () => {
   return (
     <MainLayout>
-      <SectionBanner />
+      <SectionBanner
+        title="Sobre nosotros "
+        text="Discover our car rental options with Rent a Car Select from a range of car options and local specials."
+        Button={<ButtonPrincipalUI>Conocenos</ButtonPrincipalUI>}
+      />
       <SectionDescription />
       <SectionServices />
-      <SectionReviewClients/>
+      <SectionReviewClients />
     </MainLayout>
   );
 };
