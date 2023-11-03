@@ -1,7 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { FiMenu } from "react-icons/fi";
+
 import { useRouter } from "next/router";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { NavItem, NavbarContainer } from "./navBar.style";
@@ -48,7 +46,7 @@ export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
           </NavItem>
 
           <NavItem>
-            <Link href="/faq"> FAQ</Link>
+            <Link href="/preguntas-frecuentes"> FAQ</Link>
           </NavItem>
 
           <NavItem>
