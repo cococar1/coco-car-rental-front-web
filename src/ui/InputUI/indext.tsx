@@ -1,6 +1,11 @@
 import { useRef, useState } from "react";
 import { InputContainer } from "./InputUI.style";
 
+enum PositionIcon {
+  LEFT = "LEFT",
+  RIGHT = "RIGHT",
+}
+
 interface InpuntUIProps {
   type: string;
   backgroundColor: string;
@@ -8,6 +13,8 @@ interface InpuntUIProps {
   placeholder: string;
   stylesInput?: React.CSSProperties;
   stylesContainer?: React.CSSProperties;
+  positionIcon?: PositionIcon | null | string;
+  placeholderColor?: string;
 }
 
 const InpuntUI: React.FC<InpuntUIProps> = ({
@@ -16,15 +23,20 @@ const InpuntUI: React.FC<InpuntUIProps> = ({
   placeholder,
   stylesInput,
   stylesContainer,
+  positionIcon,
+  placeholderColor,
 }: InpuntUIProps) => {
   const ref = useRef<HTMLInputElement | null>(null); // Especifica el tipo HTMLInputElement
   const [value, setValue] = useState("");
+  console.log(PositionIcon.LEFT.toString());
   return (
     <InputContainer
       backgroundColor="#ffffff"
       width={"200px"}
       style={stylesContainer ? stylesContainer : {}}
+      placeholderColor={placeholderColor}
     >
+      {positionIcon === PositionIcon.LEFT && <span>{SvgIcon}</span>}
       <input
         type="text"
         ref={ref}
@@ -43,8 +55,8 @@ const InpuntUI: React.FC<InpuntUIProps> = ({
         }}
         value={value}
       ></input>
-
-      <span>{SvgIcon}</span>
+      {positionIcon == PositionIcon.RIGHT ||
+        (positionIcon == null && <span>{SvgIcon}</span>)}
     </InputContainer>
   );
 };

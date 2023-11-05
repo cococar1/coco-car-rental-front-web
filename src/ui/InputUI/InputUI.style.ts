@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const InputContainer = styled.div<{
   backgroundColor: string;
   width: string;
+  placeholderColor?: string;
 }>`
   background: ${(props) => props.backgroundColor};
   display: flex;
@@ -43,7 +44,8 @@ export const InputContainer = styled.div<{
   }
 
   input::placeholder {
-    color: ${colors.titleBlack};
+    color: ${({ placeholderColor }) =>
+      placeholderColor ? placeholderColor : colors.titleBlack};
   }
   span {
     align-items: center;
@@ -56,5 +58,4 @@ export const InputContainer = styled.div<{
     padding: 0;
   }
 `;
-export const InputWrapper = styled.div`
-`;
+export const InputWrapper = styled.div``;
