@@ -2,10 +2,10 @@ import { MainLayout } from "@/layouts/MainLayout";
 import SectionBanner from "@/components/Banner/Banner";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import SectionAccodion from "@/containers/frequent-questions/accordion";
-import { ContainerSectionSearch } from "./style";
 import Search from "@/components/Search";
 import { FrequentQuestion } from "@/types/FrequentQuestion";
 import { useState } from "react";
+import { ContainerSectionSearch } from "@/styles/pages/frequentQuestion.style";
 
 interface FrequentQuestionsPageProps {}
 

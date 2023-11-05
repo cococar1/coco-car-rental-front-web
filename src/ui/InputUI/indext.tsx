@@ -28,7 +28,6 @@ const InpuntUI: React.FC<InpuntUIProps> = ({
 }: InpuntUIProps) => {
   const ref = useRef<HTMLInputElement | null>(null); // Especifica el tipo HTMLInputElement
   const [value, setValue] = useState("");
-  console.log(PositionIcon.LEFT.toString());
   return (
     <InputContainer
       backgroundColor="#ffffff"
