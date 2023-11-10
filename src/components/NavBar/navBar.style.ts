@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-
+import { colors } from "@/styles/theme";
 export const NavbarContainer = styled.header<{
   scrollPosition: boolean;
   //   openModal: boolean;
@@ -14,7 +14,8 @@ export const NavbarContainer = styled.header<{
         background: white !important;
       }
       a {
-        color: #e96f45 !important;
+        /* color: #e96f45 !important; */
+        color: ${colors.titleBlack} !important;
       }
     `};
   box-shadow: ${({ scrollPosition }) =>
@@ -32,12 +33,11 @@ export const NavbarContainer = styled.header<{
     justify-content: space-between;
 
     /* height: inherit; */
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     height: 40px;
-
     /* width: 90%; */
     /* max-width: 95vw; */
     /* margin-right :1000px; */
@@ -62,7 +62,7 @@ export const NavbarContainer = styled.header<{
     }
 
     div {
-      width: 250px;
+      width: 200px;
       /* background-color: red; */
     }
     ul:nth-child(2) {
@@ -90,7 +90,7 @@ export const NavItem = styled.li<{ isActive?: boolean }>`
     isActive &&
     css`
       a {
-        color: #e96f45;
+        color: #e96f45 !important;
       }
     `}
 `;

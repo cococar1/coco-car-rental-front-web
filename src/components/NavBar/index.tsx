@@ -45,11 +45,11 @@ export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
             <Link href="/reservas">Reservas</Link>
           </NavItem>
 
-          <NavItem>
+          <NavItem isActive={mainRoute === "preguntas-frecuentes"}>
             <Link href="/preguntas-frecuentes"> FAQ</Link>
           </NavItem>
 
-          <NavItem>
+          <NavItem isActive={mainRoute == "contacto"}>
             <Link href="/contacto"> Contacto</Link>
           </NavItem>
         </ul>

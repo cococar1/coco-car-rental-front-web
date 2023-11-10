@@ -4,16 +4,18 @@ interface SelectInputUiProps {
   backgroundColor: string;
   width: string;
   arrayOptions: Array<any>;
+  placeholder:string
 }
 
 const SelectInputUI: React.FC<SelectInputUiProps> = ({
   backgroundColor,
   width,
   arrayOptions,
+  placeholder
 }) => {
   return (
     <ContainerSelectInput backgroundColor={backgroundColor} width={width}>
-      <select placeholder="Categoria del auto" aria-label="Categoria del auto">
+      <select placeholder={placeholder} aria-label={placeholder}>
         <option value="" disabled selected>
           Categoria del auto
         </option>

@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI/indext";
+import InpuntUI from "@/ui/InputUI";
 import {
   ContainerDescriptionContact,
   ContainerForm,

@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI/indext";
+import InpuntUI from "@/ui/InputUI";
 import { ContainerSearch } from "./search.style";
 import SearchIcon from "@/assets/svgs/searchIcon";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";

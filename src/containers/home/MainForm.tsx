@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI/indext";
+import InpuntUI from "@/ui/InputUI";
 import {
   ContainerBackground,
   ContainerButtonForm,
@@ -72,6 +72,7 @@ const MainForm: React.FC<MainFormProps> = () => {
             <SelectInputUI
               backgroundColor="#ffffff"
               width="96%"
+              placeholder="Categoria del auto"
               arrayOptions={optionsArray}
             ></SelectInputUI>
           </FormHomeContainerSelect>
