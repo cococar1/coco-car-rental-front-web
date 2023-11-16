@@ -10,8 +10,9 @@ export const ContainerSelectInput = styled.div<{
   position: relative;
   padding: 10px;
   width: ${(props) => props.width};
-  border-radius: 10px;   padding-right: 10px;
-    padding-bottom: 10px;
+  border-radius: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
   select {
     /* background-color: red; */
     outline: none;
