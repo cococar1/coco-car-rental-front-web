@@ -1,10 +1,15 @@
 import { ContainerOptions, Item } from "./options.style";
 import { useState } from "react";
 
-interface SectionOptionsProps {}
+interface SectionOptionsProps {
+  setOption: Function;
+  option: string;
+}
 
-const SectionOptions: React.FC<SectionOptionsProps> = () => {
-  const [option, setOption] = useState("todo");
+const SectionOptions: React.FC<SectionOptionsProps> = ({
+  setOption,
+  option,
+}) => {
   const changeOption = (e: any) => {
     setOption((e.target.innerText as string).toLocaleLowerCase());
   };
