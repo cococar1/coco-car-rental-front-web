@@ -1,5 +1,5 @@
 import { ContainerOptions, Item } from "./options.style";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface SectionOptionsProps {
   setOption: Function;
@@ -10,18 +10,30 @@ const SectionOptions: React.FC<SectionOptionsProps> = ({
   setOption,
   option,
 }) => {
+  useEffect(() => {
+    console.log(option);
+  }, [option]);
+  console.log(option);
   const changeOption = (e: any) => {
-    setOption((e.target.innerText as string).toLocaleLowerCase());
+    if ((e.target.innerText as string).toLocaleLowerCase() == "adicionales") {
+      setOption("ADDITIONAL");
+      return;
+    }
+    if ((e.target.innerText as string).toLocaleLowerCase() == "promociones") {
+      setOption("PROMOTION");
+      return;
+    }
+    setOption("todo");
   };
   return (
     <ContainerOptions>
       <Item onClick={changeOption} isActive={option == "todo"}>
         Todo
       </Item>
-      <Item isActive={option == "adicionales"} onClick={changeOption}>
+      <Item isActive={option == "ADDITIONAL"} onClick={changeOption}>
         Adicionales
       </Item>
-      <Item isActive={option == "promociones"} onClick={changeOption}>
+      <Item isActive={option == "PROMOTION"} onClick={changeOption}>
         Promociones
       </Item>
     </ContainerOptions>

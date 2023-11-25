@@ -1,8 +1,9 @@
 import CardAdditional from "@/components/CardAdditional";
 import { ContainerCards } from "./containerCards.style";
+import { Extra } from "@/types/Extras.type";
 
 interface ContainerCardsProps {
-  data: Array<any>;
+  data: Array<Extra>;
 }
 
 const SectionContainerCards: React.FC<ContainerCardsProps> = ({ data }) => {
@@ -12,9 +13,9 @@ const SectionContainerCards: React.FC<ContainerCardsProps> = ({ data }) => {
         <CardAdditional
           key={index}
           type={e.type}
-          date={e.date}
+          date={e.createdAt}
           title={e.title}
-          content={e.content}
+          content={e.description}
         />
       ))}
     </ContainerCards>

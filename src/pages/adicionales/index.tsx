@@ -1,3 +1,4 @@
+import { useQuery } from "@apollo/client";
 import { MainLayout } from "@/layouts/MainLayout";
 import SectionBanner from "@/components/Banner/Banner";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
@@ -6,6 +7,9 @@ import CardAdditional from "@/components/CardAdditional";
 import SectionContainerCards from "@/containers/additional/container-cards";
 import SectionOptions from "@/containers/additional/options";
 import { useEffect, useState } from "react";
+import { ALL_EXTRA } from "@/gql/extras/extra.query";
+import { LoaderUI } from "@/ui/LoaderUI";
+import { Extra } from "@/types/Extras.type";
 
 interface AdditionalPageProps {}
 
@@ -55,19 +59,21 @@ const dataTest = [
 ];
 const AdditionalPage: React.FC<AdditionalPageProps> = () => {
   const [option, setOption] = useState("todo");
-  const [data, setData] = useState(dataTest);
+  const [data2, setData] = useState([]);
+  const { data, loading } = useQuery(ALL_EXTRA);
 
   useEffect(() => {
     if (option != "todo") {
       setData(
-        dataTest.filter(
-          (e) => e.type.toLocaleLowerCase() == option.toLocaleLowerCase()
+        data?.extras.filter(
+          (e: Extra) => e.type.toLocaleLowerCase() == option.toLocaleLowerCase()
         )
       );
     } else {
-      setData(dataTest);
+      setData(data?.extras || []);
     }
-  }, [option]);
+  }, [option, loading, data]);
+
   return (
     <MainLayout>
       <SectionBanner
@@ -86,7 +92,11 @@ const AdditionalPage: React.FC<AdditionalPageProps> = () => {
           marginBottom: "100px",
         }}
       >
-        <SectionContainerCards data={data}></SectionContainerCards>
+        {loading ? (
+          <LoaderUI />
+        ) : (
+          <SectionContainerCards data={data2}></SectionContainerCards>
+        )}
       </div>
     </MainLayout>
   );

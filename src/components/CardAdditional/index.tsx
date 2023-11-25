@@ -25,7 +25,7 @@ const CardAdditional: React.FC<CardAdditionalProps> = ({
       </ContainerTicket>
       <ContainerContent>
         <h2>{title}</h2>
-        <p>{content.length > 135 ? content.slice(0, 135) + "..." : content}</p>
+        <p>{content?.length > 135 ? content.slice(0, 135) + "..." : content}</p>
       </ContainerContent>
     </ContainerCardAdditional>
   );
