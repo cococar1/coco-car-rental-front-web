@@ -13,6 +13,7 @@ import {
 import CalendarIcon from "@/assets/svgs/calendarIcon";
 import SelectInputUI from "@/ui/SelectInputUI";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
+import ClockIcon from "@/assets/svgs/clockIcon";
 interface MainFormProps {}
 const optionsArray = [
   {
@@ -58,13 +59,13 @@ const MainForm: React.FC<MainFormProps> = () => {
                 type={"time"}
                 placeholder="Hora"
                 backgroundColor="#ffffff"
-                SvgIcon={<CalendarIcon width={25} height={25} />}
+                SvgIcon={<ClockIcon width={25} height={25} />}
               ></InpuntUI>
               <InpuntUI
                 type={"time"}
                 placeholder="Hora"
                 backgroundColor="#ffffff"
-                SvgIcon={<CalendarIcon width={25} height={25} />}
+                SvgIcon={<ClockIcon width={25} height={25} />}
               ></InpuntUI>
             </div>
           </FormHomeContainerColumn>
