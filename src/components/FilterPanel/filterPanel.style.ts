@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerFilterPanel = styled.section`
   padding: 25px;
-  width: 25dvw;
+  width: 300px;
   height: 100%;
   background-color: #ffffff;
   h2 {
@@ -55,9 +55,24 @@ export const ContainerFeature = styled.div`
   }
 `;
 
-export const ContainerModel = styled.div`
+export const ContainerSimpleElement = styled.div`
   margin-top: 10px;
   h2 {
     font-size: 20px;
   }
 `;
+
+export const ContainerInputYears = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const LineYear = styled.div`
+  height: 2px;
+  width: 10%;
+  background-color: #313e50;
+`;
+
+export const ContainerContentElementCheckBook = styled.div`
+margin-top: 20px;
+`

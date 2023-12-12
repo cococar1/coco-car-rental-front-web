@@ -1,12 +1,12 @@
 import CardAutoPrincipal from "@/components/CardAutoPrincipal/index,";
-import { ContainerCards, ContainerSearchResult } from "./searchResult.style";
+import { ContainerCards, ContainerSearchResult, TitleResult } from "./searchResult.style";
 
 interface SectionSearchResultProps {}
 
 const SectionSearchResult: React.FC<SectionSearchResultProps> = () => {
   return (
     <ContainerSearchResult>
-      <p>Resultados de tu búsqueda</p>
+      <TitleResult>Resultados de tu búsqueda</TitleResult>
       <ContainerCards>
         <CardAutoPrincipal></CardAutoPrincipal>
         <CardAutoPrincipal></CardAutoPrincipal>

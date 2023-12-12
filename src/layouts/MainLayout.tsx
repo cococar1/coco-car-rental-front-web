@@ -9,18 +9,25 @@ import styled from "styled-components";
 export const MainLayout = ({
   children,
   nofooter,
+  changeColorNavBar,
 }: {
   nofooter?: boolean;
   children: React.ReactNode;
+  changeColorNavBar?: boolean;
 }) => {
   //   const { loggedUser } = useContext(AuthContext)
 
   return (
     <>
-      <NavBar
-      // user={loggedUser ? loggedUser._id : ""}
-      // role={loggedUser ? loggedUser.role : ""}
-      />
+      {changeColorNavBar ? (
+        <NavBar
+          changeColor={changeColorNavBar}
+          // user={loggedUser ? loggedUser._id : ""}
+          // role={loggedUser ? loggedUser.role : ""}
+        />
+      ) : (
+        <NavBar></NavBar>
+      )}
       <MainLayoutContainer>{children}</MainLayoutContainer>
       {!nofooter && <Footer />}
     </>

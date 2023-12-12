@@ -1,4 +1,3 @@
-import CardAutoPrincipal from "@/components/CardAutoPrincipal/index,";
 import FilterPanel from "@/components/FilterPanel";
 import SectionSearchResult from "@/containers/booking/search-result";
 import { MainLayout } from "@/layouts/MainLayout";
@@ -8,7 +7,7 @@ interface FrequentQuestionsPageProps {}
 
 const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
   return (
-    <MainLayout>
+    <MainLayout changeColorNavBar={true}>
       <ContainerPageBooking>
         <FilterPanel></FilterPanel>
         <SectionSearchResult></SectionSearchResult>

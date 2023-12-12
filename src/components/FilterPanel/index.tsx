@@ -1,10 +1,13 @@
 import InpuntUI from "@/ui/InputUI";
 import {
   ContainerCheckBoxScroll,
+  ContainerContentElementCheckBook,
   ContainerDate,
   ContainerFeature,
   ContainerFilterPanel,
-  ContainerModel,
+  ContainerInputYears,
+  ContainerSimpleElement,
+  LineYear,
 } from "./filterPanel.style";
 import CalendarIcon from "@/assets/svgs/calendarIcon";
 import ClockIcon from "@/assets/svgs/clockIcon";
@@ -96,7 +99,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           <CheckBoxUI name="Coupe"></CheckBoxUI>
         </ContainerCheckBoxScroll>
       </ContainerFeature>
-      <ContainerModel>
+      <ContainerSimpleElement>
         <h2>Modelo</h2>
         <SelectInputUI
           width="100%"
@@ -110,7 +113,67 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           backgroundColor="#ffffff"
           placeholder="Moodelo"
         ></SelectInputUI>
-      </ContainerModel>
+      </ContainerSimpleElement>
+
+      <ContainerSimpleElement>
+        <h2>Año</h2>
+        <ContainerInputYears>
+          <SelectInputUI
+            arrayOptions={[]}
+            placeholder="All"
+            width="45%"
+            backgroundColor="#ffffff"
+          ></SelectInputUI>
+          <LineYear></LineYear>
+          <SelectInputUI
+            arrayOptions={[]}
+            placeholder="All"
+            width="45%"
+            backgroundColor="#ffffff"
+          ></SelectInputUI>
+        </ContainerInputYears>
+      </ContainerSimpleElement>
+      <ContainerSimpleElement>
+        <h2>Tipo de</h2>
+        <ContainerContentElementCheckBook>
+          <CheckBoxUI name="AWD/4WD"></CheckBoxUI>
+          <CheckBoxUI name="Front Wheel Drive"></CheckBoxUI>
+          <CheckBoxUI name="Rear Wheel Drive"></CheckBoxUI>
+        </ContainerContentElementCheckBook>
+      </ContainerSimpleElement>
+      <ContainerSimpleElement>
+        <h2>Combustible</h2>
+        <ContainerContentElementCheckBook>
+          <CheckBoxUI name="Diesel"></CheckBoxUI>
+          <CheckBoxUI name="Nafta"></CheckBoxUI>
+          <CheckBoxUI name="Gasoil"></CheckBoxUI>
+        </ContainerContentElementCheckBook>
+      </ContainerSimpleElement>
+
+      <ContainerSimpleElement>
+        <h2>Transmisión</h2>
+        <ContainerContentElementCheckBook>
+          <CheckBoxUI name="Automatico"></CheckBoxUI>
+          <CheckBoxUI name="Manual"></CheckBoxUI>
+        </ContainerContentElementCheckBook>
+      </ContainerSimpleElement>
+
+      <ContainerSimpleElement>
+        <h2>Milaeage</h2>
+        <SelectInputUI
+          arrayOptions={[]}
+          placeholder="Any"
+          width="100%"
+          backgroundColor="#ffffff"
+        ></SelectInputUI>
+      </ContainerSimpleElement>
+      <ContainerSimpleElement>
+        <h2>Sellers</h2>
+        <ContainerContentElementCheckBook>
+          <CheckBoxUI name="Dealers Only "></CheckBoxUI>
+          <CheckBoxUI name="Private Sellers Only "></CheckBoxUI>
+        </ContainerContentElementCheckBook>
+      </ContainerSimpleElement>
     </ContainerFilterPanel>
   );
 };

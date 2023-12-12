@@ -4,13 +4,22 @@ import { useRouter } from "next/router";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { NavItem, NavbarContainer } from "./navBar.style";
 import { ButtonPrincipalContainer } from "@/ui/ButtonPrincipalUi/buttonPrincipal.style";
-export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
+
+interface NavBarProps {
+  user: string;
+  role: string;
+  changeColor?: boolean;
+}
+export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const router = useRouter();
   const mainRoute = router.pathname.split("/")[1];
   const scrollPosition = useScrollPosition() > 10;
+  console.log(changeColor);
   console.log(router.pathname);
   return (
-    <NavbarContainer scrollPosition={scrollPosition}>
+    <NavbarContainer
+      scrollPosition={changeColor ? changeColor : scrollPosition}
+    >
       <nav>
         <div>
           <picture>
@@ -29,7 +38,7 @@ export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
           </picture>
         </div>
         <ul>
-          <NavItem isActive={mainRoute === "/"}>
+          <NavItem isActive={mainRoute === ""}>
             <Link href="/"> Inicio</Link>
           </NavItem>
 
@@ -37,11 +46,11 @@ export const NavBar: any = ({ user, role }: { user: string; role: string }) => {
             <Link href="/nosotros"> Sobre nosotros</Link>
           </NavItem>
 
-          <NavItem>
+          <NavItem  isActive={mainRoute === "adicionales"}>
             <Link href="/adicionales"> Adicionales</Link>
           </NavItem>
 
-          <NavItem>
+          <NavItem  isActive={mainRoute === "reservas"}>
             <Link href="/reservas">Reservas</Link>
           </NavItem>
 
