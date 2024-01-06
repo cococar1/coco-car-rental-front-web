@@ -43,7 +43,7 @@ export const ContainerTextAbout = styled.div`
   flex-direction: column;
   justify-content: space-between;
   top: 31%;
-  left: 35%;
+  left: 33%;
   width: 552px;
   text-align: center;
   color: #ffffff;
@@ -56,5 +56,10 @@ export const ContainerTextAbout = styled.div`
   p {
     font-size: 18px;
     font-weight: ${font.fontWeightText};
+  }
+
+  @media screen and (min-width: 1700px) {
+    left: 35%;
+
   }
 `;

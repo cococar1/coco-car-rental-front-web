@@ -71,7 +71,9 @@ export const NavbarContainer = styled.header<{
     }
     ul:nth-child(3) {
       /* background-color: red !important; */
+      gap:0px;
       padding: 0;
+      justify-content:center;
     }
   }
 `;

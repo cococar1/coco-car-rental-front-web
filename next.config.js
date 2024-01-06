@@ -5,15 +5,15 @@ const nextConfig = {
   env: {
     API_URL: process.env.API_URL,
   },
-  images:{
-    remotePatterns:[
+  images: {
+    remotePatterns: [
       {
-        protocol:"https",
-        hostname:"res.cloudinary.com",
-        pathname:"/dfifwhrxn/image/upload/**"
-      }
-    ]
-  }
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/dfifwhrxn/image/upload/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
