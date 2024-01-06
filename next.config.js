@@ -12,6 +12,10 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "/dfifwhrxn/image/upload/**",
       },
+      {
+        protocol: "https",
+        hostname: "coco-car-rental.s3.us-east-2.amazonaws.com",
+      },
     ],
   },
 };

@@ -26,8 +26,6 @@ export const ContainerContent = styled.div`
   }
 `;
 export const ContainerImagePrincipal = styled.div`
-  width: 200px;
-
   img {
     position: relative !important;
     object-fit: cover !important;
