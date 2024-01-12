@@ -9,7 +9,7 @@ interface CarIdPageProps {}
 
 const CarIdPage: React.FC<CarIdPageProps> = () => {
   return (
-    <MainLayout>
+    <MainLayout changeColorNavBar={true}>
       <CarDetailPage>
         <div
           style={{
