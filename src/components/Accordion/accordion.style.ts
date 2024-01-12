@@ -59,7 +59,7 @@ export const DetailAccordion = styled.div`
   /* background-color: yellow; */
   width: 100%;
   margin-bottom: 1rem;
-  max-width: 474px;
+  /* max-width: 474px; */
   border-radius: 8px;
   position: relative;
 `;

@@ -13,7 +13,6 @@ import { Extra } from "@/types/Extras.type";
 
 interface AdditionalPageProps {}
 
-
 const AdditionalPage: React.FC<AdditionalPageProps> = () => {
   const [option, setOption] = useState("todo");
   const [data2, setData] = useState([]);

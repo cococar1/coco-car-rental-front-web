@@ -11,12 +11,21 @@ import {
 interface AccordionProps {
   title: string;
   content: string;
+  styleContainer?: React.CSSProperties;
+  styleContent?: React.CSSProperties;
+  styleIcon?: React.SVGProps<SVGSVGElement>;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
+const Accordion: React.FC<AccordionProps> = ({
+  title,
+  content,
+  styleContainer,
+  styleContent,
+  styleIcon,
+}) => {
   const [open, setOpen] = useState(false);
   return (
-    <ContainerAccordion>
+    <ContainerAccordion style={styleContainer ?? {}}>
       <DetailAccordion>
         <Summary
           onClick={() => {
@@ -25,10 +34,12 @@ const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
         >
           <h3>{title}</h3>
           <ContainerIconArrow onClick={() => setOpen(!open)} open={open}>
-            <ArrowIcon width={30} height={30}></ArrowIcon>
+            <ArrowIcon width={30} height={30} {...styleIcon}></ArrowIcon>
           </ContainerIconArrow>
         </Summary>
-        <ContainerContent open={open}>{content}</ContainerContent>
+        <ContainerContent open={open} style={styleContent ?? {}}>
+          {content}
+        </ContainerContent>
       </DetailAccordion>
     </ContainerAccordion>
   );
