@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
-import { colors } from "@/styles/theme";
+import styled, { css } from 'styled-components'
+import { colors } from '@/styles/theme'
+
 export const NavbarContainer = styled.header<{
-  scrollPosition: boolean;
-  //   openModal: boolean;
+  scrollPosition: boolean
 }>`
   transition: 0.5s;
   background: transparent;
@@ -20,33 +20,43 @@ export const NavbarContainer = styled.header<{
     `};
   box-shadow: ${({ scrollPosition }) =>
     scrollPosition &&
-    "0px 2px 8px -4px rgba(31,27,45,0.12), 0px 4px 16px rgba(31,27,45,0.5)"};
+    '0px 2px 8px -4px rgba(31,27,45,0.12), 0px 4px 16px rgba(31,27,45,0.5)'};
 
   position: sticky;
   z-index: 10000;
   top: 0;
   /* height: 60px; */
+  .mobile {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    @media (width >= 1024px) {
+      display: none;
+    }
+  }
 
+  .desktop {
+    display: none;
+    @media (width >= 1024px) {
+      display: flex;
+    }
+  }
   nav {
-    display: flex;
+    display: none;
     align-content: center;
     justify-content: space-between;
 
-    /* height: inherit; */
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     height: 40px;
-    /* width: 90%; */
-    /* max-width: 95vw; */
-    /* margin-right :1000px; */
-    /* padding: 0 240px; */
-    /* padding-left: 10px; */
-    /* background-color: black; */
-    padding: 20px 100px;
-    /* padding-right: 200px; */
-    /* padding-left: 200px; */
+    padding: 20px 30px;
+
+    @media (width >= 1024px) {
+      display: flex;
+      padding: 20px 100px;
+    }
 
     ul {
       align-items: center;
@@ -61,10 +71,6 @@ export const NavbarContainer = styled.header<{
       }
     }
 
-    div {
-      width: 200px;
-      /* background-color: red; */
-    }
     ul:nth-child(2) {
       width: 60%;
       margin-right: 50px;
@@ -76,7 +82,7 @@ export const NavbarContainer = styled.header<{
       justify-content: center;
     }
   }
-`;
+`
 
 export const NavItem = styled.li<{ isActive?: boolean }>`
   position: relative;
@@ -95,12 +101,50 @@ export const NavItem = styled.li<{ isActive?: boolean }>`
         color: #e96f45 !important;
       }
     `}
-`;
+`
 
-export const ContainerLogo = styled.div`
-  img {
-    position: relative !important;
+export const HeaderMenu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  picture {
+    width: 40px;
   }
-  width: 100px !important;
-  /* background-color: red; */
-`;
+`
+
+export const BodyMenu = styled.div<{ $isActive: boolean }>`
+  visibility: hidden;
+  transition: all 0.5s ease;
+  opacity: 0;
+  background-color: #fff;
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  transition: all 1s ease-out 0s;
+  ${({ $isActive }) =>
+    $isActive &&
+    css`
+      top: 70px;
+      opacity: 1;
+      visibility: visible;
+      transition: all 1s ease-out 0s;
+    `}
+`
+export const NavMobile = styled.div`
+  display: grid;
+  gap: 20px;
+  margin-top: 30px;
+`
+
+export const CallActionButtons = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 0 20px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`

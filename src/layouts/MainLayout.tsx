@@ -1,7 +1,7 @@
-import Footer from "@/components/Footer";
-import { NavBar } from "@/components/NavBar";
-import { useContext } from "react";
-import styled from "styled-components";
+import Footer from '@/components/Footer'
+import { NavBar } from '@/components/NavBar'
+import { useContext } from 'react'
+import styled from 'styled-components'
 
 // import { Footer } from '@/components/Footer'
 // import { AuthContext } from '@/contexts/AuthContext'
@@ -9,11 +9,11 @@ import styled from "styled-components";
 export const MainLayout = ({
   children,
   nofooter,
-  changeColorNavBar,
+  changeColorNavBar
 }: {
-  nofooter?: boolean;
-  children: React.ReactNode;
-  changeColorNavBar?: boolean;
+  nofooter?: boolean
+  children: React.ReactNode
+  changeColorNavBar?: boolean
 }) => {
   //   const { loggedUser } = useContext(AuthContext)
 
@@ -29,14 +29,14 @@ export const MainLayout = ({
         <NavBar></NavBar>
       )}
       <MainLayoutContainer>{children}</MainLayoutContainer>
-      {!nofooter && <Footer />}
+      {/* {!nofooter && <Footer />} */}
     </>
-  );
-};
+  )
+}
 
 const MainLayoutContainer = styled.main`
   width: 100%;
   /* max-width: 90rem; */
   min-width: 250px;
   margin: 0 0;
-`;
+`
