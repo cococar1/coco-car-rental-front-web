@@ -25,7 +25,8 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           type="email"
           placeholder="Correo Electrónico"
           backgroundColor=""
-          SvgIcon={<div></div>}
+            value={""}
+            SvgIcon={<div></div>}
           stylesContainer={{
             width: "95%",
             border: "none",
@@ -37,7 +38,8 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           placeholder="Número de teléfono"
           backgroundColor=""
           SvgIcon={<div></div>}
-          stylesContainer={{
+            value={""}
+            stylesContainer={{
             width: "95%",
             border: "none",
             borderBottom: "1px solid #EDEDED;",

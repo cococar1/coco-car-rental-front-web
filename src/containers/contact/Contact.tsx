@@ -45,7 +45,8 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         <InpuntUI
           type="email"
           placeholder="E-mail address"
-          backgroundColor="#ffffff"
+            value={""}
+            backgroundColor="#ffffff"
           stylesContainer={{
             width: "474px",
             borderRadius: "0px",
@@ -58,7 +59,8 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           arrayOptions={[]}
           backgroundColor="#ffffff"
           placeholder="Subject"
-          width="474px"
+            value={""}
+            width="474px"
           stylesContainer={{
             borderRadius: "0px",
             height: "30px",

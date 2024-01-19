@@ -155,6 +155,8 @@ const MainForm: React.FC<MainFormProps> = () => {
           </FormHomeContainerColumn>
           <FormHomeContainerSelect>
             <SelectInputUI
+            value={""}
+
               backgroundColor="rgba(255, 255, 255, 0.25)"
               stylesContainer={{
                 border: "1px solid rgba(213, 221, 234, 0.47)",

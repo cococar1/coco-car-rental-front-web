@@ -12,6 +12,8 @@ const Search: React.FC<SearchProps> = ({ stylesContainer }) => {
     <ContainerSearch style={stylesContainer ? stylesContainer : {}}>
       {" "}
       <InpuntUI
+            value={""}
+
         SvgIcon={<SearchIcon color="#AEB7C1"></SearchIcon>}
         type="text"
         backgroundColor="#ffffff"

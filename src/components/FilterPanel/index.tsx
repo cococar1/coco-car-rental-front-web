@@ -29,11 +29,13 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             type={"date"}
             placeholder="Fecha de retiro"
             backgroundColor="#ffffff"
+            value={""}
             SvgIcon={<CalendarIcon width={25} height={25} />}
           ></InpuntUI>
           <InpuntUI
             stylesContainer={{ width: "40%" }}
             //   stylesInput={{width:"30%"}}
+            value={""}
             type={"time"}
             placeholder="Hora"
             backgroundColor="#ffffff"
@@ -44,6 +46,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           <InpuntUI
             stylesContainer={{ width: "60%" }}
             type={"date"}
+            value={""}
             placeholder="Fecha de entrega"
             backgroundColor="#ffffff"
             SvgIcon={<CalendarIcon width={25} height={25} />}
@@ -51,6 +54,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           <InpuntUI
             stylesContainer={{ width: "40%" }}
             //   stylesInput={{width:"30%"}}
+            value={""}
             type={"time"}
             placeholder="Hora"
             backgroundColor="#ffffff"
@@ -61,6 +65,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           <SelectInputUI
             backgroundColor={"#ffffff"}
             width="100%"
+            value={""}
             arrayOptions={categoriesOptions}
             placeholder="Categoria del auto"
             stylesContainer={{ border: " 1px solid rgba(213, 221, 234, 0.47)" }}
@@ -102,6 +107,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
       <ContainerSimpleElement>
         <h2>Modelo</h2>
         <SelectInputUI
+          value={""}
           width="100%"
           arrayOptions={[
             { key: "toyota", value: "Toyota" },
@@ -137,6 +143,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           <SelectInputUI
             arrayOptions={[]}
             placeholder="All"
+            value={""}
             width="45%"
             backgroundColor="#ffffff"
           ></SelectInputUI>
@@ -144,6 +151,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           <SelectInputUI
             arrayOptions={[]}
             placeholder="All"
+            value={""}
             width="45%"
             backgroundColor="#ffffff"
           ></SelectInputUI>
@@ -177,6 +185,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
       <ContainerSimpleElement>
         <h2>Milaeage</h2>
         <SelectInputUI
+          value={""}
           arrayOptions={[]}
           placeholder="Any"
           width="100%"
