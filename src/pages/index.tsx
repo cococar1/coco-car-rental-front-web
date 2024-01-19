@@ -1,23 +1,20 @@
-import Image from "next/image";
-
-import styles from "@/styles/Home.module.css";
-import { MainLayout } from "@/layouts/MainLayout";
-import MainForm from "@/containers/home/MainForm";
+import { MainLayout } from '@/layouts/MainLayout'
+import MainForm from '@/containers/home/MainForm'
 import {
   ContainerContentHome,
-  ContainerContentServiceHome,
-} from "@/containers/home/mainfrom.styles";
-import HomeServices from "@/containers/home/services";
-import ContainerNewAutosHome from "@/containers/home/NewAuto";
-import { SecctionNewAutos } from "@/containers/home/global.style";
-import SectionDetails from "@/containers/home/details";
-import SectionContact from "@/containers/home/contact";
+  ContainerContentServiceHome
+} from '@/containers/home/mainfrom.styles'
+import HomeServices from '@/containers/home/services'
+import ContainerNewAutosHome from '@/containers/home/NewAuto'
+import { SecctionNewAutos } from '@/containers/home/global.style'
+import SectionDetails from '@/containers/home/details'
+import SectionContact from '@/containers/home/contact'
 
-export default function Home() {
+export default function Home () {
   return (
     <MainLayout>
-      <MainForm />
-      <ContainerContentHome>
+      {/* <MainForm /> */}
+      {/* <ContainerContentHome>
         <ContainerContentServiceHome>
           <div>
             <h2>La mejor manera de encontrar el vehículo perfecto</h2>
@@ -32,7 +29,7 @@ export default function Home() {
         <ContainerNewAutosHome></ContainerNewAutosHome>
       </SecctionNewAutos>
       <SectionDetails></SectionDetails>
-      <SectionContact></SectionContact>
+      <SectionContact></SectionContact> */}
     </MainLayout>
-  );
+  )
 }

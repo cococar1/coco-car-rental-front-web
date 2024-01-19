@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-export const ButtonPrincipalContainer = styled.button`
-  background: linear-gradient(180deg, #e96f45 0%, #f36e40 100%);
+export const ButtonSecondaryContainer = styled.button`
+  background: '#0000'
   color: #ffffff;
   font-size: 16px;
   border: none;

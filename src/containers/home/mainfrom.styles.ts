@@ -1,20 +1,20 @@
-import styled from "styled-components";
-import { colors, font } from "../../styles/theme";
+import styled from 'styled-components'
+import { colors, font } from '../../styles/theme'
 export const ContainerMainFrom = styled.div`
   position: relative;
   height: 790px;
   margin-top: -80px;
-`;
+`
 
 export const ContainerMainFromImage = styled.div`
   position: absolute;
-  background-image: url("/images/background-card-principal.png");
+  background-image: url('/images/background-card-principal.png');
   background-position: bottom;
   background-size: cover;
   padding: 0;
   width: 100%;
   height: 790px;
-`;
+`
 
 export const ContainerBackground = styled.div`
   position: absolute;
@@ -26,16 +26,16 @@ export const ContainerBackground = styled.div`
   );
   width: 100%;
   height: 790px;
-`;
+`
 
 export const ContainerContentHome = styled.div`
   padding: 70px 250px;
-`;
+`
 
 export const ContainerContentServiceHome = styled.div`
   div {
     text-align: center;
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     line-height: normal;
 
@@ -59,7 +59,7 @@ export const ContainerContentServiceHome = styled.div`
       margin-bottom: 50px;
     }
   }
-`;
+`
 
 export const ContainerFormHome = styled.div`
   position: absolute;
@@ -73,7 +73,7 @@ export const ContainerFormHome = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-`;
+`
 
 export const ContainerTextFormHome = styled.div`
   width: 464px;
@@ -87,21 +87,20 @@ export const ContainerTextFormHome = styled.div`
   p {
     margin-top: 10px;
     color: #ffffff;
-    font-weight:200;
+    font-weight: 200;
   }
-`;
+`
 
 export const ContainerFormHomeInputs = styled.form`
   display: flex;
   flex-direction: column;
-  div{
+  div {
     margin-top: 5px;
   }
-`;
+`
 
-export const FormHomeContainerSelect =styled.div`
-margin-top: 20px !important;
-
+export const FormHomeContainerSelect = styled.div`
+  margin-top: 20px !important;
 `
 export const FormHomeContainerColumn = styled.div`
   display: flex;
@@ -115,10 +114,9 @@ export const FormHomeContainerColumn = styled.div`
       margin-top: 20px;
     }
   }
-`;
+`
 
-
-export const ContainerButtonForm =styled.div`
-width: 100%;
-margin-top: 20px;
+export const ContainerButtonForm = styled.div`
+  width: 100%;
+  margin-top: 20px;
 `

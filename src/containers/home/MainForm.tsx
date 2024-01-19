@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI";
+import InpuntUI from '@/ui/InputUI'
 import {
   ContainerBackground,
   ContainerButtonForm,
@@ -8,23 +8,23 @@ import {
   ContainerMainFromImage,
   ContainerTextFormHome,
   FormHomeContainerColumn,
-  FormHomeContainerSelect,
-} from "./mainfrom.styles";
-import CalendarIcon from "@/assets/svgs/calendarIcon";
-import SelectInputUI from "@/ui/SelectInputUI";
-import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
-import ClockIcon from "@/assets/svgs/clockIcon";
+  FormHomeContainerSelect
+} from './mainfrom.styles'
+import CalendarIcon from '@/assets/svgs/calendarIcon'
+import SelectInputUI from '@/ui/SelectInputUI'
+import { ButtonPrincipalUI } from '@/ui/ButtonPrincipalUi'
+import ClockIcon from '@/assets/svgs/clockIcon'
 interface MainFormProps {}
 const optionsArray = [
   {
-    id: "1",
-    value: "Deportivo",
+    id: '1',
+    value: 'Deportivo'
   },
   {
-    id: "2",
-    value: "clasico",
-  },
-];
+    id: '2',
+    value: 'clasico'
+  }
+]
 const MainForm: React.FC<MainFormProps> = () => {
   return (
     <ContainerMainFrom>
@@ -42,38 +42,38 @@ const MainForm: React.FC<MainFormProps> = () => {
           <FormHomeContainerColumn>
             <div>
               <InpuntUI
-                type={"date"}
-                backgroundColor="#ffffff"
-                placeholder="Fecha de retiro"
+                type={'date'}
+                backgroundColor='#ffffff'
+                placeholder='Fecha de retiro'
                 SvgIcon={<CalendarIcon width={25} height={25} />}
               ></InpuntUI>
               <InpuntUI
-                type={"date"}
-                placeholder="Fecha de entrega"
-                backgroundColor="#ffffff"
+                type={'date'}
+                placeholder='Fecha de entrega'
+                backgroundColor='#ffffff'
                 SvgIcon={<CalendarIcon width={25} height={25} />}
               ></InpuntUI>
             </div>
             <div>
               <InpuntUI
-                type={"time"}
-                placeholder="Hora"
-                backgroundColor="#ffffff"
+                type={'time'}
+                placeholder='Hora'
+                backgroundColor='#ffffff'
                 SvgIcon={<ClockIcon width={25} height={25} />}
               ></InpuntUI>
               <InpuntUI
-                type={"time"}
-                placeholder="Hora"
-                backgroundColor="#ffffff"
+                type={'time'}
+                placeholder='Hora'
+                backgroundColor='#ffffff'
                 SvgIcon={<ClockIcon width={25} height={25} />}
               ></InpuntUI>
             </div>
           </FormHomeContainerColumn>
           <FormHomeContainerSelect>
             <SelectInputUI
-              backgroundColor="#ffffff"
-              width="96%"
-              placeholder="Categoria del auto"
+              backgroundColor='#ffffff'
+              width='96%'
+              placeholder='Categoria del auto'
               arrayOptions={optionsArray}
             ></SelectInputUI>
           </FormHomeContainerSelect>
@@ -83,7 +83,7 @@ const MainForm: React.FC<MainFormProps> = () => {
         </ContainerButtonForm>
       </ContainerFormHome>
     </ContainerMainFrom>
-  );
-};
+  )
+}
 
-export default MainForm;
+export default MainForm
