@@ -13,80 +13,68 @@ import {
   ContainerPrice,
 } from "./cardAutoPrincipal.style";
 import Image from "next/image";
+import { Car } from "@/types/Car.type";
+import Link from "next/link";
+import { useBookingContext } from "@/context/BookingContext";
 
 interface CardAutoPrincipalProps {
-  urlImage?: string;
-  countUser?: number;
-  typeChange?: string;
-  minTankQuantity?: number;
-  maxTankQuantity?: number;
-  fullType?: string;
-  title?: string;
-  description?: string;
-  price?: number;
-  name?: string;
+  car: Car;
 }
+const CardAutoPrincipal: React.FC<CardAutoPrincipalProps> = ({ car }) => {
+  const { newBooking, setNewBooking } = useBookingContext();
 
-const CardAutoPrincipal: React.FC<CardAutoPrincipalProps> = ({
-  urlImage,
-  countUser,
-  typeChange,
-  minTankQuantity,
-  maxTankQuantity,
-  fullType,
-  title,
-  description,
-  price,
-  name,
-}) => {
   return (
     <ContainerCard>
       <ContainerImageTitle>
         <ContainerImagePrincipal>
-          <Image src={urlImage ?? ""} alt="" fill />
+          <Image src={car.image ?? ""} alt="" fill />
         </ContainerImagePrincipal>
       </ContainerImageTitle>
       <ContainerContent>
-        <h2>{name}</h2>
+        <h2>{car.name}</h2>
         <p>Características</p>
         <ContainerCharacteristics>
           <div>
             <UserIcon />
-            <p>{countUser}</p>
+            <p>{car.countPerson}</p>
           </div>
           <div>
             <TypeAutoIcon />
-            <p>{typeChange}</p>
+            <p>{car.typeChange}</p>
           </div>
           <div>
             <KilometerLimitIcon />
-            <p>
-              {minTankQuantity} a {maxTankQuantity} L
-            </p>
+            <p>{car.maxTankQuantity} L</p>
           </div>
           <div>
             <GasIcon />
-            <p>{fullType}</p>
+            <p>{car.fullType}</p>
           </div>
         </ContainerCharacteristics>
 
         <ContainerBottom>
           <ContainerPrice>
-            <p>
-              $ {price}
-              <br></br> / día
-            </p>
+            <p>$ {car.price}/ día</p>
           </ContainerPrice>
-          <ButtonPrincipalContainer
+          <Link
+            href={`/reservas/${car._id}`}
             style={{
               width: "50%",
               height: "50px",
               marginTop: "20px",
               padding: "4px",
             }}
+            onClick={() => {
+              setNewBooking({
+                ...newBooking,
+                car: car._id,
+                pickupDate: "2022-01-01T12:00:00Z",
+                returnDate: "2022-01-02T12:00:00Z",
+              });
+            }}
           >
-            Reservar
-          </ButtonPrincipalContainer>
+            <ButtonPrincipalContainer>Reservar</ButtonPrincipalContainer>
+          </Link>
         </ContainerBottom>
       </ContainerContent>
     </ContainerCard>

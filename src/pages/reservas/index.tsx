@@ -1,5 +1,6 @@
 import FilterPanel from "@/components/FilterPanel";
 import SectionSearchResult from "@/containers/booking/search-result";
+import { useBookingContext } from "@/context/BookingContext";
 import { ALL_CAR } from "@/gql/cars/query";
 import { MainLayout } from "@/layouts/MainLayout";
 import { ContainerPageBooking } from "@/styles/pages/booking,style";

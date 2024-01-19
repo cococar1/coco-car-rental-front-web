@@ -1,3 +1,4 @@
+import { BookingProvider } from "@/context/BookingContext";
 import { ReactNode } from "react";
 
 interface ProvidersProps {
@@ -5,7 +6,7 @@ interface ProvidersProps {
 }
 
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
-  return <div>{children}</div>;
+  return <BookingProvider>{children}</BookingProvider>;
 };
 
 export default Providers;

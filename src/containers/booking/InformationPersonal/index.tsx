@@ -6,33 +6,62 @@ import EditableField from "../../../components/EditableField/index";
 import SelectInputUI from "@/ui/SelectInputUI";
 import PhoneInput from "react-phone-input-2";
 import Accordion from "@/components/Accordion";
+import { useBookingContext } from "@/context/BookingContext";
+import { useEffect } from "react";
 
 interface InformationPersonalProps {}
 
 const InformationPersonal: React.FC<InformationPersonalProps> = () => {
+  const { newBooking, setNewBooking } = useBookingContext();
+  useEffect(() => {
+    console.log(newBooking);
+  }, [newBooking, setNewBooking]);
+
   return (
     <SectionInformationPersonal>
       <h2>Información personal</h2>
       <ContainerInformation>
         <EditableField
           label="Nombre Completo"
-          value="Jose Montenegro"
+          value={newBooking.client?.fullName ?? ""}
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
-            <input type="text" value={"editedValue"} onChange={() => {}} />
+            <input
+              type="text"
+              value={newBooking.client?.fullName ?? ""}
+              onChange={(e) => {
+                setNewBooking({
+                  ...newBooking,
+                  client: {
+                    ...newBooking.client,
+                    fullName: e.target.value,
+                  },
+                });
+              }}
+            />
           }
         ></EditableField>
         <EditableField
-          label="Address"
-          value="Jose Montenegro"
+          label="Genero"
+          value={newBooking.client?.gender ?? ""}
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
             <SelectInputUI
               arrayOptions={[
-                { id: "MASCULINO", value: "Masculino" },
-                { id: "FEMENINO", value: "Femenino" },
-                { id: "OTRO", value: "otro" },
+                { id: "MALE", value: "Masculino" },
+                { id: "FEMALE", value: "Femenino" },
+                { id: "OTHER", value: "otro" },
               ]}
+              value={newBooking.client?.gender ?? ""}
+              onChange={({ target }: React.ChangeEvent<HTMLSelectElement>) => {
+                setNewBooking({
+                  ...newBooking,
+                  client: {
+                    ...newBooking.client,
+                    gender: target.value,
+                  },
+                });
+              }}
               placeholder="Select"
               width="100%"
               backgroundColor="#fff"
@@ -42,21 +71,41 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
         ></EditableField>{" "}
         <EditableField
           label="Email"
-          value="Jose Montenegro"
+          value={newBooking.client?.email ?? ""}
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
-            <input type="email" value={"editedValue"} onChange={() => {}} />
+            <input
+              type="email"
+              value={newBooking.client?.email ?? ""}
+              onChange={(e) => {
+                setNewBooking({
+                  ...newBooking,
+                  client: {
+                    ...newBooking.client,
+                    email: e.target.value,
+                  },
+                });
+              }}
+            />
           }
         ></EditableField>
         <EditableField
-          label="Phone number"
-          value="Jose Montenegro"
+          label="Numero de Contacto"
+          value={newBooking.client?.phoneNumber ?? ""}
+
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
             <PhoneInput
               country={"us"}
+              value={newBooking.client?.phoneNumber ?? ""}
               onChange={(phone) => {
-                console.log(phone);
+                setNewBooking({
+                  ...newBooking,
+                  client: {
+                    ...newBooking.client,
+                    phoneNumber: phone,
+                  },
+                });
               }}
             />
           }
@@ -66,7 +115,19 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           label="Address"
           value="Jose Montenegro"
           Input={
-            <input type="text" value={"editedValue"} onChange={() => {}} />
+            <input
+              type="text"
+              value={newBooking.client?.address ?? ""}
+              onChange={(e) => {
+                setNewBooking({
+                  ...newBooking,
+                  client: {
+                    ...newBooking.client,
+                    address: e.target.value,
+                  },
+                });
+              }}
+            />
           }
         ></EditableField>{" "}
       </ContainerInformation>

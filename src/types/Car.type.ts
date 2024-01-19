@@ -9,7 +9,7 @@ export interface Car {
   fullType: string;
   subTitle: string;
   description: string;
-  price: number;
+  price: any;
   createdAt: number;
   updatedAt: number;
   availability: boolean;
@@ -17,4 +17,6 @@ export interface Car {
   brand: string;
   model: string;
   pickupTime: string;
+  features: string[];
+  licensePlate: string;
 }

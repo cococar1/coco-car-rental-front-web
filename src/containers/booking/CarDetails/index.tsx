@@ -16,31 +16,23 @@ import UserIcon from "@/assets/svgs/UserIcon";
 import TypeAutoIcon from "@/assets/svgs/TypeAuto";
 import KilometerLimitIcon from "@/assets/svgs/KilometerLimit";
 import GasIcon from "@/assets/svgs/GasAuto";
+import { Car } from "@/types/Car.type";
 
-interface CarDetailsProps {}
+interface CarDetailsProps {
+  car: Car;
+}
 
-const CarDetails: React.FC<CarDetailsProps> = () => {
+const CarDetails: React.FC<CarDetailsProps> = ({ car }) => {
   return (
     <ContainerCarDetail>
       <SectionImage>
         <ContainerImage>
-          <Image
-            src={
-              "https://coco-car-rental.s3.us-east-2.amazonaws.com/cars/1704417572856-vdrive-blanco-1.jpg"
-            }
-            fill
-            alt=""
-          />
+          <Image src={car.image} fill alt="" />
         </ContainerImage>
         <ContainerFeatures>
           <h2>Caracteristicas</h2>
           <ContainerFeaturesElements>
-            {[
-              "Aire acondicionado",
-              "Kilometraje ilimitado",
-              "Exención de responsabilidad por colisión con deducible de $2.300",
-              "Protección contra robo con franquicia de $2.300",
-            ].map((e, index) => (
+            {car.features?.map((e, index) => (
               <Feature text={e} key={index} />
             ))}
           </ContainerFeaturesElements>
@@ -48,25 +40,25 @@ const CarDetails: React.FC<CarDetailsProps> = () => {
       </SectionImage>
 
       <SectionDetail>
-        <h1>Toyota Etios</h1>
+        <h1>{car.name}</h1>
         <div>
           <h3>Detalles del vehiculo</h3>
           <DetailCar>
             <div>
               <UserIcon />
-              <p>5</p>
+              <p>{car.countPerson}</p>
             </div>
             <div>
               <TypeAutoIcon />
-              <p>Manual</p>
+              <p>{car.typeChange}</p>
             </div>
             <div>
               <KilometerLimitIcon />
-              <p>270 a 562 L</p>
+              <p>{car.maxTankQuantity}</p>
             </div>
             <div>
               <GasIcon />
-              <p>Nafta</p>
+              <p>{car.fullType}</p>
             </div>
           </DetailCar>
         </div>
@@ -90,10 +82,7 @@ const CarDetails: React.FC<CarDetailsProps> = () => {
             <span style={{ fontWeight: "bold" }}>$152,96</span>
           </ContainerPrice>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-            corrupti accusantium molestias minima! Quasi blanditiis rem quae
-            eius necessitatibus id omnis? Quod consequuntur vero esse similique
-            voluptatibus illum error alias?
+            {car.description}
           </p>
         </DetailPrice>
       </SectionDetail>

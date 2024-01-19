@@ -4,8 +4,8 @@ import { ToastContainer } from "react-toastify";
 import { ApolloProvider } from "@apollo/client";
 import { Nunito_Sans } from "@next/font/google";
 import { useApollo } from "../services/client";
-import 'react-phone-input-2/lib/style.css'
-
+import "react-phone-input-2/lib/style.css";
+import Providers from "@/providers";
 
 const NunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -19,20 +19,22 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      <style jsx global>
-        {`
-          html {
-            font-family: ${NunitoSans.style.fontFamily};
-          }
-          * {
-          font-family: ${NunitoSans.style.fontFamily};
+      <Providers>
+        <style jsx global>
+          {`
+            html {
+              font-family: ${NunitoSans.style.fontFamily};
+            }
+            * {
+              font-family: ${NunitoSans.style.fontFamily};
 
-            margin: 0;
-          }
-        `}
-      </style>
-      <Component {...pageProps} />
-      <ToastContainer theme="colored" />
+              margin: 0;
+            }
+          `}
+        </style>
+        <Component {...pageProps} />
+        <ToastContainer theme="colored" />
+      </Providers>
     </ApolloProvider>
   );
 }

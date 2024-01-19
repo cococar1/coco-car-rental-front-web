@@ -71,9 +71,9 @@ export const NavbarContainer = styled.header<{
     }
     ul:nth-child(3) {
       /* background-color: red !important; */
-      gap:0px;
+      gap: 0px;
       padding: 0;
-      justify-content:center;
+      justify-content: center;
     }
   }
 `;
@@ -95,4 +95,12 @@ export const NavItem = styled.li<{ isActive?: boolean }>`
         color: #e96f45 !important;
       }
     `}
+`;
+
+export const ContainerLogo = styled.div`
+  img {
+    position: relative !important;
+  }
+  width: 100px !important;
+  /* background-color: red; */
 `;

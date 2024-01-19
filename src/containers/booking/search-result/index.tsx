@@ -5,30 +5,20 @@ import {
   TitleResult,
 } from "./searchResult.style";
 import { Car } from "@/types/Car.type";
+import { useBookingContext } from "@/context/BookingContext";
 
 interface SectionSearchResultProps {
   data: Car[];
 }
 
 const SectionSearchResult: React.FC<SectionSearchResultProps> = ({ data }) => {
+
   return (
     <ContainerSearchResult>
       <TitleResult>Resultados de tu búsqueda</TitleResult>
       <ContainerCards>
         {data?.map((car, index) => (
-          <CardAutoPrincipal
-            countUser={car.countPerson}
-            description={car.description}
-            fullType={car.fullType}
-            maxTankQuantity={car.maxTankQuantity}
-            minTankQuantity={car.minTankQuantity}
-            name={car.name}
-            price={car.price}
-            title={car.subTitle}
-            urlImage={car.image}
-            typeChange={car.typeChange}
-            key={index}
-          />
+          <CardAutoPrincipal car={car} key={index} />
         ))}
       </ContainerCards>
     </ContainerSearchResult>

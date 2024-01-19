@@ -28,10 +28,12 @@ export const ContainerContent = styled.div`
 export const ContainerImagePrincipal = styled.div`
   img {
     position: relative !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     width: 100%;
     height: auto;
   }
+  /* background-color: red; */
+  height: 300px;
 `;
 
 export const ContainerCharacteristics = styled.div`

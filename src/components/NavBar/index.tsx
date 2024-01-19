@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { useRouter } from "next/router";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
-import { NavItem, NavbarContainer } from "./navBar.style";
+import { ContainerLogo, NavItem, NavbarContainer } from "./navBar.style";
 import { ButtonPrincipalContainer } from "@/ui/ButtonPrincipalUi/buttonPrincipal.style";
 
 interface NavBarProps {
@@ -24,15 +25,21 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
         <div>
           <picture>
             <div>
-              <Link href="/">
-                {/* <Image
-              src="/img/logo.png"
-              width={160}
-              height={100}
-              alt="Logo "
-              priority
-            /> */}
-                Logo
+              <Link
+                href="/"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <ContainerLogo>
+                  <Image
+                    src={"/images/logo.png"}
+                    fill
+                    alt="coco rental"
+                  ></Image>
+                </ContainerLogo>
               </Link>
             </div>
           </picture>
@@ -46,11 +53,11 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
             <Link href="/nosotros"> Sobre nosotros</Link>
           </NavItem>
 
-          <NavItem  isActive={mainRoute === "adicionales"}>
+          <NavItem isActive={mainRoute === "adicionales"}>
             <Link href="/adicionales"> Adicionales</Link>
           </NavItem>
 
-          <NavItem  isActive={mainRoute === "reservas"}>
+          <NavItem isActive={mainRoute === "reservas"}>
             <Link href="/reservas">Reservas</Link>
           </NavItem>
 
