@@ -181,7 +181,7 @@ const MainForm: React.FC<MainFormProps> = () => {
                   `/reservas?pickupDate=${filter.pickupDate}&returnDate=${filter.returnDate}`
                 );
               }
-              if (filter.pickupDate != "T" && filter.pickupDate == "T") {
+              if (filter.pickupDate != "T" && filter.returnDate == "T") {
                 route.push(`/reservas?pickupDate=${filter.pickupDate}`);
               }
               route.push(`/reservas`);
