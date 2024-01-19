@@ -92,7 +92,6 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
         <EditableField
           label="Numero de Contacto"
           value={newBooking.client?.phoneNumber ?? ""}
-
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
             <PhoneInput
@@ -113,7 +112,7 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
         ></EditableField>
         <EditableField
           label="Address"
-          value="Jose Montenegro"
+          value={newBooking.client?.address ?? ""}
           Input={
             <input
               type="text"

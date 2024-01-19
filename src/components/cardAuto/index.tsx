@@ -69,7 +69,11 @@ const CardAuto: React.FC<CardAutoProps> = () => {
         <p>Desde</p>
         <p>ARS 13.400,00 / día</p>
       </ContainerPrice>
-      <ButtonPrincipalContainer style={{width: "100%" ,marginTop:"20px"}}>Reservar</ButtonPrincipalContainer>
+      <div>
+        <ButtonPrincipalContainer style={{ width: "100%", marginTop: "20px" }}>
+          Reservar
+        </ButtonPrincipalContainer>
+      </div>
     </ContainerCard>
   );
 };

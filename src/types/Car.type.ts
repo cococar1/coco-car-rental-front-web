@@ -20,3 +20,14 @@ export interface Car {
   features: string[];
   licensePlate: string;
 }
+
+export interface CarHookType {
+  setFilter: any;
+  filter: any;
+  getCars: (options: any) => void;
+  carsOptions: {
+    data: Car[] | any;
+    loading: boolean;
+    error: any;
+  };
+}

@@ -17,7 +17,7 @@ const SelectInputUI: React.FC<SelectInputUiProps> = ({
   placeholder,
   stylesContainer,
   onChange,
-  value
+  value,
 }) => {
   return (
     <ContainerSelectInput
@@ -30,6 +30,7 @@ const SelectInputUI: React.FC<SelectInputUiProps> = ({
         aria-label={placeholder}
         value={value}
         onChange={onChange as any}
+        style={{ background: "transparent",color:"#fff" }}
       >
         <option value="" disabled selected>
           {placeholder}
@@ -37,7 +38,7 @@ const SelectInputUI: React.FC<SelectInputUiProps> = ({
         {arrayOptions.map((e, index) => {
           console.log(e);
           return (
-            <option key={index} value={e.id}>
+            <option key={index} value={e.id} style={{color:"#000"}}>
               {e.value}
             </option>
           );

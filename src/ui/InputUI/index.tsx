@@ -11,10 +11,12 @@ interface InpuntUIProps {
   backgroundColor: string;
   SvgIcon: any;
   placeholder: string;
-  stylesInput?: React.CSSProperties;
+  stylesInput?: any;
   stylesContainer?: React.CSSProperties;
   positionIcon?: PositionIcon | null | string;
   placeholderColor?: string;
+  value: any;
+  onChange?: any;
 }
 
 const InpuntUI: React.FC<InpuntUIProps> = ({
@@ -25,12 +27,15 @@ const InpuntUI: React.FC<InpuntUIProps> = ({
   stylesContainer,
   positionIcon,
   placeholderColor,
+  onChange,
+  backgroundColor,
+  value,
 }: InpuntUIProps) => {
   const ref = useRef<HTMLInputElement | null>(null); // Especifica el tipo HTMLInputElement
-  const [value, setValue] = useState("");
+  console.log(onChange);
   return (
     <InputContainer
-      backgroundColor="#ffffff"
+      backgroundColor={backgroundColor ?? "#ffffff"}
       width={"200px"}
       style={stylesContainer ? stylesContainer : {}}
       placeholderColor={placeholderColor}
@@ -44,9 +49,9 @@ const InpuntUI: React.FC<InpuntUIProps> = ({
             ref.current.type = type;
           }
         }}
-        style={stylesInput ? stylesInput : {}}
+        style={stylesInput ?? {}}
         placeholder={placeholder}
-        onChange={({ target }) => setValue(target?.value)}
+        onChange={onChange ?? (() => {})}
         onBlur={() => {
           if (ref.current) {
             ref.current.type = value ? type : "text";

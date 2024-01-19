@@ -57,7 +57,7 @@ const CardAutoPrincipal: React.FC<CardAutoPrincipalProps> = ({ car }) => {
             <p>$ {car.price}/ día</p>
           </ContainerPrice>
           <Link
-            href={`/reservas/${car._id}`}
+            href={`/reservas/${car._id}?pickupDate=${newBooking.pickupDate}&returnDate=${newBooking.returnDate}`}
             style={{
               width: "50%",
               height: "50px",
