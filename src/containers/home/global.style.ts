@@ -1,17 +1,16 @@
-import { colors, font } from "@/styles/theme";
-import styled from "styled-components";
+import { colors, font } from '@/styles/theme'
+import styled from 'styled-components'
 
 export const SecctionNewAutos = styled.section`
-  padding: 50px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   background: #fafafa;
-  /* justify-content: center; */
+
   text-align: center;
   h2 {
-    font-size: 30px;
+    font-size: 20px;
     color: ${colors.titleBlack};
-
     font-weight: ${font.fontWeightTitle};
   }
   p {
@@ -20,4 +19,11 @@ export const SecctionNewAutos = styled.section`
     font-size: 14px;
     color: ${colors.secondaryBlack};
   }
-`;
+
+  @media (width >= 1024px) {
+    padding: 50px;
+    h2 {
+      font-size: 30px;
+    }
+  }
+`

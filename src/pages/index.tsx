@@ -14,22 +14,22 @@ export default function Home () {
   return (
     <MainLayout>
       <MainForm />
-      {/* <ContainerContentHome>
+      <ContainerContentHome>
         <ContainerContentServiceHome>
           <div>
             <h2>La mejor manera de encontrar el vehículo perfecto</h2>
             <p>Las mejores opciones para que reserves y aproveches</p>
           </div>
-          <HomeServices></HomeServices>
+          <HomeServices />
         </ContainerContentServiceHome>
       </ContainerContentHome>
       <SecctionNewAutos>
         <h2>Conoce nuestra flota</h2>
         <p>Las mejores opciones para que reserves y aproveches</p>
-        <ContainerNewAutosHome></ContainerNewAutosHome>
+        <ContainerNewAutosHome />
       </SecctionNewAutos>
       <SectionDetails></SectionDetails>
-      <SectionContact></SectionContact> */}
+      <SectionContact></SectionContact>
     </MainLayout>
   )
 }

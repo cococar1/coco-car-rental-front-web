@@ -1,11 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ContainerService = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
   justify-content: space-between;
-  height: 280px;
-  /* background-color: black; */
   top: 0;
-  /* width: 90%; */
-`;
+  @media (width >= 375px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (width >= 1024px) {
+    display: flex;
+  }
+`

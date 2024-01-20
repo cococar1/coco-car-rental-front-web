@@ -2,8 +2,12 @@ import styled from 'styled-components'
 import { colors, font } from '../../styles/theme'
 export const ContainerMainFrom = styled.div`
   position: relative;
-  height: 400px;
+  height: 480px;
   margin-top: -80px;
+
+  @media (width>= 1024px) {
+    height: 790px;
+  }
 `
 
 export const ContainerMainFromImage = styled.div`
@@ -44,7 +48,10 @@ export const ContainerBackground = styled.div`
 `
 
 export const ContainerContentHome = styled.div`
-  padding: 70px 250px;
+  padding: 20px 30px;
+  @media (width>= 1024px) {
+    padding: 70px 250px;
+  }
 `
 
 export const ContainerContentServiceHome = styled.div`
@@ -61,17 +68,23 @@ export const ContainerContentServiceHome = styled.div`
 
     /* padding-bottom: 50px; */
     h2 {
-      font-size: 30px;
+      font-size: 20px;
       color: ${colors.titleBlack};
-
       font-weight: ${font.fontWeightTitle};
+      @media (width>= 1024px) {
+        font-size: 30px;
+      }
     }
 
     p {
       margin-top: 20px;
-      font-size: 14px;
+      font-size: 12px;
       color: ${colors.secondaryBlack};
       margin-bottom: 50px;
+
+      @media (width >= 1024px) {
+        font-size: 14px;
+      }
     }
   }
 `
@@ -79,7 +92,7 @@ export const ContainerContentServiceHome = styled.div`
 export const ContainerFormHome = styled.div`
   position: absolute;
   z-index: 100;
-  top: 20%;
+  top: 15%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -97,8 +110,9 @@ export const ContainerFormHome = styled.div`
 
   @media (width >= 1024px) {
     width: 464px;
-    transform: translate(50%, 50%);
+    transform: translate(50%, 30%);
     height: 80%;
+    top: 0;
   }
 `
 
@@ -117,14 +131,10 @@ export const ContainerTextFormHome = styled.div`
   }
   p {
     display: inline-block;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 10px;
     color: #ffffff;
     font-weight: 200;
-
-    @media (width >= 1024px) {
-      font-size: 17px;
-    }
   }
 
   @media (width >= 1024px) {

@@ -1,21 +1,22 @@
-import { colors } from "@/styles/theme";
-import styled from "styled-components";
+import { colors } from '@/styles/theme'
+import styled from 'styled-components'
 
 export const ContainerService = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 270px;
+  width: 100%;
   height: 260px;
   max-height: 400px;
-  padding: 25px 50px;
+
   /* padding-top: 40px; */
   /* padding-bottom: 0; */
   background: #fafafa;
   border-radius: 20px;
   text-align: center;
   text-align: center;
-  font-family: 'Nunito Sans', sans-serif;  font-style: normal;
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: normal;
   font-weight: 400;
   line-height: normal;
   /* padding-bottom: 0; */
@@ -27,13 +28,29 @@ export const ContainerService = styled.div`
 
   h3 {
     color: ${colors.textBlack};
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     padding: 0px 20px;
     padding-top: 0px;
   }
   p {
     font-size: 12px;
-    color: ${colors.secondaryBlack}
+    color: ${colors.secondaryBlack};
   }
-`;
+  @media (width >= 375px) {
+    h3 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+  @media (width >= 1024px) {
+    width: 270px;
+    padding: 25px 50px;
+
+    h3 {
+      font-size: 16px;
+    }
+  }
+`
