@@ -3,7 +3,9 @@ import { colors } from '@/styles/theme'
 
 export const NavbarContainer = styled.header<{
   scrollPosition: boolean
+  $isActive: boolean
 }>`
+  background-color: #fff;
   transition: 0.5s;
   background: transparent;
   ${({ scrollPosition }) =>
@@ -23,20 +25,31 @@ export const NavbarContainer = styled.header<{
     '0px 2px 8px -4px rgba(31,27,45,0.12), 0px 4px 16px rgba(31,27,45,0.5)'};
 
   position: sticky;
+  width: 100%;
   z-index: 10000;
   top: 0;
   /* height: 60px; */
   .mobile {
     display: block;
     width: 100%;
-    background-color: #fff;
+    height: 80px;
+    transition: all 1s ease-out 0s;
+    background-color: transparent;
+    ${({ $isActive }) =>
+      $isActive &&
+      css`
+        transition: all 1s ease-out 0s;
+        background-color: #fff;
+      `}
     @media (width >= 1024px) {
       display: none;
+      background-color: #fff;
     }
   }
 
   .desktop {
     display: none;
+    height: 80px;
     @media (width >= 1024px) {
       display: flex;
     }

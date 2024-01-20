@@ -13,8 +13,8 @@ import SectionContact from '@/containers/home/contact'
 export default function Home () {
   return (
     <MainLayout>
-      <MainForm /> 
-       <ContainerContentHome>
+      <MainForm />
+      {/* <ContainerContentHome>
         <ContainerContentServiceHome>
           <div>
             <h2>La mejor manera de encontrar el vehículo perfecto</h2>
@@ -29,7 +29,7 @@ export default function Home () {
         <ContainerNewAutosHome></ContainerNewAutosHome>
       </SecctionNewAutos>
       <SectionDetails></SectionDetails>
-      <SectionContact></SectionContact>
+      <SectionContact></SectionContact> */}
     </MainLayout>
   )
 }

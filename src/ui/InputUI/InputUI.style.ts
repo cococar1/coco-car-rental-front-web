@@ -1,16 +1,19 @@
-import { colors } from "@/styles/theme";
-import styled from "styled-components";
+import { colors } from '@/styles/theme'
+import styled from 'styled-components'
 
 export const InputContainer = styled.div<{
-  backgroundColor: string;
-  width: string;
-  placeholderColor?: string;
+  backgroundColor: string
+  width: string
+  placeholderColor?: string
 }>`
-  background: ${(props) => props.backgroundColor};
+  background: ${props => props.backgroundColor};
   display: flex;
   position: relative;
   padding: 10px;
-  width: ${(props) => props.width};
+  max-width: ${props => props.width};
+  width: 100%;
+  min-width: 80px;
+
   input::-webkit-calendar-picker-indicator {
     /* display: none; */
     position: absolute;
@@ -20,7 +23,7 @@ export const InputContainer = styled.div<{
     /* margin-right: 0px; */
     background-color: transparent;
     color: transparent;
-    background-image: url("/svg/EmpyInput.svg");
+    background-image: url('/svg/EmpyInput.svg');
     background-size: 20px;
     padding-right: 10px;
     padding-bottom: 10px;
@@ -41,6 +44,11 @@ export const InputContainer = styled.div<{
     /* padding: 20px 20px;  */
     outline: none;
     border: 0;
+    font-size: 10px;
+
+    @media (width>=1024px) {
+      font-size: 16px;
+    }
   }
 
   input::placeholder {
@@ -57,5 +65,5 @@ export const InputContainer = styled.div<{
     /* background-color: red; */
     padding: 0;
   }
-`;
-export const InputWrapper = styled.div``;
+`
+export const InputWrapper = styled.div``
