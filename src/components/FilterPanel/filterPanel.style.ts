@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerFilterPanel = styled.section`
   padding: 25px;
-  width: 300px;
+  width: 330px;
   height: 100%;
   background-color: #ffffff;
   h2 {

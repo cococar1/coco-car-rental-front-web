@@ -34,7 +34,6 @@ const CarIdPage: React.FC = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       route.push(data);
     }
   }, [createBooking, data]);
@@ -46,7 +45,6 @@ const CarIdPage: React.FC = () => {
         },
       });
     };
-    console.log(getCarRes.data?.car);
     getData();
   }, [getCar, getCarRes.data, id]);
 

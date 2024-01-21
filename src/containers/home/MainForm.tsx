@@ -21,6 +21,7 @@ import {
   getTimeFromFinalDate,
 } from "@/helpers/dateTime.helper";
 import Link from "next/link";
+import { CarFilter } from "@/types/Car.type";
 interface MainFormProps {}
 const optionsArray = [
   {
@@ -34,14 +35,11 @@ const optionsArray = [
 ];
 const MainForm: React.FC<MainFormProps> = () => {
   const route = useRouter();
-  const [filter, setFilter] = useState<any>({
+  const [filter, setFilter] = useState<CarFilter>({
     pickupDate: "T",
     returnDate: "T",
   });
-  useEffect(() => {
-    console.log("filter");
-    console.log(filter);
-  }, [filter, setFilter]);
+
   return (
     <ContainerMainFrom>
       <ContainerMainFromImage></ContainerMainFromImage>
@@ -155,8 +153,7 @@ const MainForm: React.FC<MainFormProps> = () => {
           </FormHomeContainerColumn>
           <FormHomeContainerSelect>
             <SelectInputUI
-            value={""}
-
+              value={""}
               backgroundColor="rgba(255, 255, 255, 0.25)"
               stylesContainer={{
                 border: "1px solid rgba(213, 221, 234, 0.47)",
@@ -177,14 +174,14 @@ const MainForm: React.FC<MainFormProps> = () => {
           > */}
           <ButtonPrincipalUI
             onClick={() => {
-              console.log(filter)
-              if (filter.pickupDate != "T" || filter.returnDate != "T") {
-                route.push(
+              if (filter.pickupDate != "T" && filter.returnDate != "T") {
+                return route.push(
                   `/reservas?pickupDate=${filter.pickupDate}&returnDate=${filter.returnDate}`
                 );
               }
               if (filter.pickupDate != "T" && filter.returnDate == "T") {
-                route.push(`/reservas?pickupDate=${filter.pickupDate}`);
+
+                return route.push(`/reservas?pickupDate=${filter.pickupDate}`);
               }
               route.push(`/reservas`);
             }}

@@ -1,42 +1,46 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from "next/link";
+import { useState } from "react";
 
-import { useRouter } from 'next/router'
-import { useScrollPosition } from '@/hooks/useScrollPosition'
+import { useRouter } from "next/router";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 import {
   BodyMenu,
   CallActionButtons,
   HeaderMenu,
   NavItem,
   NavMobile,
-  NavbarContainer
-} from './navBar.style'
-import { ButtonPrincipalContainer } from '@/ui/ButtonPrincipalUi/buttonPrincipal.style'
-import { BarsMenu } from '@/ui/BarsMenu'
-import { StackMenu } from '@/ui/StackMenu'
-import { ButtonSecondaryContainer } from '@/ui/ButtonSecondary/buttonSecondary'
+  NavbarContainer,
+} from "./navBar.style";
+import { ButtonPrincipalContainer } from "@/ui/ButtonPrincipalUi/buttonPrincipal.style";
+import { BarsMenu } from "@/ui/BarsMenu";
+import { StackMenu } from "@/ui/StackMenu";
+import { ButtonSecondaryContainer } from "@/ui/ButtonSecondary/buttonSecondary";
+import { useCarContext } from "@/context/CarContext";
+import { useBookingContext } from "@/context/BookingContext";
 
 interface NavBarProps {
-  user: string
-  role: string
-  changeColor?: boolean
+  user: string;
+  role: string;
+  changeColor?: boolean;
 }
 export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
-  const router = useRouter()
-  const [menuMobile, setmenuMobile] = useState(false)
+  const router = useRouter();
+  const { setFilter } = useCarContext();
+  const { setNewBooking } = useBookingContext();
+  const [menuMobile, setmenuMobile] = useState(false);
 
-  const mainRoute = router.pathname.split('/')[1]
-  const scrollPosition = useScrollPosition() > 10
+  const mainRoute = router.pathname.split("/")[1];
+  const scrollPosition = useScrollPosition() > 10;
 
   return (
     <NavbarContainer
       scrollPosition={changeColor ? changeColor : scrollPosition}
     >
-      <nav className='desktop'>
+      <nav className="desktop">
         <div>
           <picture>
             <div>
-              <Link href='/'>
+              <Link href="/">
                 {/* <Image
               src="/img/logo.png"
               width={160}
@@ -50,28 +54,34 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
           </picture>
         </div>
         <ul>
-          <NavItem isActive={mainRoute === ''}>
-            <Link href='/'> Inicio</Link>
+          <NavItem isActive={mainRoute === ""}>
+            <Link href="/"> Inicio</Link>
           </NavItem>
 
-          <NavItem isActive={mainRoute === 'nosotros'}>
-            <Link href='/nosotros'> Sobre nosotros</Link>
+          <NavItem isActive={mainRoute === "nosotros"}>
+            <Link href="/nosotros"> Sobre nosotros</Link>
           </NavItem>
 
-          <NavItem isActive={mainRoute === 'adicionales'}>
-            <Link href='/adicionales'> Adicionales</Link>
+          <NavItem isActive={mainRoute === "adicionales"}>
+            <Link href="/adicionales"> Adicionales</Link>
           </NavItem>
 
-          <NavItem isActive={mainRoute === 'reservas'}>
-            <Link href='/reservas'>Reservas</Link>
+          <NavItem
+            isActive={mainRoute === "reservas"}
+            onClick={() => {
+              setFilter({});
+              setNewBooking({});
+            }}
+          >
+            <Link href="/reservas">Reservas</Link>
           </NavItem>
 
-          <NavItem isActive={mainRoute === 'preguntas-frecuentes'}>
-            <Link href='/preguntas-frecuentes'> FAQ</Link>
+          <NavItem isActive={mainRoute === "preguntas-frecuentes"}>
+            <Link href="/preguntas-frecuentes"> FAQ</Link>
           </NavItem>
 
-          <NavItem isActive={mainRoute == 'contacto'}>
-            <Link href='/contacto'> Contacto</Link>
+          <NavItem isActive={mainRoute == "contacto"}>
+            <Link href="/contacto"> Contacto</Link>
           </NavItem>
         </ul>
         <ul>
@@ -82,8 +92,8 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
             <ButtonPrincipalContainer
               style={
                 scrollPosition
-                  ? { color: '#e96f45', background: 'transparent' }
-                  : { background: 'transparent' }
+                  ? { color: "#e96f45", background: "transparent" }
+                  : { background: "transparent" }
               }
             >
               Registrate
@@ -92,11 +102,11 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
         </ul>
       </nav>
 
-      <nav className='mobile'>
+      <nav className="mobile">
         <HeaderMenu>
           <picture>
             <div>
-              <Link href='/'>
+              <Link href="/">
                 {/* <Image
               src="/img/logo.png"
               width={160}
@@ -112,12 +122,12 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
         </HeaderMenu>
         <BodyMenu $isActive={menuMobile}>
           <NavMobile>
-            <StackMenu href='/' nameSection='Inicio' />
-            <StackMenu href='/nosotros' nameSection='Nosotros' />
-            <StackMenu href='/adicionales' nameSection='Adicionales' />
-            <StackMenu href='/reservas' nameSection='Reservas' />
-            <StackMenu href='/preguntas-frecuentes' nameSection='FAQ' />
-            <StackMenu href='/contacto' nameSection='Contacto' />
+            <StackMenu href="/" nameSection="Inicio" />
+            <StackMenu href="/nosotros" nameSection="Nosotros" />
+            <StackMenu href="/adicionales" nameSection="Adicionales" />
+            <StackMenu href="/reservas" nameSection="Reservas" />
+            <StackMenu href="/preguntas-frecuentes" nameSection="FAQ" />
+            <StackMenu href="/contacto" nameSection="Contacto" />
           </NavMobile>
           <CallActionButtons>
             <ButtonPrincipalContainer>Iniciar Sessión</ButtonPrincipalContainer>
@@ -127,5 +137,5 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
         </BodyMenu>
       </nav>
     </NavbarContainer>
-  )
-}
+  );
+};

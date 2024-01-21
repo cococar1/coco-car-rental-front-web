@@ -23,11 +23,16 @@ export interface Car {
 
 export interface CarHookType {
   setFilter: any;
-  filter: any;
+  filter: CarFilter;
   getCars: (options: any) => void;
   carsOptions: {
     data: Car[] | any;
     loading: boolean;
     error: any;
   };
+}
+
+export interface CarFilter {
+  pickupDate: Date | string;
+  returnDate: Date | string;
 }

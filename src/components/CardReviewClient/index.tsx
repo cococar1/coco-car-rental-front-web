@@ -21,7 +21,7 @@ const CardReviewClient: React.FC<CardReviewClientProps> = ({
   commemt,
 }) => {
   if (commemt.length > 120) {
-    console.log(commemt.length);
+ 
     commemt = commemt.slice(0, 120) + "...";
   }
   return (

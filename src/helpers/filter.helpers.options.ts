@@ -21,3 +21,21 @@ export const fuelTypes = [
   "Hidrógeno",
   "Hibrido",
 ];
+
+export function buildQueryString(objeto: any) {
+  const part = [];
+
+  for (const clave in objeto) {
+    if (
+      objeto.hasOwnProperty(clave) &&
+      objeto[clave] !== null &&
+      objeto[clave] !== undefined
+    ) {
+      part.push(
+        `${encodeURIComponent(clave)}=${encodeURIComponent(objeto[clave])}`
+      );
+    }
+  }
+
+  return part.join("&");
+}

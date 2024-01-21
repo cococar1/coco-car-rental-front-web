@@ -32,7 +32,6 @@ const InpuntUI: React.FC<InpuntUIProps> = ({
   value,
 }: InpuntUIProps) => {
   const ref = useRef<HTMLInputElement | null>(null); // Especifica el tipo HTMLInputElement
-  console.log(onChange);
   return (
     <InputContainer
       backgroundColor={backgroundColor ?? "#ffffff"}

@@ -6,9 +6,7 @@ import { CreateBooking } from "@/types/Booking";
 
 export const useBooking = () => {
   const [newBooking, setNewBooking] = useState<CreateBooking>(
-    {
-      
-    } as CreateBooking
+    {} as CreateBooking
   );
 
   const [createBookingFn, createBookingRes] = useMutation(CREATE_BOOKING);

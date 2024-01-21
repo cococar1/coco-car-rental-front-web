@@ -14,11 +14,32 @@ import ClockIcon from "@/assets/svgs/clockIcon";
 import SelectInputUI from "@/ui/SelectInputUI";
 import { ButtonPrincipalUI } from "../../ui/ButtonPrincipalUi/index";
 import CheckBoxUI from "@/ui/CheckBoxUI";
-import { categoriesOptions, fuelTypes } from "@/helpers/filter.helpers.options";
+import {
+  buildQueryString,
+  categoriesOptions,
+  fuelTypes,
+} from "@/helpers/filter.helpers.options";
+import {
+  getDateFromFinalDate,
+  getTimeFromFinalDate,
+} from "@/helpers/dateTime.helper";
+import { ChangeEvent } from "react";
+import { useCarContext } from "@/context/CarContext";
+import { useRouter } from "next/router";
 
 interface FilterPanelProps {}
 
 const FilterPanel: React.FC<FilterPanelProps> = () => {
+  const { filter, setFilter } = useCarContext();
+
+  const router = useRouter();
+
+  const handleUpdateButton = () => {
+    const result = buildQueryString(filter);
+
+    router.push(`/reservas?${result}`);
+  };
+
   return (
     <ContainerFilterPanel>
       <h2>Filtros</h2>
@@ -28,14 +49,32 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             stylesContainer={{ width: "60%" }}
             type={"date"}
             placeholder="Fecha de retiro"
+            value={getDateFromFinalDate(filter.pickupDate) ?? ""}
             backgroundColor="#ffffff"
-            value={""}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              const newDate = e.target.value;
+              const existingTime = getTimeFromFinalDate(
+                filter.pickupDate ?? "T"
+              );
+              setFilter({
+                ...filter,
+                pickupDate: `${newDate}T${existingTime}`,
+              });
+            }}
             SvgIcon={<CalendarIcon width={25} height={25} />}
           ></InpuntUI>
           <InpuntUI
             stylesContainer={{ width: "40%" }}
+            value={getTimeFromFinalDate(filter.pickupDate) ?? ""}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              const newTime = e.target.value;
+              const existingDate = getDateFromFinalDate(filter.pickupDate);
+              setFilter({
+                ...filter,
+                pickupDate: `${existingDate}T${newTime}`,
+              });
+            }}
             //   stylesInput={{width:"30%"}}
-            value={""}
             type={"time"}
             placeholder="Hora"
             backgroundColor="#ffffff"
@@ -46,18 +85,34 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           <InpuntUI
             stylesContainer={{ width: "60%" }}
             type={"date"}
-            value={""}
             placeholder="Fecha de entrega"
             backgroundColor="#ffffff"
+            value={getDateFromFinalDate(filter.returnDate) ?? ""}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              const newDate = e.target.value;
+              const existingTime = getTimeFromFinalDate(filter.returnDate);
+              setFilter({
+                ...filter,
+                returnDate: `${newDate}T${existingTime}`,
+              });
+            }}
             SvgIcon={<CalendarIcon width={25} height={25} />}
           ></InpuntUI>
           <InpuntUI
             stylesContainer={{ width: "40%" }}
             //   stylesInput={{width:"30%"}}
-            value={""}
             type={"time"}
             placeholder="Hora"
             backgroundColor="#ffffff"
+            value={getTimeFromFinalDate(filter.returnDate) ?? ""}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              const newTime = e.target.value;
+              const existingDate = getDateFromFinalDate(filter.returnDate);
+              setFilter({
+                ...filter,
+                returnDate: `${existingDate}T${newTime}`,
+              });
+            }}
             SvgIcon={<ClockIcon width={25} height={25} />}
           ></InpuntUI>
         </div>
@@ -72,7 +127,10 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           ></SelectInputUI>
         </div>
         <div>
-          <ButtonPrincipalUI sx={{ width: "100%", fontSize: " 16px" }}>
+          <ButtonPrincipalUI
+            sx={{ width: "100%", fontSize: " 16px" }}
+            onClick={handleUpdateButton}
+          >
             Actualizar
           </ButtonPrincipalUI>
         </div>

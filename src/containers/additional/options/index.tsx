@@ -10,10 +10,8 @@ const SectionOptions: React.FC<SectionOptionsProps> = ({
   setOption,
   option,
 }) => {
-  useEffect(() => {
-    console.log(option);
-  }, [option]);
-  console.log(option);
+
+
   const changeOption = (e: any) => {
     if ((e.target.innerText as string).toLocaleLowerCase() == "adicionales") {
       setOption("ADDITIONAL");

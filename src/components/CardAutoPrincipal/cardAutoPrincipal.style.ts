@@ -21,6 +21,10 @@ export const ContainerImageTitle = styled.div`
 
 export const ContainerContent = styled.div`
   padding: 20px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   h2 {
     margin-bottom: 10px;
   }

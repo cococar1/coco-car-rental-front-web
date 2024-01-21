@@ -1,7 +1,7 @@
-export const getDateFromFinalDate = (date: string) => {
-  return date.split("T")[0];
+export const getDateFromFinalDate = (date: string | Date) => {
+  return date ? date.toString().split("T")[0] : "";
 };
 
-export const getTimeFromFinalDate = (date: string) => {
-  return date.split("T")[1];
+export const getTimeFromFinalDate = (date: string | Date) => {
+  return date ? date.toString().split("T")[1] : "";
 };

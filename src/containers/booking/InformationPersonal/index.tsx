@@ -13,9 +13,6 @@ interface InformationPersonalProps {}
 
 const InformationPersonal: React.FC<InformationPersonalProps> = () => {
   const { newBooking, setNewBooking } = useBookingContext();
-  useEffect(() => {
-    console.log(newBooking);
-  }, [newBooking, setNewBooking]);
 
   return (
     <SectionInformationPersonal>

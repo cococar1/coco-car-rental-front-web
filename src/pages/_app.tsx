@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { ApolloProvider } from "@apollo/client";
 import { Nunito_Sans } from "@next/font/google";
 import { useApollo } from "../services/client";
+import "react-toastify/dist/ReactToastify.css";
 import "react-phone-input-2/lib/style.css";
 import Providers from "@/providers";
 

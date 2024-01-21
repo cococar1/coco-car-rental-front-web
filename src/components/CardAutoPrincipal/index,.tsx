@@ -16,12 +16,30 @@ import Image from "next/image";
 import { Car } from "@/types/Car.type";
 import Link from "next/link";
 import { useBookingContext } from "@/context/BookingContext";
+import { useRouter } from "next/router";
+import { useCarContext } from "@/context/CarContext";
+import { toast } from "react-toastify";
+import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 
 interface CardAutoPrincipalProps {
   car: Car;
 }
 const CardAutoPrincipal: React.FC<CardAutoPrincipalProps> = ({ car }) => {
+  const { filter } = useCarContext();
   const { newBooking, setNewBooking } = useBookingContext();
+
+  const route = useRouter();
+
+  const handleClickBooking = (car: Car) => {
+    if (!newBooking.pickupDate || !newBooking.returnDate) {
+      return toast.error("Necesita seleccionar fecha de reserva", {
+        position: "bottom-right",
+      });
+    }
+    route.push(
+      `/reservas/${car._id}?pickupDate=${newBooking.pickupDate}&returnDate=${newBooking.returnDate}`
+    );
+  };
 
   return (
     <ContainerCard>
@@ -56,7 +74,7 @@ const CardAutoPrincipal: React.FC<CardAutoPrincipalProps> = ({ car }) => {
           <ContainerPrice>
             <p>$ {car.price}/ día</p>
           </ContainerPrice>
-          <Link
+          {/* <Link
             href={`/reservas/${car._id}?pickupDate=${newBooking.pickupDate}&returnDate=${newBooking.returnDate}`}
             style={{
               width: "50%",
@@ -72,9 +90,11 @@ const CardAutoPrincipal: React.FC<CardAutoPrincipalProps> = ({ car }) => {
                 returnDate: "2022-01-02T12:00:00Z",
               });
             }}
-          >
-            <ButtonPrincipalContainer>Reservar</ButtonPrincipalContainer>
-          </Link>
+          > */}
+          <ButtonPrincipalUI onClick={() => handleClickBooking(car)}>
+            Reservar
+          </ButtonPrincipalUI>
+          {/* </Link> */}
         </ContainerBottom>
       </ContainerContent>
     </ContainerCard>

@@ -36,7 +36,6 @@ const SelectInputUI: React.FC<SelectInputUiProps> = ({
           {placeholder}
         </option>
         {arrayOptions.map((e, index) => {
-          console.log(e);
           return (
             <option key={index} value={e.id} style={{color:"#000"}}>
               {e.value}
