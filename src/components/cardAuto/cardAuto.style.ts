@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ContainerCard = styled.div`
   display: flex;
@@ -6,8 +6,8 @@ export const ContainerCard = styled.div`
   flex-direction: column;
   background-color: #ffffff;
   padding: 30px;
-  width: 335px;
-`;
+  max-width: 335px;
+`
 
 export const ContainerImageTitle = styled.div`
   /* background-color: blue; */
@@ -19,7 +19,7 @@ export const ContainerImageTitle = styled.div`
     font-size: 25px;
     margin-top: 20px;
   }
-`;
+`
 export const ContainerImagePrincipal = styled.div`
   width: 200px;
   img {
@@ -28,24 +28,34 @@ export const ContainerImagePrincipal = styled.div`
     width: 100%;
     height: auto;
   }
-`;
+`
 
 export const ContainerCharacteristics = styled.div`
-  display: flex;
-  align-items: center;
-  /* background-color: red; */
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
   div {
-    display: flex;
     padding: 5px;
     margin-left: 5px;
     align-items: center;
+
     p {
       margin-left: 1px;
+      margin-top: 0px;
+    }
+
+    @media (width >= 1024px) {
+      display: flex;
+      gap: 5px;
     }
   }
-`;
+
+  @media (width >= 1024px) {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+`
 
 export const ContainerContent = styled.div`
   align-items: center;
@@ -66,7 +76,7 @@ export const ContainerContent = styled.div`
     width: 95%;
     color: var(--deshabilitado, #a8b0bb);
   }
-`;
+`
 
 export const ContainerPrice = styled.div`
   background: #f9f9f9;
@@ -74,5 +84,4 @@ export const ContainerPrice = styled.div`
   margin-top: 25px;
   padding: 10px;
   text-align: center;
-
-`;
+`

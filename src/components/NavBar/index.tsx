@@ -34,6 +34,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
 
   return (
     <NavbarContainer
+      $isActive={menuMobile}
       scrollPosition={changeColor ? changeColor : scrollPosition}
     >
       <nav className="desktop">

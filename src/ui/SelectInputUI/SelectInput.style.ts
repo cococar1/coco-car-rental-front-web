@@ -1,15 +1,15 @@
-import { colors } from "@/styles/theme";
-import styled from "styled-components";
+import { colors } from '@/styles/theme'
+import styled from 'styled-components'
 
 export const ContainerSelectInput = styled.div<{
-  backgroundColor: string;
-  width: string;
+  backgroundColor: string
+  width: string
 }>`
-  background: ${(props) => props.backgroundColor};
+  background: ${props => props.backgroundColor};
   display: flex;
   position: relative;
   padding: 10px;
-  width: ${(props) => props.width};
+  width: ${props => props.width};
   border-radius: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -22,11 +22,10 @@ export const ContainerSelectInput = styled.div<{
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background-image: url("/svg/arrowdownInput.svg");
+    background-image: url('/svg/arrowdownInput.svg');
     background-size: 30px;
     background-repeat: no-repeat;
     background-position: right center;
     padding: 5px;
   }
-
-`;
+`
