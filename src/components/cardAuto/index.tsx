@@ -51,7 +51,7 @@ const CardAuto: React.FC<CardAutoProps> = () => {
         </div>
         <div>
           <KilometerLimitIcon />
-          <p>270 a 562 L</p>
+          <p> 562 L</p>
         </div>
         <div>
           <GasIcon />

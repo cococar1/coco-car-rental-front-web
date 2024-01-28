@@ -1,5 +1,5 @@
-import { colors } from '@/styles/theme'
-import styled from 'styled-components'
+import { colors } from "@/styles/theme";
+import styled from "styled-components";
 
 export const ContainerService = styled.div`
   display: flex;
@@ -15,22 +15,22 @@ export const ContainerService = styled.div`
   border-radius: 20px;
   text-align: center;
   text-align: center;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  gap: 10px;
   /* padding-bottom: 0; */
   div {
     height: 60px;
     padding: 0;
-    margin-top: 25px;
   }
 
   h3 {
     color: ${colors.textBlack};
     font-size: 14px;
     font-weight: 400;
-    padding: 0px 20px;
+    /* padding: 0px 20px; */
     padding-top: 0px;
   }
   p {
@@ -38,6 +38,11 @@ export const ContainerService = styled.div`
     color: ${colors.secondaryBlack};
   }
   @media (width >= 375px) {
+    div {
+      height: 60px;
+      padding: 20px;
+    }
+
     h3 {
       font-size: 12px;
     }
@@ -47,10 +52,14 @@ export const ContainerService = styled.div`
   }
   @media (width >= 1024px) {
     width: 270px;
-    padding: 25px 50px;
+    padding: 0 30px;
+    gap: 37px;
 
     h3 {
       font-size: 16px;
     }
+    && p {
+      margin-top: 0px;
+    }
   }
-`
+`;
