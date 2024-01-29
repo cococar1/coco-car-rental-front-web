@@ -23,6 +23,6 @@ const Service: React.FC<ServiceProps> = ({
       <p>{description}</p>
     </ContainerService>
   );
-};
+}; 
 
 export default Service;

@@ -1,10 +1,6 @@
 import { MouseEventHandler, ReactNode } from "react";
-import CloseIcon from "../assets/svgs/closeIcon";
-import {
-  ContainerContent,
-  ContainerHeaderOptions,
-  ModalNewCar,
-} from "./modal.style";
+import CloseIcon from "../../assets/svgs/closeIcon";
+import { ContainerContent, ContainerHeaderOptions, NewModal } from "./modal.style";
 
 interface ModalProps {
   children: ReactNode;
@@ -22,7 +18,7 @@ const Modal: React.FC<ModalProps> = ({
   styleContent,
 }) => {
   return (
-    <ModalNewCar style={styleModal ?? {}}>
+    <NewModal style={styleModal ?? {}}>
       <ContainerHeaderOptions
         style={title ? { justifyContent: "space-between" } : {}}
       >
@@ -36,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({
       </ContainerHeaderOptions>
       <ContainerContent style={styleContent ?? {}}>{children}</ContainerContent>
       {/* <ContainerBottom></ContainerBottom>  */}
-    </ModalNewCar>
+    </NewModal>
   );
 };
 

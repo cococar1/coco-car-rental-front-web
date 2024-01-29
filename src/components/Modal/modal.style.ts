@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const ModalNewCar = styled.div`
+export const NewModal = styled.div`
   /* position: absolute; */
-  width: 35%;
-  height: 100dvh;
+  /* width: 35%; */
+  /* height: 300px; */
   background-color: #fff;
   z-index: 10000;
   /* right: 0; */
