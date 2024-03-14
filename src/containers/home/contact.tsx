@@ -24,7 +24,7 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         <InpuntUI
           type='email'
           placeholder='Correo Electrónico'
-          backgroundColor=''
+          backgroundcolor=''
           value={''}
           SvgIcon={<div></div>}
           stylesContainer={{
@@ -36,7 +36,7 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         <InpuntUI
           type='text'
           placeholder='Número de teléfono'
-          backgroundColor=''
+          backgroundcolor=''
           SvgIcon={<div></div>}
           value={''}
           stylesContainer={{

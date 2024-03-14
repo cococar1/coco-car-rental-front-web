@@ -1,9 +1,16 @@
+export enum TypeChange {
+  manual = "manual",
+  automatica = "automatica",
+  semiautomatica = "semiautomatica",
+  dobleEmbrague = "dobleEmbrague",
+  manualAutomatizada = "manualAutomatizada",
+}
 export interface Car {
   _id: string;
   name: string;
   image: string;
   countPerson: number;
-  typeChange: string;
+  typeChange: string | TypeChange;
   minTankQuantity: number;
   maxTankQuantity: number;
   fullType: string;
@@ -24,6 +31,8 @@ export interface Car {
 export interface CarHookType {
   setFilter: any;
   filter: CarFilter;
+  applyFilter: () => void;
+
   getCars: (options: any) => void;
   carsOptions: {
     data: Car[] | any;
@@ -32,7 +41,32 @@ export interface CarHookType {
   };
 }
 
-export interface CarFilter {
+export interface FilterBookingInput {
   pickupDate: Date | string;
+
   returnDate: Date | string;
+}
+
+export interface CarFilter {
+  countPerson: number;
+
+  typeChange: string[] | TypeChange[];
+
+  fullType: string[];
+
+  brand: string;
+
+  model: string;
+
+  features: string[];
+
+  price: FilterPriceInput | any;
+
+  booking: FilterBookingInput;
+}
+
+export interface FilterPriceInput {
+  min: number;
+
+  max: number;
 }

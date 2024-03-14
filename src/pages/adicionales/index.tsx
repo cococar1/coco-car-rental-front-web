@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { MainLayout } from "@/layouts/MainLayout";
+import { MainLayout } from "@/layouts/Main.layout";
 import SectionBanner from "@/components/Banner/Banner";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import SectionContact from "@/containers/contact/Contact";

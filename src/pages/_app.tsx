@@ -8,37 +8,46 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-phone-input-2/lib/style.css";
 import Providers from "@/providers";
 
-import '../styles/globals.css'
+import "../styles/globals.css";
+import { SessionProvider } from "next-auth/react";
 
-const NunitoSans = Nunito_Sans({ subsets: ['latin'] })
+const NunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
-export default function MyApp ({ Component, pageProps }: AppProps) {
-  const client = useApollo(pageProps.initialApolloState)
+export default function MyApp({ Component, pageProps }: AppProps) {
+  const client = useApollo(pageProps.initialApolloState);
   return (
     <ApolloProvider client={client}>
-      <Head>
-        <title>Car Plus</title>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        <link rel='icon' href='/favicon.ico' />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-      </Head>
-      <Providers>
-        <style jsx global>
-          {`
-            html {
-              font-family: ${NunitoSans.style.fontFamily};
-            }
-            * {
-              font-family: ${NunitoSans.style.fontFamily};
+      <SessionProvider>
+        <Head>
+          <title>Car Plus</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="robots" content="noindex, nofollow" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </Head>
+        <Providers>
+          <style jsx global>
+            {`
+              html {
+                font-family: ${NunitoSans.style.fontFamily};
+              }
+              * {
+                font-family: ${NunitoSans.style.fontFamily};
 
-              margin: 0;
-            }
-          `}
-        </style>
-        <Component {...pageProps} />
-        <ToastContainer theme='colored' />
-      </Providers>
+                margin: 0;
+              }
+            `}
+          </style>
+          <Component {...pageProps} />
+          <ToastContainer theme="colored" />
+        </Providers>
+      </SessionProvider>
     </ApolloProvider>
-  )
+  );
 }

@@ -2,26 +2,28 @@ import FilterPanel from "@/components/FilterPanel";
 import { useRouter } from "next/router";
 import SectionSearchResult from "@/containers/booking/search-result";
 import { useBookingContext } from "@/context/BookingContext";
-import { ALL_CAR } from "@/gql/cars/query";
-import { MainLayout } from "@/layouts/MainLayout";
+import { MainLayout } from "@/layouts/Main.layout";
 import { ContainerPageBooking } from "@/styles/pages/booking,style";
-import { useQuery } from "@apollo/client";
 import { useEffect } from "react";
-import { useCar } from "@/hooks/usCar";
 import { useCarContext } from "@/context/CarContext";
 
 interface FrequentQuestionsPageProps {}
 
 const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
-  const { data, loading } = useQuery(ALL_CAR);
   const route = useRouter();
   const { setNewBooking } = useBookingContext();
-  const { filter, setFilter } = useCarContext();
+  const {
+    filter,
+    setFilter,
+    carsOptions: { data },
+  } = useCarContext();
   const query = route.query;
   useEffect(() => {
-    if ((query as Object).hasOwnProperty("pickupDate")) {
+    if ((query as Object).hasOwnProperty("booking")) {
       setFilter({
-        ...query,
+        booking: {
+          ...query,
+        },
       });
     }
     if (filter.pickupDate && filter.returnDate) {
@@ -51,11 +53,15 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
     setNewBooking,
   ]);
 
+  useEffect(()=>{
+console.log("data carss reservas")
+console.log(data)
+  },[data])
   return (
     <MainLayout changeColorNavBar={true}>
       <ContainerPageBooking>
         <FilterPanel></FilterPanel>
-        <SectionSearchResult data={data?.cars ?? []}></SectionSearchResult>
+        <SectionSearchResult data={data ?? []}></SectionSearchResult>
       </ContainerPageBooking>
     </MainLayout>
   );

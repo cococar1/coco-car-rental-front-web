@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { useState } from "react";
-
+import { colors } from "@/styles/theme";
 import { useRouter } from "next/router";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import {
   BodyMenu,
   CallActionButtons,
+  ContainerImageLogo,
   HeaderMenu,
   NavItem,
   NavMobile,
@@ -20,9 +21,12 @@ import { useBookingContext } from "@/context/BookingContext";
 import WrapperModal from "../WrapperModal";
 import Modal from "../Modal";
 import ModalLogin from "../ModalLogin";
+import { User } from "@/types/user.type";
+import UserAuth from "../UserAuth";
+import Image from "next/image";
 
 interface NavBarProps {
-  user: string;
+  user: User | null;
   role: string;
   changeColor?: boolean;
 }
@@ -32,7 +36,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const { setNewBooking } = useBookingContext();
   const [menuMobile, setmenuMobile] = useState(false);
 
-  const [statusModalLogin, setStatusModalLogin] = useState(true);
+  const [statusModalLogin, setStatusModalLogin] = useState(false);
   const mainRoute = router.pathname.split("/")[1];
   const scrollPosition = useScrollPosition() > 10;
 
@@ -58,14 +62,18 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
             <picture>
               <div>
                 <Link href="/">
-                  {/* <Image
-              src="/img/logo.png"
-              width={160}
-              height={100}
-              alt="Logo "
-              priority
-            /> */}
-                  Logo
+                  <ContainerImageLogo>
+                    <Image
+                      src={
+                        scrollPosition
+                          ? "/images/logo-dark.png"
+                          : "/images/logo-light.png"
+                      }
+                      fill
+                      alt="coco car rental "
+                      // priority
+                    />
+                  </ContainerImageLogo>
                 </Link>
               </div>
             </picture>
@@ -101,28 +109,34 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               <Link href="/contacto"> Contacto</Link>
             </NavItem>
           </ul>
-          <ul>
-            <li>
-              <ButtonPrincipalContainer
-                onClick={() => {
-                  setStatusModalLogin(!statusModalLogin);
-                }}
-              >
-                Iniciar Sessión
-              </ButtonPrincipalContainer>
-            </li>
-            <li>
-              <ButtonPrincipalContainer
-                style={
-                  scrollPosition
-                    ? { color: "#e96f45", background: "transparent" }
-                    : { background: "transparent" }
-                }
-              >
-                Registrate
-              </ButtonPrincipalContainer>
-            </li>
-          </ul>
+          {!user ? (
+            <ul>
+              <li>
+                <ButtonPrincipalContainer
+                  onClick={() => {
+                    setStatusModalLogin(!statusModalLogin);
+                  }}
+                >
+                  Iniciar Sessión
+                </ButtonPrincipalContainer>
+              </li>
+              <li>
+                <ButtonPrincipalContainer
+                  style={
+                    scrollPosition
+                      ? { color: "#e96f45", background: "transparent" }
+                      : { background: "transparent" }
+                  }
+                >
+                  Registrate
+                </ButtonPrincipalContainer>
+              </li>
+            </ul>
+          ) : (
+            <UserAuth
+              colorprincipal={scrollPosition ? colors.titleBlack : "#ffffff"}
+            ></UserAuth>
+          )}
         </nav>
 
         <nav className="mobile">

@@ -1,4 +1,4 @@
-import { MainLayout } from "@/layouts/MainLayout";
+import { MainLayout } from "@/layouts/Main.layout";
 import SectionBanner from "@/components/Banner/Banner";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import SectionAccodion from "@/containers/frequent-questions/accordion";

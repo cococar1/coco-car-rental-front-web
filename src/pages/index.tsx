@@ -1,4 +1,4 @@
-import { MainLayout } from "@/layouts/MainLayout";
+import { MainLayout } from "@/layouts/Main.layout";
 import MainForm from "@/containers/home/MainForm";
 import {
   ContainerContentHome,

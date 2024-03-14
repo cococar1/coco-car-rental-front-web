@@ -1,3 +1,4 @@
+import {  AuthProvider } from "@/context/AuthContext";
 import { BookingProvider } from "@/context/BookingContext";
 import { CarProvider } from "@/context/CarContext";
 import { ReactNode } from "react";
@@ -8,9 +9,11 @@ interface ProvidersProps {
 
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return (
-    <BookingProvider>
-      <CarProvider>{children}</CarProvider>
-    </BookingProvider>
+    <AuthProvider>
+      <BookingProvider>
+        <CarProvider>{children}</CarProvider>
+      </BookingProvider>
+    </AuthProvider>
   );
 };
 

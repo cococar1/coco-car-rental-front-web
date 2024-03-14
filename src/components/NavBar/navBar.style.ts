@@ -96,7 +96,16 @@ export const NavbarContainer = styled.header<{
     }
   }
 `
+export const ContainerImageLogo = styled.div`
+/* background-color: red; */
+width: 100px;
+height: 40px;
+position: relative;
+& img{
+object-fit: contain;
+}
 
+`
 export const NavItem = styled.li<{ isActive?: boolean }>`
   position: relative;
 

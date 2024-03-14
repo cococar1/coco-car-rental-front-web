@@ -9,7 +9,9 @@ import Accordion from "@/components/Accordion";
 import { useBookingContext } from "@/context/BookingContext";
 import { useEffect } from "react";
 
-interface InformationPersonalProps {}
+interface InformationPersonalProps {
+  
+}
 
 const InformationPersonal: React.FC<InformationPersonalProps> = () => {
   const { newBooking, setNewBooking } = useBookingContext();

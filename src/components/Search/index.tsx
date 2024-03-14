@@ -16,7 +16,7 @@ const Search: React.FC<SearchProps> = ({ stylesContainer }) => {
 
         SvgIcon={<SearchIcon color="#AEB7C1"></SearchIcon>}
         type="text"
-        backgroundColor="#ffffff"
+        backgroundcolor="#ffffff"
         placeholder="Busca tu pregunta"
         positionIcon={"LEFT"}
         stylesContainer={{ border: "none", width: "100%" }}

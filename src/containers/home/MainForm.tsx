@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router'
-import InpuntUI from '@/ui/InputUI'
+import { useRouter } from "next/router";
+import InpuntUI from "@/ui/InputUI";
 import {
   ContainerBackground,
   ContainerButtonForm,
@@ -9,13 +9,13 @@ import {
   ContainerMainFromImage,
   ContainerTextFormHome,
   FormHomeContainerColumn,
-  FormHomeContainerSelect
-} from './mainfrom.styles'
-import CalendarIcon from '@/assets/svgs/calendarIcon'
-import SelectInputUI from '@/ui/SelectInputUI'
-import { ButtonPrincipalUI } from '@/ui/ButtonPrincipalUi'
-import ClockIcon from '@/assets/svgs/clockIcon'
-import { ChangeEvent, useEffect, useState } from 'react'
+  FormHomeContainerSelect,
+} from "./mainfrom.styles";
+import CalendarIcon from "@/assets/svgs/calendarIcon";
+import SelectInputUI from "@/ui/SelectInputUI";
+import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
+import ClockIcon from "@/assets/svgs/clockIcon";
+import { ChangeEvent, useEffect, useState } from "react";
 import {
   getDateFromFinalDate,
   getTimeFromFinalDate,
@@ -25,20 +25,22 @@ import { CarFilter } from "@/types/Car.type";
 interface MainFormProps {}
 const optionsArray = [
   {
-    id: '1',
-    value: 'Deportivo'
+    id: "1",
+    value: "Deportivo",
   },
   {
-    id: '2',
-    value: 'clasico'
-  }
-]
+    id: "2",
+    value: "clasico",
+  },
+];
 const MainForm: React.FC<MainFormProps> = () => {
   const route = useRouter();
   const [filter, setFilter] = useState<CarFilter>({
-    pickupDate: "T",
-    returnDate: "T",
-  });
+    booking: {
+      pickupDate: "T",
+      returnDate: "T",
+    },
+  } as CarFilter);
 
   return (
     <ContainerMainFrom>
@@ -56,97 +58,109 @@ const MainForm: React.FC<MainFormProps> = () => {
           <FormHomeContainerColumn>
             <div>
               <InpuntUI
-                type={'date'}
-                placeholder='Fecha de retiro'
-                placeholderColor='#fff'
-                backgroundColor='rgba(255, 255, 255, 0.25)'
+                type={"date"}
+                placeholder="Fecha de retiro"
+                placeholderColor="#fff"
+                backgroundcolor="rgba(255, 255, 255, 0.25)"
                 stylesContainer={{
-                  border: '1px solid rgba(213, 221, 234, 0.47)'
+                  border: "1px solid rgba(213, 221, 234, 0.47)",
                 }}
                 stylesInput={{
-                  background: 'transparent',
-                  color: '#fff'
+                  background: "transparent",
+                  color: "#fff",
                 }}
-                value={getDateFromFinalDate(filter.pickupDate) ?? ''}
+                value={getDateFromFinalDate(filter.pickupDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  const newDate = e.target.value
-                  const existingTime = getTimeFromFinalDate(filter.pickupDate)
+                  const newDate = e.target.value;
+                  const existingTime = getTimeFromFinalDate(filter.pickupDate);
                   setFilter({
                     ...filter,
-                    pickupDate: `${newDate}T${existingTime}`
-                  })
+                    booking: {
+                      ...filter.booking,
+                      pickupDate: `${newDate}T${existingTime}`,
+                    },
+                  });
                 }}
                 SvgIcon={<CalendarIcon width={25} height={25} />}
               ></InpuntUI>
               <InpuntUI
-                type={'date'}
-                placeholder='Fecha de entrega'
-                placeholderColor='#fff'
-                backgroundColor='rgba(255, 255, 255, 0.25)'
+                type={"date"}
+                placeholder="Fecha de entrega"
+                placeholderColor="#fff"
+                backgroundcolor="rgba(255, 255, 255, 0.25)"
                 stylesContainer={{
-                  border: '1px solid rgba(213, 221, 234, 0.47)'
+                  border: "1px solid rgba(213, 221, 234, 0.47)",
                 }}
                 stylesInput={{
-                  background: 'transparent',
-                  color: '#fff'
+                  background: "transparent",
+                  color: "#fff",
                 }}
                 SvgIcon={<CalendarIcon width={25} height={25} />}
-                value={getDateFromFinalDate(filter.returnDate) ?? ''}
+                value={getDateFromFinalDate(filter.returnDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  const newDate = e.target.value
-                  const existingTime = getTimeFromFinalDate(filter.returnDate)
+                  const newDate = e.target.value;
+                  const existingTime = getTimeFromFinalDate(filter.returnDate);
                   setFilter({
                     ...filter,
-                    returnDate: `${newDate}T${existingTime}`
-                  })
+                    booking: {
+                      ...filter.booking,
+                      returnDate: `${newDate}T${existingTime}`,
+                    },
+                  });
                 }}
               ></InpuntUI>
             </div>
             <div>
               <InpuntUI
-                type={'time'}
-                placeholder='Hora'
-                placeholderColor='#fff'
-                backgroundColor='rgba(255, 255, 255, 0.25)'
+                type={"time"}
+                placeholder="Hora"
+                placeholderColor="#fff"
+                backgroundcolor="rgba(255, 255, 255, 0.25)"
                 stylesContainer={{
-                  border: '1px solid rgba(213, 221, 234, 0.47)'
+                  border: "1px solid rgba(213, 221, 234, 0.47)",
                 }}
                 stylesInput={{
-                  background: 'transparent',
-                  color: '#fff'
+                  background: "transparent",
+                  color: "#fff",
                 }}
                 SvgIcon={<ClockIcon width={25} height={25} />}
-                value={getTimeFromFinalDate(filter.pickupDate) ?? ''}
+                value={getTimeFromFinalDate(filter.pickupDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  const newTime = e.target.value
-                  const existingDate = getDateFromFinalDate(filter.pickupDate)
+                  const newTime = e.target.value;
+                  const existingDate = getDateFromFinalDate(filter.pickupDate);
                   setFilter({
                     ...filter,
-                    pickupDate: `${existingDate}T${newTime}`
-                  })
+                    booking: {
+                      ...filter.booking,
+                      pickupDate: `${existingDate}T${newTime}`,
+                    },
+                  });
                 }}
               ></InpuntUI>
               <InpuntUI
-                type={'time'}
-                placeholder='Hora'
-                placeholderColor='#fff'
-                backgroundColor='rgba(255, 255, 255, 0.25)'
+                type={"time"}
+                placeholder="Hora"
+                placeholderColor="#fff"
+                backgroundcolor="rgba(255, 255, 255, 0.25)"
                 stylesContainer={{
-                  border: '1px solid rgba(213, 221, 234, 0.47)'
+                  border: "1px solid rgba(213, 221, 234, 0.47)",
                 }}
                 stylesInput={{
-                  background: 'transparent',
-                  color: '#fff'
+                  background: "transparent",
+                  color: "#fff",
                 }}
                 SvgIcon={<ClockIcon width={25} height={25} />}
-                value={getTimeFromFinalDate(filter.returnDate) ?? ''}
+                value={getTimeFromFinalDate(filter.returnDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  const newTime = e.target.value
-                  const existingDate = getDateFromFinalDate(filter.returnDate)
+                  const newTime = e.target.value;
+                  const existingDate = getDateFromFinalDate(filter.returnDate);
                   setFilter({
                     ...filter,
-                    returnDate: `${existingDate}T${newTime}`
-                  })
+                    booking: {
+                      ...filter.booking,
+                      returnDate: `${existingDate}T${newTime}`,
+                    },
+                  });
                 }}
               ></InpuntUI>
             </div>
@@ -156,11 +170,11 @@ const MainForm: React.FC<MainFormProps> = () => {
               value={""}
               backgroundColor="rgba(255, 255, 255, 0.25)"
               stylesContainer={{
-                border: '1px solid rgba(213, 221, 234, 0.47)',
-                width: '100%'
+                border: "1px solid rgba(213, 221, 234, 0.47)",
+                width: "100%",
               }}
-              width='96%'
-              placeholder='Categoria del auto'
+              width="96%"
+              placeholder="Categoria del auto"
               arrayOptions={optionsArray}
             ></SelectInputUI>
           </FormHomeContainerSelect>
@@ -171,13 +185,12 @@ const MainForm: React.FC<MainFormProps> = () => {
               if (filter.pickupDate != "T" && filter.returnDate != "T") {
                 return route.push(
                   `/reservas?pickupDate=${filter.pickupDate}&returnDate=${filter.returnDate}`
-                )
+                );
               }
               if (filter.pickupDate != "T" && filter.returnDate == "T") {
-
                 return route.push(`/reservas?pickupDate=${filter.pickupDate}`);
               }
-              route.push(`/reservas`)
+              route.push(`/reservas`);
             }}
           >
             Buscar
@@ -185,7 +198,7 @@ const MainForm: React.FC<MainFormProps> = () => {
         </ContainerButtonForm>
       </ContainerFormHome>
     </ContainerMainFrom>
-  )
-}
+  );
+};
 
-export default MainForm
+export default MainForm;

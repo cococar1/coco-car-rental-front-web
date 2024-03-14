@@ -8,7 +8,7 @@ enum PositionIcon {
 
 interface InpuntUIProps {
   type: string;
-  backgroundColor: string;
+  backgroundcolor: string;
   SvgIcon: any;
   placeholder: string;
   stylesInput?: any;
@@ -28,7 +28,7 @@ const InpuntUI: React.FC<InpuntUIProps> = ({
   positionIcon,
   placeholderColor,
   onChange,
-  backgroundColor,
+  backgroundcolor: backgroundColor,
   value,
 }: InpuntUIProps) => {
   const ref = useRef<HTMLInputElement | null>(null); // Especifica el tipo HTMLInputElement

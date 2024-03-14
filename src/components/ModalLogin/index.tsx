@@ -8,6 +8,7 @@ import AtSignIcon from "@/assets/svgs/atSignIcon";
 import FacebookIcon from "@/assets/svgs/facebookIcon";
 import FacebookSecondaryIcon from "@/assets/svgs/FacebookSecondaryIcon";
 import GoogleIcon from "@/assets/svgs/googleIcon";
+import { useAuthContext } from "@/context/AuthContext";
 
 interface ModalLoginProps {
   onclickClose: any;
@@ -15,14 +16,20 @@ interface ModalLoginProps {
 
 const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
   const [viewPassword, setViewPassword] = useState(false);
+  const { userLogin } = useAuthContext();
+
   const [fromLogin, setFormLogin] = useState({
     email: "",
     password: "",
   });
+
+  const submit = async () => {
+    userLogin(fromLogin.email, fromLogin.password);
+  };
   return (
     <Modal
       onclickClose={onclickClose}
-      styleModal={{ width: "33%",borderRadius:"15px" }}
+      styleModal={{ width: "33%", borderRadius: "15px" }}
       styleContent={{ display: "flex", flexDirection: "column", gap: "25px" }}
     >
       <h1>Iniciar sesión</h1>
@@ -32,13 +39,13 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
       </p>
       <InpuntUI
         value={fromLogin.email}
-        backgroundColor="#fff"
+        backgroundcolor="#fff"
         type="email"
         SvgIcon={<AtSignIcon />}
         stylesContainer={{ width: "100%", maxWidth: "100%" }}
         placeholder="example@gmail.com"
         placeholderColor="#7E7E7E"
-        onChange={(e) => {
+        onChange={(e: any) => {
           setFormLogin({
             ...fromLogin,
             email: e.target.value,
@@ -51,9 +58,9 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
         placeholder="Password"
         placeholderColor="#7E7E7E"
         value={fromLogin.password}
-        backgroundColor="#fff"
+        backgroundcolor="#fff"
         stylesContainer={{ width: "100%", maxWidth: "100%" }}
-        onChange={(e) => {
+        onChange={(e: any) => {
           setFormLogin({
             ...fromLogin,
             password: e.target.value,
@@ -80,7 +87,7 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
       >
         <a href="">Olvidaste la contraseña?</a>
       </div>
-      <ButtonPrincipalUI>Iniciar Sesión</ButtonPrincipalUI>
+      <ButtonPrincipalUI onClick={submit}>Iniciar Sesión</ButtonPrincipalUI>
       <div style={{ fontSize: "14px", textAlign: "center" }}>
         <p>O iniciar sesión con social media</p>
       </div>

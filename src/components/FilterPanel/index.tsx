@@ -23,23 +23,53 @@ import {
   getDateFromFinalDate,
   getTimeFromFinalDate,
 } from "@/helpers/dateTime.helper";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect } from "react";
 import { useCarContext } from "@/context/CarContext";
 import { useRouter } from "next/router";
+import { CarFilter, TypeChange } from "@/types/Car.type";
 
 interface FilterPanelProps {}
 
 const FilterPanel: React.FC<FilterPanelProps> = () => {
-  const { filter, setFilter } = useCarContext();
+  const { filter, setFilter, applyFilter } = useCarContext();
 
   const router = useRouter();
 
   const handleUpdateButton = () => {
-    const result = buildQueryString(filter);
+    const result = buildQueryString(filter.booking);
 
     router.push(`/reservas?${result}`);
+    applyFilter();
   };
 
+  const handleSelectTypeChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    typeProperty: keyof CarFilter
+  ) => {
+    const checkboxName = event.target.name?.toString();
+
+    console.log(filter);
+    if (checkboxName && filter[typeProperty]?.includes(checkboxName)) {
+      setFilter({
+        ...filter,
+        [typeProperty]: filter[typeProperty].filter(
+          (e: string) => e != checkboxName
+        ),
+      });
+    } else {
+      setFilter({
+        ...filter,
+        [typeProperty]: filter[typeProperty]
+          ? [...filter[typeProperty], checkboxName]
+          : [checkboxName],
+      });
+    }
+  };
+
+  useEffect(() => {
+    console.log("jcimeifmiemfiemfiemdiemdiemdiem");
+    console.log(filter);
+  }, [router]);
   return (
     <ContainerFilterPanel>
       <h2>Filtros</h2>
@@ -49,35 +79,45 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             stylesContainer={{ width: "60%" }}
             type={"date"}
             placeholder="Fecha de retiro"
-            value={getDateFromFinalDate(filter.pickupDate) ?? ""}
-            backgroundColor="#ffffff"
+            value={getDateFromFinalDate(filter.booking?.pickupDate) ?? ""}
+            backgroundcolor="#ffffff"
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const newDate = e.target.value;
               const existingTime = getTimeFromFinalDate(
-                filter.pickupDate ?? "T"
+                filter.booking?.pickupDate ?? "T"
               );
               setFilter({
                 ...filter,
-                pickupDate: `${newDate}T${existingTime}`,
+                booking: {
+                  ...filter.booking,
+                  pickupDate: `${existingTime}T${newDate}`,
+                },
               });
             }}
             SvgIcon={<CalendarIcon width={25} height={25} />}
           ></InpuntUI>
           <InpuntUI
             stylesContainer={{ width: "40%" }}
-            value={getTimeFromFinalDate(filter.pickupDate) ?? ""}
+            value={getTimeFromFinalDate(filter.booking?.pickupDate) ?? ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const newTime = e.target.value;
-              const existingDate = getDateFromFinalDate(filter.pickupDate);
+              console.log("hora de entrega");
+              console.log(newTime);
+              const existingDate = getDateFromFinalDate(
+                filter.booking?.pickupDate
+              );
               setFilter({
                 ...filter,
-                pickupDate: `${existingDate}T${newTime}`,
+                booking: {
+                  ...filter.booking,
+                  pickupDate: `${existingDate}T${newTime}`,
+                },
               });
             }}
             //   stylesInput={{width:"30%"}}
             type={"time"}
             placeholder="Hora"
-            backgroundColor="#ffffff"
+            backgroundcolor="#ffffff"
             SvgIcon={<ClockIcon width={25} height={25} />}
           ></InpuntUI>
         </div>
@@ -86,14 +126,19 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             stylesContainer={{ width: "60%" }}
             type={"date"}
             placeholder="Fecha de entrega"
-            backgroundColor="#ffffff"
-            value={getDateFromFinalDate(filter.returnDate) ?? ""}
+            backgroundcolor="#ffffff"
+            value={getDateFromFinalDate(filter.booking?.returnDate) ?? ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const newDate = e.target.value;
-              const existingTime = getTimeFromFinalDate(filter.returnDate);
+              const existingTime = getTimeFromFinalDate(
+                filter.booking?.returnDate
+              );
               setFilter({
                 ...filter,
-                returnDate: `${newDate}T${existingTime}`,
+                booking: {
+                  ...filter.booking,
+                  returnDate: `${existingTime}T${newDate}`,
+                },
               });
             }}
             SvgIcon={<CalendarIcon width={25} height={25} />}
@@ -103,14 +148,19 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             //   stylesInput={{width:"30%"}}
             type={"time"}
             placeholder="Hora"
-            backgroundColor="#ffffff"
-            value={getTimeFromFinalDate(filter.returnDate) ?? ""}
+            backgroundcolor="#ffffff"
+            value={getTimeFromFinalDate(filter.booking?.returnDate) ?? ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const newTime = e.target.value;
-              const existingDate = getDateFromFinalDate(filter.returnDate);
+              const existingDate = getDateFromFinalDate(
+                filter.booking?.returnDate
+              );
               setFilter({
                 ...filter,
-                returnDate: `${existingDate}T${newTime}`,
+                booking: {
+                  ...filter.booking,
+                  returnDate: `${existingDate}T${newTime}`,
+                },
               });
             }}
             SvgIcon={<ClockIcon width={25} height={25} />}
@@ -158,12 +208,18 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
               value: "Sistema de estacionamiento automático",
             },
           ].map((feature, index) => (
-            <CheckBoxUI name={feature.key} key={index} />
+            <CheckBoxUI
+              name={feature.key}
+              key={index}
+              onChange={(e) =>
+                handleSelectTypeChange(e, "features" as keyof CarFilter)
+              }
+            />
           ))}
         </ContainerCheckBoxScroll>
       </ContainerFeature>
       <ContainerSimpleElement>
-        <h2>Modelo</h2>
+        <h2>Marca</h2>
         <SelectInputUI
           value={""}
           width="100%"
@@ -194,7 +250,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           placeholder="Moodelo"
         ></SelectInputUI> */}
       </ContainerSimpleElement>
-
+      {/* 
       <ContainerSimpleElement>
         <h2>Año</h2>
         <ContainerInputYears>
@@ -214,20 +270,26 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             backgroundColor="#ffffff"
           ></SelectInputUI>
         </ContainerInputYears>
-      </ContainerSimpleElement>
-      <ContainerSimpleElement>
+      </ContainerSimpleElement> */}
+      {/* <ContainerSimpleElement>
         <h2>Tipo de</h2>
         <ContainerContentElementCheckBook>
           <CheckBoxUI name="AWD/4WD"></CheckBoxUI>
           <CheckBoxUI name="Front Wheel Drive"></CheckBoxUI>
           <CheckBoxUI name="Rear Wheel Drive"></CheckBoxUI>
         </ContainerContentElementCheckBook>
-      </ContainerSimpleElement>
+      </ContainerSimpleElement> */}
       <ContainerSimpleElement>
         <h2>Combustible</h2>
         <ContainerContentElementCheckBook>
           {fuelTypes.map((data, index) => (
-            <CheckBoxUI name={data} key={index} />
+            <CheckBoxUI
+              name={data}
+              key={index}
+              onChange={(e) =>
+                handleSelectTypeChange(e, "fullTypes" as keyof CarFilter)
+              }
+            />
           ))}
         </ContainerContentElementCheckBook>
       </ContainerSimpleElement>
@@ -235,12 +297,31 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
       <ContainerSimpleElement>
         <h2>Transmisión</h2>
         <ContainerContentElementCheckBook>
-          <CheckBoxUI name="Automatico"></CheckBoxUI>
-          <CheckBoxUI name="Manual"></CheckBoxUI>
+          {Object.keys(TypeChange).map((key) => (
+            <CheckBoxUI
+              key={key}
+              name={key}
+              onChange={(e) =>
+                handleSelectTypeChange(e, "typeChange" as keyof CarFilter)
+              }
+            ></CheckBoxUI>
+          ))}
+          {/* <CheckBoxUI
+            name="Automatico"
+            onChange={(e) =>
+              handleSelectTypeChange(e, "typeChange" as keyof CarFilter)
+            }
+          ></CheckBoxUI>
+          <CheckBoxUI
+            name="Manual"
+            onChange={(e) =>
+              handleSelectTypeChange(e, "typeChange" as keyof CarFilter)
+            }
+          ></CheckBoxUI> */}
         </ContainerContentElementCheckBook>
       </ContainerSimpleElement>
 
-      <ContainerSimpleElement>
+      {/* <ContainerSimpleElement>
         <h2>Milaeage</h2>
         <SelectInputUI
           value={""}
@@ -249,7 +330,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           width="100%"
           backgroundColor="#ffffff"
         ></SelectInputUI>
-      </ContainerSimpleElement>
+      </ContainerSimpleElement> */}
     </ContainerFilterPanel>
   );
 };

@@ -12,7 +12,7 @@ import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import FacebookIcon from "@/assets/svgs/facebookIcon";
 import InstagramIcon from "@/assets/svgs/instagramIcon";
 import TwitterIcon from "@/assets/svgs/twitterIcon";
-import { WrapperIconNetworks } from './contact.style';
+import { WrapperIconNetworks } from "./contact.style";
 
 interface SectionContactProps {}
 
@@ -45,27 +45,31 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         <InpuntUI
           type="email"
           placeholder="E-mail address"
-            value={""}
-            backgroundColor="#ffffff"
+          backgroundcolor="#ffffff"
           stylesContainer={{
-            width: "474px",
+            padding: "20px 0px",
+            // width: "400px !important",
+            maxWidth: "100%",
             borderRadius: "0px",
             height: "30px",
             border: "1px solid #AEB7C1",
           }}
           SvgIcon={<></>}
         />
-        <SelectInputUI
-          arrayOptions={[]}
-          backgroundColor="#ffffff"
-          placeholder="Subject"
-            value={""}
-            width="474px"
+        <InpuntUI
+          type="text"
+          backgroundcolor="#ffffff"
+          placeholder="Asunto"
           stylesContainer={{
+            // width: "400px !important",    padding:"20px 0px",
+            // padding: "20px 0px",
+            maxWidth: "100%",
+            padding: "20px 0px",
             borderRadius: "0px",
             height: "30px",
             border: "1px solid #AEB7C1",
           }}
+          SvgIcon={<></>}
         />
         <TextAreaUI
           placeholder="Your message here…"

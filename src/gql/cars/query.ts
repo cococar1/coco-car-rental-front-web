@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const ALL_CAR = gql`
-  query ALL_CAR {
-    cars {
+  query ALL_CAR($filter:FilterCarInput) {
+    cars(filter:$filter) {
       _id
       name
       image
