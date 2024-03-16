@@ -8,6 +8,7 @@ interface SelectInputUiProps {
   onChange?: Function;
   value: any;
   stylesContainer?: React.CSSProperties;
+  styleSelect?: React.CSSProperties;
 }
 
 const SelectInputUI: React.FC<SelectInputUiProps> = ({
@@ -18,6 +19,7 @@ const SelectInputUI: React.FC<SelectInputUiProps> = ({
   stylesContainer,
   onChange,
   value,
+  styleSelect,
 }) => {
   return (
     <ContainerSelectInput
@@ -30,14 +32,14 @@ const SelectInputUI: React.FC<SelectInputUiProps> = ({
         aria-label={placeholder}
         value={value}
         onChange={onChange as any}
-        style={{ background: "transparent",color:"#fff" }}
+        style={styleSelect ?? { background: "transparent", color: "#fff" }}
       >
         <option value="" disabled selected>
           {placeholder}
         </option>
         {arrayOptions.map((e, index) => {
           return (
-            <option key={index} value={e.id} style={{color:"#000"}}>
+            <option key={index} value={e.id} style={{ color: "#000" }}>
               {e.value}
             </option>
           );

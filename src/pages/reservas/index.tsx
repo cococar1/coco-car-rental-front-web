@@ -6,6 +6,7 @@ import { MainLayout } from "@/layouts/Main.layout";
 import { ContainerPageBooking } from "@/styles/pages/booking,style";
 import { useEffect } from "react";
 import { useCarContext } from "@/context/CarContext";
+import { LoaderUI } from "@/ui/LoaderUI";
 
 interface FrequentQuestionsPageProps {}
 
@@ -15,21 +16,27 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
   const {
     filter,
     setFilter,
-    carsOptions: { data },
+    carsOptions: { data, loading },
+    applyFilter,
   } = useCarContext();
   const query = route.query;
   useEffect(() => {
-    if ((query as Object).hasOwnProperty("booking")) {
+    console.log("queryyy");
+
+    console.log(query);
+    if (query.pickupDate || query.returnDate) {
       setFilter({
         booking: {
-          ...query,
+          pickupDate: query.pickupDate ?? "",
+          returnDate: query.returnDate ?? "",
         },
       });
     }
-    if (filter.pickupDate && filter.returnDate) {
+    if (filter.booking?.pickupDate && filter.booking?.returnDate) {
+      applyFilter();
       setNewBooking({
-        pickupDate: filter.pickupDate,
-        returnDate: filter.returnDate,
+        pickupDate: filter.booking?.pickupDate,
+        returnDate: filter.booking?.returnDate,
       });
     }
 
@@ -44,24 +51,26 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
     //     returnDate,
     //   });
     // }
-  }, [
-    data,
-    filter.pickupDate,
-    filter.returnDate,
-    query,
-    setFilter,
-    setNewBooking,
-  ]);
+  }, [query]);
 
-  useEffect(()=>{
-console.log("data carss reservas")
-console.log(data)
-  },[data])
+  useEffect(() => {
+    console.log("data carss reservas");
+    console.log(data);
+  }, [data]);
+
   return (
     <MainLayout changeColorNavBar={true}>
       <ContainerPageBooking>
         <FilterPanel></FilterPanel>
-        <SectionSearchResult data={data ?? []}></SectionSearchResult>
+        {loading ? (
+          <div
+            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+          >
+            <LoaderUI></LoaderUI>
+          </div>
+        ) : (
+          <SectionSearchResult data={data ?? []}></SectionSearchResult>
+        )}
       </ContainerPageBooking>
     </MainLayout>
   );

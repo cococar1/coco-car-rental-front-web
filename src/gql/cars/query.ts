@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const ALL_CAR = gql`
-  query ALL_CAR($filter:FilterCarInput) {
-    cars(filter:$filter) {
+  query ALL_CAR($filter: FilterCarInput) {
+    cars(filter: $filter) {
       _id
       name
       image
@@ -49,5 +49,11 @@ export const ONE_CAR = gql`
       features
       licensePlate
     }
+  }
+`;
+
+export const FEATURE_FILTER = gql`
+  query FEATURE_FILTER {
+    featureFilter
   }
 `;

@@ -30,12 +30,19 @@ export interface Car {
 
 export interface CarHookType {
   setFilter: any;
+  brandFilter: string[];
   filter: CarFilter;
+  fullTypesFilter: string[];
+  categoryFilter: string[];
   applyFilter: () => void;
-
   getCars: (options: any) => void;
   carsOptions: {
     data: Car[] | any;
+    loading: boolean;
+    error: any;
+  };
+  featureFilterOptions: {
+    data: string[];
     loading: boolean;
     error: any;
   };

@@ -15,9 +15,9 @@ const ArrowIcon = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
           id="Stroke 3"
           d="M13.5 1L7.5 6L1.5 1"
           stroke={props.color ? props.color : "#E96F45"}
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
     </svg>

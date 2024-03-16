@@ -1,4 +1,4 @@
-export const categoriesOptions = [
+export const categoriesFilterData = [
   { key: "compactos", value: "Compactos" },
   { key: "sedanes", value: "Sedanes" },
   { key: "coupes", value: "Coupés" },
@@ -13,13 +13,33 @@ export const categoriesOptions = [
   { key: "crossovers", value: "Crossovers" },
 ];
 
-export const fuelTypes = [
+export const fullTypesFilterData = [
   "Gasolina",
   "Diesel",
   "Gas",
   "Electricidad",
   "Hidrógeno",
   "Hibrido",
+];
+
+export const brandFilterData = [
+  { key: "toyota", value: "Toyota" },
+  { key: "ford", value: "Ford" },
+  { key: "honda", value: "Honda" },
+  { key: "chevrolet", value: "Chevrolet" },
+  { key: "nissan", value: "Nissan" },
+  { key: "volkswagen", value: "Volkswagen" },
+  { key: "bmw", value: "BMW" },
+  { key: "mercedes_benz", value: "Mercedes-Benz" },
+  { key: "audi", value: "Audi" },
+  { key: "hyundai", value: "Hyundai" },
+  { key: "kia", value: "Kia" },
+  { key: "mazda", value: "Mazda" },
+  { key: "subaru", value: "Subaru" },
+  { key: "lexus", value: "Lexus" },
+  { key: "tesla", value: "Tesla" },
+  { key: "renault", value: "Renault" },
+  { key: "peugeot", value: "Peugeot" },
 ];
 
 export function buildQueryString(objeto: any) {

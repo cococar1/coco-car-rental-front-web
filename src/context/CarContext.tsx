@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import { CarHookType } from "@/types/Car.type";
-import { useCar } from "@/hooks/usCar";
+import { useCar } from "@/hooks/useCar";
 
 export const CarContext = createContext({} as CarHookType);
 interface Props {

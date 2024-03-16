@@ -14,11 +14,7 @@ import ClockIcon from "@/assets/svgs/clockIcon";
 import SelectInputUI from "@/ui/SelectInputUI";
 import { ButtonPrincipalUI } from "../../ui/ButtonPrincipalUi/index";
 import CheckBoxUI from "@/ui/CheckBoxUI";
-import {
-  buildQueryString,
-  categoriesOptions,
-  fuelTypes,
-} from "@/helpers/filter.helpers.options";
+import { buildQueryString } from "@/helpers/filter.helpers.options";
 import {
   getDateFromFinalDate,
   getTimeFromFinalDate,
@@ -27,21 +23,31 @@ import { ChangeEvent, useEffect } from "react";
 import { useCarContext } from "@/context/CarContext";
 import { useRouter } from "next/router";
 import { CarFilter, TypeChange } from "@/types/Car.type";
+import { EventChange } from "@/types/general";
 
 interface FilterPanelProps {}
 
 const FilterPanel: React.FC<FilterPanelProps> = () => {
-  const { filter, setFilter, applyFilter } = useCarContext();
+  const {
+    filter,
+    setFilter,
+    applyFilter,
+    brandFilter,
+    fullTypesFilter,
+    categoryFilter,
+    featureFilterOptions: { data: featuresFilter },
+  } = useCarContext();
 
   const router = useRouter();
 
   const handleUpdateButton = () => {
     const result = buildQueryString(filter.booking);
 
-    router.push(`/reservas?${result}`);
     applyFilter();
+    router.push(`/reservas?${result}`);
   };
 
+  
   const handleSelectTypeChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     typeProperty: keyof CarFilter
@@ -66,10 +72,6 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
     }
   };
 
-  useEffect(() => {
-    console.log("jcimeifmiemfiemfiemdiemdiemdiem");
-    console.log(filter);
-  }, [router]);
   return (
     <ContainerFilterPanel>
       <h2>Filtros</h2>
@@ -84,13 +86,13 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const newDate = e.target.value;
               const existingTime = getTimeFromFinalDate(
-                filter.booking?.pickupDate ?? "T"
+                filter.booking?.pickupDate ?? ""
               );
               setFilter({
                 ...filter,
                 booking: {
                   ...filter.booking,
-                  pickupDate: `${existingTime}T${newDate}`,
+                  pickupDate: `${newDate}T${existingTime}`,
                 },
               });
             }}
@@ -128,7 +130,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             placeholder="Fecha de entrega"
             backgroundcolor="#ffffff"
             value={getDateFromFinalDate(filter.booking?.returnDate) ?? ""}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            onChange={(e: EventChange) => {
               const newDate = e.target.value;
               const existingTime = getTimeFromFinalDate(
                 filter.booking?.returnDate
@@ -137,7 +139,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
                 ...filter,
                 booking: {
                   ...filter.booking,
-                  returnDate: `${existingTime}T${newDate}`,
+                  returnDate: `${newDate}T${existingTime}`,
                 },
               });
             }}
@@ -168,12 +170,18 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
         </div>
         <div>
           <SelectInputUI
-            backgroundColor={"#ffffff"}
-            width="100%"
             value={""}
-            arrayOptions={categoriesOptions}
-            placeholder="Categoria del auto"
-            stylesContainer={{ border: " 1px solid rgba(213, 221, 234, 0.47)" }}
+            width="100%"
+            styleSelect={{ color: "#333" }}
+            arrayOptions={brandFilter}
+            backgroundColor="#ffffff"
+            onChange={(e: EventChange) => {
+              console.log(e.target.value);
+            }}
+            placeholder="Marca"
+            stylesContainer={{
+              border: " 1px solid rgba(213, 221, 234, 0.47)",
+            }}
           ></SelectInputUI>
         </div>
         <div>
@@ -188,67 +196,32 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
       <ContainerFeature>
         <h2>Caracteristicas</h2>
         <ContainerCheckBoxScroll>
-          {[
-            { key: "aire acondicionado", value: "Aire acondicionado" },
-            { key: "navegacion gps", value: "Navegación GPS" },
-            { key: "asientos cuero", value: "Asientos de cuero" },
-            {
-              key: "sistema sonido_premium",
-              value: "Sistema de sonido premium",
-            },
-            { key: "camara retroceso", value: "Cámara de retroceso" },
-            { key: "techo solar", value: "Techo solar" },
-            { key: "control cruise", value: "Control de crucero" },
-            {
-              key: "sistema seguridad",
-              value: "Sistema de seguridad avanzado",
-            },
-            {
-              key: "sistema parqueo autom",
-              value: "Sistema de estacionamiento automático",
-            },
-          ].map((feature, index) => (
-            <CheckBoxUI
-              name={feature.key}
-              key={index}
-              onChange={(e) =>
-                handleSelectTypeChange(e, "features" as keyof CarFilter)
-              }
-            />
-          ))}
+          {featuresFilter &&
+            featuresFilter.map((feature, index) => (
+              <CheckBoxUI
+                name={feature}
+                key={index}
+                onChange={(e: EventChange) =>
+                  handleSelectTypeChange(e, "features" as keyof CarFilter)
+                }
+              />
+            ))}
         </ContainerCheckBoxScroll>
       </ContainerFeature>
       <ContainerSimpleElement>
-        <h2>Marca</h2>
+        <h2>Categoria</h2>
+
         <SelectInputUI
+          backgroundColor={"#ffffff"}
+          width="100%"
           value={""}
-          width="100%"
-          arrayOptions={[
-            { key: "toyota", value: "Toyota" },
-            { key: "ford", value: "Ford" },
-            { key: "honda", value: "Honda" },
-            { key: "chevrolet", value: "Chevrolet" },
-            { key: "nissan", value: "Nissan" },
-            { key: "volkswagen", value: "Volkswagen" },
-            { key: "bmw", value: "BMW" },
-            { key: "mercedes_benz", value: "Mercedes-Benz" },
-            { key: "audi", value: "Audi" },
-            { key: "hyundai", value: "Hyundai" },
-            { key: "kia", value: "Kia" },
-            { key: "mazda", value: "Mazda" },
-            { key: "subaru", value: "Subaru" },
-            { key: "lexus", value: "Lexus" },
-            { key: "tesla", value: "Tesla" },
-          ]}
-          backgroundColor="#ffffff"
-          placeholder="Marca"
+          styleSelect={{ color: "#333" }}
+          arrayOptions={categoryFilter}
+          placeholder="Categoria del auto"
+          stylesContainer={{
+            border: " 1px solid rgba(213, 221, 234, 0.47)",
+          }}
         ></SelectInputUI>
-        {/* <SelectInputUI
-          width="100%"
-          arrayOptions={[]}
-          backgroundColor="#ffffff"
-          placeholder="Moodelo"
-        ></SelectInputUI> */}
       </ContainerSimpleElement>
       {/* 
       <ContainerSimpleElement>
@@ -282,15 +255,16 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
       <ContainerSimpleElement>
         <h2>Combustible</h2>
         <ContainerContentElementCheckBook>
-          {fuelTypes.map((data, index) => (
-            <CheckBoxUI
-              name={data}
-              key={index}
-              onChange={(e) =>
-                handleSelectTypeChange(e, "fullTypes" as keyof CarFilter)
-              }
-            />
-          ))}
+          {fullTypesFilter &&
+            fullTypesFilter.map((data, index) => (
+              <CheckBoxUI
+                name={data}
+                key={index}
+                onChange={(e: EventChange) =>
+                  handleSelectTypeChange(e, "fullTypes" as keyof CarFilter)
+                }
+              />
+            ))}
         </ContainerContentElementCheckBook>
       </ContainerSimpleElement>
 
@@ -301,7 +275,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             <CheckBoxUI
               key={key}
               name={key}
-              onChange={(e) =>
+              onChange={(e: EventChange) =>
                 handleSelectTypeChange(e, "typeChange" as keyof CarFilter)
               }
             ></CheckBoxUI>

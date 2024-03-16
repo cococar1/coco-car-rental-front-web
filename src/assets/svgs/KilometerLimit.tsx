@@ -10,7 +10,7 @@ const KilometerLimitIcon = (props: React.SVGProps<SVGSVGElement>): JSX.Element =
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g id="mingcute:trunk-line" clip-path="url(#clip0_88_5619)">
+      <g id="mingcute:trunk-line" clipPath="url(#clip0_88_5619)">
         <g id="Group">
           <path
             id="Vector"
