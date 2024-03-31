@@ -30,10 +30,10 @@ export interface Car {
 
 export interface CarHookType {
   setFilter: any;
-  brandFilter: string[];
+  brandFilter: KeyValue[];
   filter: CarFilter;
   fullTypesFilter: string[];
-  categoryFilter: string[];
+  categoryFilter: KeyValue[];
   applyFilter: () => void;
   getCars: (options: any) => void;
   carsOptions: {
@@ -76,4 +76,9 @@ export interface FilterPriceInput {
   min: number;
 
   max: number;
+}
+
+export interface KeyValue {
+  key: string;
+  value: string;
 }
