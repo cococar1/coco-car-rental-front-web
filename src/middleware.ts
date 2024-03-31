@@ -13,22 +13,26 @@ export async function middleware(req: NextRequest) {
   };
 
   const session = (await getSession({ req: requestForNextAuth })) as any;
-  console.log("session",session)
+  console.log("session", session);
   const token = await req.cookies.get("access_token")?.value;
   const apolloClient = initializeApollo();
   const url = req.nextUrl.clone();
   const redirectedParam = req.url.includes("?redirected=true");
   const protectedRoutes = ["/config", "/favorite-cars", "/my-booking"];
 
-  console.log("middleware 22 ",token)
+  console.log("middleware 22 ", token);
   if (protectedRoutes.includes(req.nextUrl.pathname)) {
     if (!session || !token) {
       url.pathname = "/";
       return NextResponse.redirect(url);
     }
-  }}
+  }
+}
 export const config = {
   matcher: ["/"],
+  unstable_allowDynamic: [
+    "/node_modules/@babel/runtime/regenerator/index.js", // file causing the build error
+  ],
 };
 
 export default withAuth({});
