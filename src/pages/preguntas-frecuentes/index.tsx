@@ -58,7 +58,7 @@ const FrequentQuestionsPage: React.FC<FrequentQuestionsPageProps> = () => {
 
       <ContainerSectionSearch>
         <h2>Podemos ayudarte</h2>
-        <Search stylesContainer={{ width: "40%" }} />
+        <Search />
       </ContainerSectionSearch>
 
       <SectionAccodion data={dataFrequentQuestions} />

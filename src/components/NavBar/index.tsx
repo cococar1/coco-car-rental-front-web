@@ -7,7 +7,10 @@ import {
   BodyMenu,
   CallActionButtons,
   ContainerImageLogo,
+  ContainerInfoUserMobile,
+  ContainerSubNavMobile,
   HeaderMenu,
+  ItemSubNavMobile,
   NavItem,
   NavMobile,
   NavbarContainer,
@@ -24,6 +27,13 @@ import ModalLogin from "../ModalLogin";
 import { User } from "@/types/user.type";
 import UserAuth from "../UserAuth";
 import Image from "next/image";
+import InternalNavigation from "../internalNavigation";
+import PhoneIcon from "@/assets/svgs/PhoneIcon";
+import EmailIcon from "@/assets/svgs/emailIcon";
+import UserIcon from "@/assets/svgs/UserIcon";
+import PadLockIcon from "@/assets/svgs/PadLockIcon";
+import DocumentIcon from "@/assets/svgs/documentIcon";
+import LogOutIcon from "@/assets/svgs/LogOutIcon";
 
 interface NavBarProps {
   user: User | null;
@@ -66,6 +76,8 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
                     <Image
                       src={
                         scrollPosition
+                          ? "/images/logo-dark.png"
+                          : changeColor
                           ? "/images/logo-dark.png"
                           : "/images/logo-light.png"
                       }
@@ -123,8 +135,18 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               <li>
                 <ButtonPrincipalContainer
                   style={
-                    scrollPosition
-                      ? { color: "#e96f45", background: "transparent" }
+                    changeColor
+                      ? {
+                          color: "#333",
+                          fontWeight: "bold",
+                          background: "transparent",
+                        }
+                      : scrollPosition
+                      ? {
+                          color: "#333",
+                          fontWeight: "bold",
+                          background: "transparent",
+                        }
                       : { background: "transparent" }
                   }
                 >
@@ -166,13 +188,67 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               <StackMenu href="/preguntas-frecuentes" nameSection="FAQ" />
               <StackMenu href="/contacto" nameSection="Contacto" />
             </NavMobile>
-            <CallActionButtons>
-              <ButtonPrincipalContainer>
-                Iniciar Sessión
-              </ButtonPrincipalContainer>
+            {!user ? (
+              <CallActionButtons>
+                <ButtonPrincipalContainer>
+                  Iniciar Sessión
+                </ButtonPrincipalContainer>
 
-              <ButtonSecondaryContainer>Registrate</ButtonSecondaryContainer>
-            </CallActionButtons>
+                <ButtonSecondaryContainer>Registrate</ButtonSecondaryContainer>
+              </CallActionButtons>
+            ) : (
+              <ContainerInfoUserMobile>
+                <h2>Annette Black</h2>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  {" "}
+                  <PhoneIcon width={22} height={22} />
+                  <p>(302) 555-0107</p>
+                </div>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <EmailIcon width={25} height={25} />
+                  <p>annette_black@gmail.com</p>
+                </div>
+              </ContainerInfoUserMobile>
+            )}
+
+            <ContainerSubNavMobile>
+              <ItemSubNavMobile isActive={mainRoute === "personal-information"}>
+                <UserIcon
+                  width={25}
+                  height={25}
+                  color={
+                    mainRoute === "personal-information" ? "#E96F45" : "#9691A4"
+                  }
+                />
+                <Link href={"/cuenta/personal-information"}>
+                  Información personal
+                </Link>
+              </ItemSubNavMobile>
+              <ItemSubNavMobile isActive={mainRoute === "private-security"}>
+                <PadLockIcon
+                  width={23}
+                  height={23}
+                  color={
+                    mainRoute === "private-security" ? "#E96F45" : "#9691A4"
+                  }
+                />
+                <Link href={"/cuenta/private-security"}>
+                  Contraseña y seguridad
+                </Link>
+              </ItemSubNavMobile>
+              <ItemSubNavMobile isActive={mainRoute === "booking"}>
+                <DocumentIcon
+                  width={25}
+                  height={25}
+                  color={mainRoute === "booking" ? "#E96F45" : "#9691A4"}
+                />
+                <Link href={"booking"}>Reservas</Link>
+              </ItemSubNavMobile>
+              <ItemSubNavMobile>
+                <LogOutIcon width={25} height={25} color="#9691A4" />
+                <Link href={""}>Cerrar sesión</Link>
+              </ItemSubNavMobile>
+            </ContainerSubNavMobile>
           </BodyMenu>
         </nav>
       </NavbarContainer>

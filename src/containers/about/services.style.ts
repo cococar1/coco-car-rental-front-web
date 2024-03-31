@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const SectionServicesContainer = styled.section`
-  /* background-color: blue; */
   height: 650px;
   position: relative;
+  @media (width < 1022px) {
+    height: 100%;
+  }
 `;
 
 export const ContainerTextServices = styled.div`
@@ -12,6 +14,11 @@ export const ContainerTextServices = styled.div`
   gap: 20px;
   height: 70%;
   justify-content: center;
+  @media (width < 1022px) {
+    height: 100%;
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 
 export const ContainerTitles = styled.div`
@@ -26,6 +33,9 @@ export const ContainerTitles = styled.div`
     color: #ffffff;
     font-size: 30px;
   }
+  @media (width < 1022px) {
+    width: 100%;
+  }
 `;
 export const ContainerText = styled.div`
   width: 25%;
@@ -36,15 +46,25 @@ export const ContainerText = styled.div`
     margin-bottom: 10px;
     font-size: 15px;
   }
+  @media (width < 1022px) {
+    width: 100%;
+  }
 `;
 export const ContainerServices = styled.div`
-margin-top: 10px;
+  margin-top: 10px;
   position: absolute;
-  /* background-color: red; */
   display: flex;
   justify-content: center;
-  width:100%;
+  width: 100%;
   gap: 30px;
   bottom: 0;
   padding: 20px;
+  @media (width < 1022px) {
+    display: flex;
+
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    gap: 100px;
+  }
 `;

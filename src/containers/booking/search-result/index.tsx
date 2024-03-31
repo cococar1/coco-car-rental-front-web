@@ -12,7 +12,7 @@ interface SectionSearchResultProps {
 }
 
 const SectionSearchResult: React.FC<SectionSearchResultProps> = ({ data }) => {
-
+console.log( "data",data)
   return (
     <ContainerSearchResult>
       <TitleResult>Resultados de tu búsqueda</TitleResult>

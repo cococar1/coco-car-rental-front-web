@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainderCardReviewClient = styled.div`
+export const ContainerCardReviewClient = styled.div`
   /* background-color: red; */
   width: 380px;
   padding: 25px;
@@ -9,6 +9,12 @@ export const ContainderCardReviewClient = styled.div`
   align-items: center;
   border-radius: 6.267px;
   box-shadow: 0px 1.56685px 7.83427px 0px rgba(0, 0, 0, 0.10);
+
+  @media (width < 1022px) {
+    max-width: 90%;
+    min-width: 60%;
+    flex-direction: column;
+  }
 `;
 
 export const ElementCardReviewClient = styled.div`

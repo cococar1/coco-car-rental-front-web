@@ -32,7 +32,8 @@ export const authOptions: NextAuthOptions = {
           const { user } = authLogin || {};
 
           if (user) {
-
+            setCookie("access_token", authLogin.accessToken);
+            setCookie("refresh_token", authLogin.refreshToken);
             return {
               _id: user._id,
               fullName: user.fullName,
@@ -59,8 +60,12 @@ export const authOptions: NextAuthOptions = {
       if (account) {
         token.id_token = account.id_token;
       }
-      if (user && account) {
-        token.graphqlData = user;
+      if (user) {
+        if (account) {
+          if ((account.provider = "credentials")) {
+            token.graphqlData = user;
+          }
+        }
       }
       return token;
     },

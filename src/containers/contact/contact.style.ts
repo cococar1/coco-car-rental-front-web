@@ -8,6 +8,13 @@ export const ContainerContact = styled.div`
   gap: 8%;
   margin-bottom: 120px;
 
+  @media (width < 1024px) {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px;
+  }
 `;
 
 export const ElementContact = styled.div`
@@ -24,6 +31,13 @@ export const ElementContact = styled.div`
     font-weight: 400;
     text-align: right;
   }
+
+  @media (width < 1024px) {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const ElementContainerText = styled.div`
@@ -35,7 +49,11 @@ export const ElementContainerText = styled.div`
 export const ContainerButton = styled.div`
   /* background-color: blue; */
   width: 100%;
-  margin-right: 22px;
+  /* margin-right: 0px; */
+
+  @media (width < 1024px) {
+    /* margin-right: 0px; */
+  }
 `;
 
 export const ContainerIconNetwork = styled.div`

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {
-  ContainderCardReviewClient,
+  ContainerCardReviewClient,
   ContainerImage,
   ElementCardReviewClient,
 } from "./reviewClient.style";
@@ -25,7 +25,7 @@ const CardReviewClient: React.FC<CardReviewClientProps> = ({
     commemt = commemt.slice(0, 120) + "...";
   }
   return (
-    <ContainderCardReviewClient>
+    <ContainerCardReviewClient>
       <ElementCardReviewClient>
         <ContainerImage>
           <Image
@@ -44,7 +44,7 @@ const CardReviewClient: React.FC<CardReviewClientProps> = ({
         <p>{user.profession}</p>
         <p>{commemt}</p>
       </ElementCardReviewClient>
-    </ContainderCardReviewClient>
+    </ContainerCardReviewClient>
   );
 };
 

@@ -18,6 +18,8 @@ export const MainLayout = ({
   changeColorNavBar?: boolean;
 }) => {
   const { loggedUser } = useAuthContext();
+  console.log("-----------");
+  console.log(loggedUser)
   return (
     <>
       {changeColorNavBar ? (

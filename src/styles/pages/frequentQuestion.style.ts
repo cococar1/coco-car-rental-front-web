@@ -11,4 +11,18 @@ export const ContainerSectionSearch = styled.div`
   h2 {
     font-size: 40px;
   }
+  & div {
+    width: 40%;
+  }
+
+  @media (width <= 1024px) {
+    /* background-color: red; */
+    width: 100%;
+    h2 {
+      font-size: 35px;
+    }
+    & div {
+      width: 80% !important;
+    }
+  }
 `;

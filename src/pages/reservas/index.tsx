@@ -22,10 +22,10 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
   const query = route.query;
   useEffect(() => {
     console.log("queryyy");
-
     console.log(query);
     if (query.pickupDate || query.returnDate) {
       setFilter({
+        ...filter,
         booking: {
           pickupDate: query.pickupDate ?? "",
           returnDate: query.returnDate ?? "",
@@ -53,15 +53,10 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
     // }
   }, [query]);
 
-  useEffect(() => {
-    console.log("data carss reservas");
-    console.log(data);
-  }, [data]);
-
   return (
     <MainLayout changeColorNavBar={true}>
       <ContainerPageBooking>
-        <FilterPanel></FilterPanel>
+        <FilterPanel />
         {loading ? (
           <div
             style={{ width: "100%", display: "flex", justifyContent: "center" }}

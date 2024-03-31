@@ -11,12 +11,14 @@ import FormInfoPersonal from "./formInfoPersonal";
 import { useAuthContext } from "@/context/AuthContext";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import { User } from "@/types/user.type";
+import useScreen from "@/hooks/useScreen";
 
 interface InformationPersonalProps {}
 
 const InformationPersonal: React.FC<InformationPersonalProps> = () => {
   const [file, setFile] = useState<StateFile>({} as StateFile);
 
+  const { width } = useScreen();
   const [user, setUser] = useState<User>({} as User);
   const { loggedUser } = useAuthContext();
   useEffect(() => {
@@ -43,7 +45,13 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           </div>
         </SectionImage>
       </ContainerDataPersonal>
-      <div style={{ marginTop: "54px" }}>
+      <div
+        style={{
+          marginTop: "54px",
+          display: "flex",
+          justifyContent: width < 1024 ? "center" : "start",
+        }}
+      >
         <ButtonPrincipalUI sx={{ width: "200px" }}>Guardar</ButtonPrincipalUI>
       </div>
     </div>

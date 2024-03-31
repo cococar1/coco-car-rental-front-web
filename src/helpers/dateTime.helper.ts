@@ -1,5 +1,5 @@
 export const getDateFromFinalDate = (date: string | Date) => {
-  console.log(date)
+  // console.log(date)
   return date ? date.toString().split("T")[0] : "";
 };
 

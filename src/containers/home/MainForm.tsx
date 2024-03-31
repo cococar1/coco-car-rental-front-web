@@ -69,10 +69,10 @@ const MainForm: React.FC<MainFormProps> = () => {
                   background: "transparent",
                   color: "#fff",
                 }}
-                value={getDateFromFinalDate(filter.pickupDate) ?? ""}
+                value={getDateFromFinalDate(filter.booking.pickupDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const newDate = e.target.value;
-                  const existingTime = getTimeFromFinalDate(filter.pickupDate);
+                  const existingTime = getTimeFromFinalDate(filter.booking.pickupDate);
                   setFilter({
                     ...filter,
                     booking: {
@@ -96,10 +96,10 @@ const MainForm: React.FC<MainFormProps> = () => {
                   color: "#fff",
                 }}
                 SvgIcon={<CalendarIcon width={25} height={25} />}
-                value={getDateFromFinalDate(filter.returnDate) ?? ""}
+                value={getDateFromFinalDate(filter.booking.returnDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const newDate = e.target.value;
-                  const existingTime = getTimeFromFinalDate(filter.returnDate);
+                  const existingTime = getTimeFromFinalDate(filter.booking.returnDate);
                   setFilter({
                     ...filter,
                     booking: {
@@ -124,10 +124,10 @@ const MainForm: React.FC<MainFormProps> = () => {
                   color: "#fff",
                 }}
                 SvgIcon={<ClockIcon width={25} height={25} />}
-                value={getTimeFromFinalDate(filter.pickupDate) ?? ""}
+                value={getTimeFromFinalDate(filter.booking.pickupDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const newTime = e.target.value;
-                  const existingDate = getDateFromFinalDate(filter.pickupDate);
+                  const existingDate = getDateFromFinalDate(filter.booking.pickupDate);
                   setFilter({
                     ...filter,
                     booking: {
@@ -150,10 +150,10 @@ const MainForm: React.FC<MainFormProps> = () => {
                   color: "#fff",
                 }}
                 SvgIcon={<ClockIcon width={25} height={25} />}
-                value={getTimeFromFinalDate(filter.returnDate) ?? ""}
+                value={getTimeFromFinalDate(filter.booking.returnDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const newTime = e.target.value;
-                  const existingDate = getDateFromFinalDate(filter.returnDate);
+                  const existingDate = getDateFromFinalDate(filter.booking.returnDate);
                   setFilter({
                     ...filter,
                     booking: {
@@ -182,13 +182,13 @@ const MainForm: React.FC<MainFormProps> = () => {
         <ContainerButtonForm>
           <ButtonPrincipalUI
             onClick={() => {
-              if (filter.pickupDate != "T" && filter.returnDate != "T") {
+              if (filter.booking.pickupDate != "T" && filter.booking.returnDate != "T") {
                 return route.push(
-                  `/reservas?pickupDate=${filter.pickupDate}&returnDate=${filter.returnDate}`
+                  `/reservas?pickupDate=${filter.booking.pickupDate}&returnDate=${filter.booking.returnDate}`
                 );
               }
-              if (filter.pickupDate != "T" && filter.returnDate == "T") {
-                return route.push(`/reservas?pickupDate=${filter.pickupDate}`);
+              if (filter.booking.pickupDate != "T" && filter.booking.returnDate == "T") {
+                return route.push(`/reservas?pickupDate=${filter.booking.pickupDate}`);
               }
               route.push(`/reservas`);
             }}

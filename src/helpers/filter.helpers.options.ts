@@ -11,6 +11,7 @@ export const categoriesFilterData = [
   { key: "lujo", value: "Lujo" },
   { key: "descapotables-convertibles", value: "Descapotables / Convertibles" },
   { key: "crossovers", value: "Crossovers" },
+  { key: "todos", value: "Todos" },
 ];
 
 export const fullTypesFilterData = [
@@ -30,7 +31,7 @@ export const brandFilterData = [
   { key: "nissan", value: "Nissan" },
   { key: "volkswagen", value: "Volkswagen" },
   { key: "bmw", value: "BMW" },
-  { key: "mercedes_benz", value: "Mercedes-Benz" },
+  { key: "mercedes-benz", value: "Mercedes-Benz" },
   { key: "audi", value: "Audi" },
   { key: "hyundai", value: "Hyundai" },
   { key: "kia", value: "Kia" },
@@ -40,6 +41,7 @@ export const brandFilterData = [
   { key: "tesla", value: "Tesla" },
   { key: "renault", value: "Renault" },
   { key: "peugeot", value: "Peugeot" },
+  { key: "todos", value: "Todos" },
 ];
 
 export function buildQueryString(objeto: any) {

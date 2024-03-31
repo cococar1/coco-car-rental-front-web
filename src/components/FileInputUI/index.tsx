@@ -39,7 +39,7 @@ const FileInputUI: React.FC<FileInputUIProps> = ({
 
       <InputFile
         type="file"
-        style={{ color: "transparent" }}
+        style={{ color: "transparent",minWidth:"200px" }}
         onChange={onChangeFile}
       />
     </ContainerInputFile>

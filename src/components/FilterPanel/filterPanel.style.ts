@@ -8,6 +8,21 @@ export const ContainerFilterPanel = styled.section`
   h2 {
     font-size: 20px;
   }
+
+  @media (max-width: 1024px) {
+    /* background-color: red; */
+    /* padding:0px 20px; */
+
+    width: 90%;
+    padding: 0px;
+    /* Estilos específicos para el primer h2 */
+  }
+`;
+
+export const TitleFilter = styled.h2`
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const ContainerDate = styled.div`
@@ -24,7 +39,30 @@ export const ContainerDate = styled.div`
     display: flex;
     gap: 10px;
   }
+  @media (max-width: 1024px) {
+    margin: 0;
+  }
 `;
+
+export const ContainerFilterSecondary = styled.div`
+  /* background: yellow; */
+`;
+
+export const ButtonFilterOption = styled.button`
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #fff;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Box-shadow sutil */
+  cursor: pointer;
+`;
+export const OptionFilter = styled.div`
+  /* background: red; */
+  margin-bottom: 10px;
+`;
+
 export const ContainerCheckBoxScroll = styled.div`
   margin-top: 10px;
   height: 150px;
@@ -74,5 +112,5 @@ export const LineYear = styled.div`
 `;
 
 export const ContainerContentElementCheckBook = styled.div`
-margin-top: 20px;
-`
+  margin-top: 20px;
+`;

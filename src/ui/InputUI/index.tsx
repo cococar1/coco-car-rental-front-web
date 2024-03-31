@@ -34,8 +34,7 @@ const InpuntUI: React.FC<InpuntUIProps> = ({
   const ref = useRef<HTMLInputElement | null>(null); // Especifica el tipo HTMLInputElement
 
   useEffect(() => {
-    console.log("type:", type);
-    console.log("value:", value);
+
     if (ref.current) {
       ref.current.type = value ? type : "text";
     }

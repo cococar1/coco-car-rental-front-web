@@ -67,7 +67,7 @@ export const useAuth = () => {
       redirect: true,
       callbackUrl: "/",
     });
-    console.log("hook 79", responseNextAuth)
+    console.log("hook 79", responseNextAuth);
     console.log("use login 70", responseNextAuth);
     // authLoginFn({
     //   variables: {
@@ -101,7 +101,7 @@ export const useAuth = () => {
 
         if (data) {
           if (accessToken) {
-            setAuth(accessToken, refreshToken, user.role, redirectTo);
+            setAuth(accessToken, refreshToken, user?.role ?? "", redirectTo);
           }
         }
       },
@@ -139,6 +139,8 @@ export const useAuth = () => {
 
   useEffect(() => {
     const token = getCookie("access_token");
+    console.log("tokennnnnnnn -------");
+    console.log(token);
     if (token) {
       setToken(token);
       getAuthData();

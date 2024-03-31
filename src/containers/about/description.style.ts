@@ -11,6 +11,16 @@ export const SectionDescriptionContainer = styled.section`
       height: 476px;
     }
   }
+  @media (width <= 1024px) {
+    flex-direction: column;
+    align-items: center;
+    & div {
+      img {
+        width: 354px;
+        height: 276px;
+      }
+    }
+  }
 `;
 
 export const ContainerTextDescription = styled.div`
@@ -20,6 +30,7 @@ export const ContainerTextDescription = styled.div`
   justify-content: center;
   gap: 50px;
   div {
+    text-align: center;
     p {
       color: #888888;
       font-size: 25px;
@@ -27,6 +38,16 @@ export const ContainerTextDescription = styled.div`
     }
     h2 {
       font-size: 30px;
+    }
+  }
+  @media (width <= 924px) {
+    align-items: center;
+    /* background-color: red; */
+
+    width: 100%;
+    & p {
+      width: 100%;
+      padding: 20px;
     }
   }
 `;

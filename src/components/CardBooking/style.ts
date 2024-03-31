@@ -11,6 +11,11 @@ export const ContainerCardBooking = styled.div`
   -webkit-box-shadow: 3px 3px 21px -4px rgba(0, 0, 0, 0.52);
   -moz-box-shadow: 3px 3px 21px -4px rgba(0, 0, 0, 0.52);
   box-shadow: 3px 3px 21px -4px rgba(0, 0, 0, 0.52);
+
+  @media (width < 1024px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const ContainerImage = styled.div`

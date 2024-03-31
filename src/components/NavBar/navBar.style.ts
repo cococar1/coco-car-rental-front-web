@@ -89,7 +89,6 @@ export const NavbarContainer = styled.header<{
       margin-right: 50px;
     }
     ul:nth-child(3) {
-      /* background-color: red !important; */
       gap: 0px;
       padding: 0;
       justify-content: center;
@@ -97,7 +96,6 @@ export const NavbarContainer = styled.header<{
   }
 `
 export const ContainerImageLogo = styled.div`
-/* background-color: red; */
 width: 100px;
 height: 40px;
 position: relative;
@@ -170,3 +168,45 @@ export const CallActionButtons = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+export const ContainerInfoUserMobile = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  & h2 {
+    font-weight: bold;
+  }
+`;
+
+export const ContainerSubNavMobile = styled.div`
+`
+
+export const ItemSubNavMobile = styled.div<{ isActive?: boolean }>`
+  border-top: 2px solid #efecf3;
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* text-align: center; */
+  &:hover {
+    border-left: 3px solid #e96f45;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: #e96f45;
+    }
+  }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      a {
+        color: #e96f45;
+      }
+      border-left: 3px solid #e96f45;
+    `}
+`;

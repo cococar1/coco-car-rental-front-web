@@ -1,5 +1,6 @@
 import EyeClosedIcon from "@/assets/svgs/eyeClosedIcon";
 import EyeOpenIcon from "@/assets/svgs/eyeOpenIcon";
+import useScreen from "@/hooks/useScreen";
 import { InternalLayout } from "@/layouts/Internal.layout";
 import { MainLayout } from "@/layouts/Main.layout";
 import {
@@ -16,6 +17,7 @@ interface SecurityPageProps {}
 const SecurityPage: React.FC<SecurityPageProps> = () => {
   const [viewPassword, setViewPassword] = useState(false);
 
+  const { width } = useScreen();
   const [errorRepeat, setErrorRepeat] = useState(false);
   const [changePassword, setChangePassword] = useState({
     oldPassword: "",
@@ -134,8 +136,9 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
           style={{
             display: "flex",
             marginTop: "10px",
-            justifyContent: "start",
+            justifyContent: width < 1024 ? "center" : "start",
             flexDirection: "column",
+            alignItems: width < 1024 ? "center" : "start",
           }}
         >
           {errorRepeat && (

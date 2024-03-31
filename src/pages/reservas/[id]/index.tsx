@@ -8,11 +8,15 @@ import { useBookingContext } from "@/context/BookingContext";
 import { CREATE_BOOKING } from "@/gql/booking/booking.mutation";
 import { ONE_CAR } from "@/gql/cars/query";
 import { MainLayout } from "@/layouts/Main.layout";
-import { CarDetailPage } from "@/styles/pages/carDetails.style";
+import {
+  CarDetailPage,
+  ContainerContent,
+} from "@/styles/pages/carDetails.style";
 import { Car } from "@/types/Car.type";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import { LoaderUI } from "@/ui/LoaderUI";
 import { useLazyQuery, useMutation } from "@apollo/client";
+import { Booking } from "@/types/Booking";
 
 // interface CarIdPageProps {}
 
@@ -73,22 +77,17 @@ const CarIdPage: React.FC = () => {
         )}
 
         {!getCarRes.loading && (
-          <div
-            style={{
-              background: "",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              width: "65%",
-            }}
-          >
+          <ContainerContent>
             <div style={{ marginTop: "40px" }}>
               <p>
                 Reservar<span style={{ padding: "0px 20px" }}>{">"} </span>
                 <span style={{ color: "#FD5631" }}>Concretar reserva</span>
               </p>
             </div>
-            <CarDetails car={getCarRes.data?.car ?? ({} as Car)} />
+            <CarDetails
+              booking={newBooking}
+              car={getCarRes.data?.car ?? ({} as Car)}
+            />
             <InformationPersonal />
             <div style={{ width: "100%", marginTop: "20px" }}>
               <Accordion
@@ -114,7 +113,7 @@ const CarIdPage: React.FC = () => {
                 Continuar
               </ButtonPrincipalUI>
             </div>
-          </div>
+          </ContainerContent>
         )}
       </CarDetailPage>
     </MainLayout>

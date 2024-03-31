@@ -5,11 +5,15 @@ export const InternalNavigationContainer = styled.div`
   align-items: center;
   /* background-color: yellow; */
   justify-content: space-between;
-  /* background-color: red; */
   box-shadow: 0px 0px 10px 0px #1f1b2d14;
   width: 350px;
   height: 500px;
   position: fixed;
+
+  @media (width < 1024px) {
+    visibility: hidden;
+    display: none;
+  }
 `;
 
 export const NavItem = styled.div<{ isActive?: boolean }>`

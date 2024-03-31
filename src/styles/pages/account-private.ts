@@ -7,6 +7,9 @@ export const GridPrivatePassword = styled.div`
   width: 90%;
   /* background-color: red; */
   gap: 30px;
+  @media (width < 1024px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ContainerItemGrid = styled.div`
@@ -17,11 +20,12 @@ export const ContainerItemGrid = styled.div`
 
   & label {
     display: block;
-    padding: 10px; 
+    padding: 10px;
   }
 `;
 export const ContainerTitle = styled.div`
   padding: 10px 0px;
+
   & h1 {
     font-size: 40px;
   }
@@ -33,5 +37,16 @@ export const ContainerTitle = styled.div`
 
   & h2 {
     font-weight: bold;
+  }
+
+  @media (width < 1024px) {
+    & h1 {
+      font-size: 30px;
+    }
+
+    & p {
+      margin: 20px 0px;
+      font-size: 16px;
+    }
   }
 `;

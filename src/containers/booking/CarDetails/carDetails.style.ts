@@ -6,6 +6,12 @@ export const ContainerCarDetail = styled.div`
   border-bottom: 1px solid #e7e7e7;
   padding-bottom: 20px;
   justify-content: space-between;
+
+  @media screen and (max-width: 1022px) {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const SectionImage = styled.div`
   width: 50%;
@@ -20,6 +26,12 @@ export const ContainerImage = styled.div`
   img {
     width: 50%;
     position: relative !important;
+  }
+  @media screen and (max-width: 1022px) {
+    img {
+      width: 200% !important;
+      position: relative !important;
+    }
   }
 `;
 export const ContainerFeatures = styled.div`
@@ -60,6 +72,12 @@ export const SectionDetail = styled.div`
       font-weight: normal;
     }
   }
+  @media screen and (max-width: 1022px) {
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const DetailCar = styled.div`
@@ -70,6 +88,11 @@ export const DetailCar = styled.div`
     display: flex;
     gap: 10px;
     align-items: center;
+  }
+  width: 100%;
+
+  @media screen and (max-width: 1022px) {
+    width: 100%;
   }
 `;
 

@@ -6,4 +6,13 @@ export const ContainerPageBooking = styled.div`
   /* background-color: red; */
   width: 100%;
   padding: 30px 0px;
+
+  @media (width < 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    /* background-color: yellow !important; */
+    width: 100%;
+  }
 `;

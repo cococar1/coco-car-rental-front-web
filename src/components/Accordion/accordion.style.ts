@@ -1,7 +1,4 @@
-// import styled, { keyframes } from "styled-components";
-// const svgDataURL =
-//   "data:image/svg+xml;base64,PHN2Zzogd3d3LjIwMDAvc3ZnIHp0b293bj0iMC4wMCAwLjAwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvd3" +
-//   "AtY29udGVudC1ucyMiPjxncz48cGF0aCBkPSJNMTMuNSAxTDcuNSA2TDQuNSAxIj48L3BhdGg+PC9nPjwvc3ZnPg=="; // Reemplaza con tu propia cadena base64 de SVG
+
 
 import styled from "styled-components";
 
@@ -51,8 +48,8 @@ import styled from "styled-components";
 export const ContainerAccordion = styled.div`
   position: relative;
   /* background-color: red; */
-  max-width: 474px;
-  width: 474px;
+  /* max-width: 474px; */
+  width: 100%;
 `;
 
 export const DetailAccordion = styled.div`

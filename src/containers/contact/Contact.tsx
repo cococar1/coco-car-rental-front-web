@@ -73,12 +73,12 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         />
         <TextAreaUI
           placeholder="Your message here…"
-          stylesContainer={{ width: "103.4%" }}
+          stylesContainer={{ width: "100%" }}
           stylesInput={{
             border: "1px solid #AEB7C1",
             width: "100%",
             borderRadius: "0px",
-            marginLeft: "-6px",
+            marginLeft: "0px",
             maxWidth: "100%",
             minWidth: "100%",
             maxHeight: "100px",

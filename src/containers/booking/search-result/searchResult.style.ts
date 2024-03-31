@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const ContainerSearchResult = styled.section`
   width: calc(100% - 300px);
+  @media (max-width: 1024px) {
+  background-color: #F7F7FA;
+    width: calc(100% );
+
+  }
+
 `;
 
 export const ContainerCards = styled.div`

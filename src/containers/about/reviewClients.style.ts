@@ -17,10 +17,19 @@ export const ReviewClientText = styled.p`
   width: 698.034px;
   color: #797f8c;
   font-size: 15.669px;
+  @media (width < 1022px) {
+    width: 100%;
+  }
 `;
 
 export const ReviewClientsContainer = styled.div`
   display: flex;
   gap: 30px;
   justify-content: center;
+
+  @media (width < 1022px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
