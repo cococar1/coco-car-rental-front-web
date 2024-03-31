@@ -13,10 +13,14 @@ import FacebookIcon from "@/assets/svgs/facebookIcon";
 import InstagramIcon from "@/assets/svgs/instagramIcon";
 import TwitterIcon from "@/assets/svgs/twitterIcon";
 import { WrapperIconNetworks } from "./contact.style";
+import { useState } from "react";
+import { ContactInput } from "@/types/Contact.type";
+import { EventChange } from "@/types/general";
 
 interface SectionContactProps {}
 
 const SectionContact: React.FC<SectionContactProps> = () => {
+  const [statusContact, setStatusContact] = useState({} as ContactInput);
   return (
     <ContainerContact>
       <ElementContact>
@@ -44,6 +48,13 @@ const SectionContact: React.FC<SectionContactProps> = () => {
       <ElementContact>
         <InpuntUI
           type="email"
+          value={statusContact.email ?? ""}
+          onChange={(e: EventChange) => {
+            setStatusContact({
+              ...statusContact,
+              email: e.target.value,
+            });
+          }}
           placeholder="E-mail address"
           backgroundcolor="#ffffff"
           stylesContainer={{
@@ -58,6 +69,13 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         />
         <InpuntUI
           type="text"
+          value={statusContact.subject ?? ""}
+          onChange={(e: EventChange) => {
+            setStatusContact({
+              ...statusContact,
+              subject: e.target.value,
+            });
+          }}
           backgroundcolor="#ffffff"
           placeholder="Asunto"
           stylesContainer={{
@@ -74,6 +92,13 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         <TextAreaUI
           placeholder="Your message here…"
           stylesContainer={{ width: "100%" }}
+          value={statusContact.content ?? ""}
+          onChange={(e: EventChange) => {
+            setStatusContact({
+              ...statusContact,
+              content: e.target.value,
+            });
+          }}
           stylesInput={{
             border: "1px solid #AEB7C1",
             width: "100%",
