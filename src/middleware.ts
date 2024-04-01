@@ -28,8 +28,10 @@ export async function middleware(req: NextRequest) {
     }
   }
 }
+
 export const config = {
   matcher: ["/"],
+  runtime: "nodejs", // rather than "edge"
   unstable_allowDynamic: [
     "/node_modules/@babel/runtime/regenerator/index.js", // file causing the build error
   ],

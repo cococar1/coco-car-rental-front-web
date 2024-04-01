@@ -188,7 +188,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               <StackMenu href="/preguntas-frecuentes" nameSection="FAQ" />
               <StackMenu href="/contacto" nameSection="Contacto" />
             </NavMobile>
-            {!user ? (
+            {user ? (
               <CallActionButtons>
                 <ButtonPrincipalContainer>
                   Iniciar Sessión

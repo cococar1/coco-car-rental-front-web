@@ -5,7 +5,6 @@ import {
   TitleResult,
 } from "./searchResult.style";
 import { Car } from "@/types/Car.type";
-import { useBookingContext } from "@/context/BookingContext";
 
 interface SectionSearchResultProps {
   data: Car[];

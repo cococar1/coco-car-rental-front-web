@@ -1,11 +1,9 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { redirect } from "next/navigation";
+import { useEffect } from "react";
 import Accordion from "@/components/Accordion";
 import CarDetails from "@/containers/booking/CarDetails";
 import InformationPersonal from "@/containers/booking/InformationPersonal";
 import { useBookingContext } from "@/context/BookingContext";
-import { CREATE_BOOKING } from "@/gql/booking/booking.mutation";
 import { ONE_CAR } from "@/gql/cars/query";
 import { MainLayout } from "@/layouts/Main.layout";
 import {
@@ -15,8 +13,7 @@ import {
 import { Car } from "@/types/Car.type";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import { LoaderUI } from "@/ui/LoaderUI";
-import { useLazyQuery, useMutation } from "@apollo/client";
-import { Booking } from "@/types/Booking";
+import { useLazyQuery } from "@apollo/client";
 
 // interface CarIdPageProps {}
 

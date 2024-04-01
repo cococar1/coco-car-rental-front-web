@@ -40,17 +40,7 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
       });
     }
 
-    // if (pickupDate && pickupDate != "T" && returnDate && returnDate != "T") {
-    //   setFilter({
-    //     ...filter,
-    //     pickupDate,
-    //     returnDate,
-    //   });
-    //   setNewBooking({
-    //     pickupDate,
-    //     returnDate,
-    //   });
-    // }
+
   }, [query]);
 
   return (
