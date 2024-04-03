@@ -8,12 +8,13 @@ export const setCookie = async (key, value) => {
 }
 
 export const removeCookie = key => {
-  if (typeof window != 'undefined') {
+  if (typeof window !== 'undefined') {
     Cookies.remove(key, {
       expires: 1
     })
   }
 }
+
 
 export const getCookie = (key, req) => {
   return !req ? getCookieFromBrowser(key) : getCookieFromServer(key, req)
