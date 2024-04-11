@@ -7,6 +7,7 @@ import { useApollo } from "../services/client";
 import "react-toastify/dist/ReactToastify.css";
 import "react-phone-input-2/lib/style.css";
 import Providers from "@/providers";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
@@ -45,6 +46,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             `}
           </style>
           <Component {...pageProps} />
+          <FloatingWhatsApp
+            phoneNumber="51917204652"
+            accountName="Coco car"
+            chatMessage="Hola como podemos ayudarte"
+          />
           <ToastContainer theme="colored" />
         </Providers>
       </SessionProvider>

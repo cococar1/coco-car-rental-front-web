@@ -6,7 +6,7 @@ export const ContainerCard = styled.div`
   flex-direction: column;
   background-color: #ffffff;
   padding: 30px;
-  max-width: 335px;
+  max-width: 400px;
 `;
 
 export const ContainerImageTitle = styled.div`

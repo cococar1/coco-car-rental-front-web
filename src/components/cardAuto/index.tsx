@@ -2,7 +2,6 @@ import GasIcon from "@/assets/svgs/GasAuto";
 import KilometerLimitIcon from "@/assets/svgs/KilometerLimit";
 import TypeAutoIcon from "@/assets/svgs/TypeAuto";
 import UserIcon from "@/assets/svgs/UserIcon";
-import { ButtonPrincipalContainer } from "@/ui/ButtonPrincipalUi/buttonPrincipal.style";
 import {
   ContainerCard,
   ContainerCharacteristics,
@@ -12,20 +11,13 @@ import {
   ContainerPrice,
 } from "./cardAuto.style";
 import Image from "next/image";
+import { Car } from "@/types/Car.type";
 
 interface CardAutoProps {
-  urlImage?: string;
-  countUser?: number;
-  typeChange?: string;
-  tankQuantity?: string;
-  fullType?: string;
-  title?: string;
-  description?: string;
-  precio?: string;
-  name?: string;
+  car: Car;
 }
 
-const CardAuto: React.FC<CardAutoProps> = () => {
+const CardAuto: React.FC<CardAutoProps> = ({ car }) => {
   return (
     <ContainerCard>
       <ContainerImageTitle>
@@ -38,42 +30,41 @@ const CardAuto: React.FC<CardAutoProps> = () => {
             fill
           />
         </ContainerImagePrincipal>
-        <h2>Toyota Etios</h2>
+        <h2>{car?.name}</h2>
       </ContainerImageTitle>
       <ContainerCharacteristics>
         <div>
           <UserIcon />
-          <p>5</p>
+          <p>{car?.countPerson}</p>{" "}
         </div>
         <div>
           <TypeAutoIcon />
-          <p>Manual</p>
+          <p>{car?.typeChange}</p>
         </div>
         <div>
           <KilometerLimitIcon />
-          <p> 562 L</p>
+          <p>{car?.maxTankQuantity} L</p>
         </div>
         <div>
           <GasIcon />
-          <p>Nafta</p>
+          <p>{car?.fullType}</p>
         </div>
       </ContainerCharacteristics>
       <ContainerContent>
-        <h3>Toyota Etios platinum, 5 puertas, Motor 1.5</h3>
+        <h3>{car?.subTitle}</h3>
         <p>
-          Su reserva garantiza el modelo de auto que elija, sujeto a
-          disponibilidad de la agencia
+          {car?.description.length>200?car?.description.slice(0,200):car?.description}
         </p>
       </ContainerContent>
       <ContainerPrice>
         <p>Desde</p>
-        <p>ARS 13.400,00 / día</p>
+        <p>$ {car?.price}/ día</p>
       </ContainerPrice>
-      <div>
+      {/* <div>
         <ButtonPrincipalContainer style={{ width: "100%", marginTop: "20px" }}>
           Reservar
         </ButtonPrincipalContainer>
-      </div>
+      </div> */}
     </ContainerCard>
   );
 };

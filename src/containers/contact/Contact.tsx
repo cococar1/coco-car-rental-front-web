@@ -16,11 +16,30 @@ import { WrapperIconNetworks } from "./contact.style";
 import { useState } from "react";
 import { ContactInput } from "@/types/Contact.type";
 import { EventChange } from "@/types/general";
+import { useContactContext } from "@/context/ContactContext";
+import { toast } from "react-toastify";
 
 interface SectionContactProps {}
 
 const SectionContact: React.FC<SectionContactProps> = () => {
   const [statusContact, setStatusContact] = useState({} as ContactInput);
+
+  const { createContact } = useContactContext();
+
+  const handleSubmitContact = () => {
+    if (
+      !statusContact.email &&
+      !statusContact.subject &&
+      !statusContact.content
+    ) {
+      return toast.error(`Se requiere llenar todos los datos`, {
+        position: "bottom-right",
+      });
+    }
+    createContact(statusContact, () => {
+      setStatusContact({});
+    });
+  };
   return (
     <ContainerContact>
       <ElementContact>
@@ -111,7 +130,10 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           }}
         />
         <ContainerButton>
-          <ButtonPrincipalUI sx={{ borderRadius: "50px" }}>
+          <ButtonPrincipalUI
+            sx={{ borderRadius: "50px" }}
+            onClick={handleSubmitContact}
+          >
             Enviar mensaje
           </ButtonPrincipalUI>
         </ContainerButton>

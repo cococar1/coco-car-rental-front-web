@@ -1,5 +1,3 @@
-
-
 import styled from "styled-components";
 
 // const rotateAnimation = keyframes
@@ -47,9 +45,9 @@ import styled from "styled-components";
 
 export const ContainerAccordion = styled.div`
   position: relative;
-  /* background-color: red; */
+
   /* max-width: 474px; */
-  width: 100%;
+  width: 120%;
 `;
 
 export const DetailAccordion = styled.div`
