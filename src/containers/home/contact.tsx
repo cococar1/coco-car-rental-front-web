@@ -10,6 +10,7 @@ import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import { ContactInput } from "@/types/Contact.type";
 import { useContactContext } from "@/context/ContactContext";
 import { toast } from "react-toastify";
+import { EventChange } from "@/types/general";
 
 interface SectionContactProps {}
 
