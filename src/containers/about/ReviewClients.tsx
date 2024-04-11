@@ -44,8 +44,8 @@ const SectionReviewClients: React.FC<SectionReviewClientsProps> = () => {
     <SectionReviewClientsContainer>
       <h2>Nuestros Clientes</h2>
       <ReviewClientText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua
+        Valoramos cada experiencia y nos enorgullece ofrecer un servicio
+        excepcional que supera las expectativas.
       </ReviewClientText>
       <ReviewClientsContainer>
         {dataReviewClients.map((review, index) => {

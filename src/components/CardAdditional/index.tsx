@@ -1,3 +1,4 @@
+import { FormatDate } from "@/helpers/formatDate.helper";
 import {
   ContainerCardAdditional,
   ContainerContent,
@@ -21,7 +22,7 @@ const CardAdditional: React.FC<CardAdditionalProps> = ({
     <ContainerCardAdditional>
       <ContainerTicket>
         <p>{type}</p>
-        <p>{date ? date.toString() : ""}</p>
+        <p>{date ? FormatDate(date.toString()) : ""}</p>
       </ContainerTicket>
       <ContainerContent>
         <h2>{title}</h2>

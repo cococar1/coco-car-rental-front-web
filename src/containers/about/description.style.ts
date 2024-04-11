@@ -28,16 +28,22 @@ export const ContainerTextDescription = styled.div`
   flex-direction: column;
   width: 476px;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
+  & p {
+    margin: 0;
+  }
   div {
-    text-align: center;
+    text-align: start;
     p {
       color: #888888;
       font-size: 25px;
-      margin-bottom: 10px;
+      margin: 20px 0px;
+      text-align: justify;
     }
     h2 {
       font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 0px;
     }
   }
   @media (width <= 924px) {

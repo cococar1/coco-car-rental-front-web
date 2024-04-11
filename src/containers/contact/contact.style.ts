@@ -21,15 +21,18 @@ export const ElementContact = styled.div`
   display: flex;
   flex-direction: column;
   /* padding: 20px; */
-  align-items: end;
+  align-items: start;
   /* background-color: red; */
   width: 474px;
   height: 320px;
   gap: 10px;
   justify-content: space-around;
   h2 {
-    font-weight: 400;
-    text-align: right;
+    font-weight: bold;
+    text-align: left;
+    font-size: 34px;
+    color: #E96F45
+    
   }
 
   @media (width < 1024px) {
@@ -41,10 +44,11 @@ export const ElementContact = styled.div`
 `;
 
 export const ElementContainerText = styled.div`
+/* margin-top:10px; */
   h3 {
     font-weight: 400;
   }
-  text-align: right;
+  text-align: left;
 `;
 export const ContainerButton = styled.div`
   /* background-color: blue; */

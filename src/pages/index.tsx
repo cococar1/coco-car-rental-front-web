@@ -24,8 +24,18 @@ export default function Home() {
       <MainForm />
       <ContainerContentHome>
         <ContainerContentServiceHome>
-          <div>
-            <h2>La mejor manera de encontrar el vehículo perfecto</h2>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              // justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h2>
+              Encuentra la confianza que necesitas al elegirnos para tu próximo
+              alquiler de auto
+            </h2>
             <p>Las mejores opciones para que reserves y aproveches</p>
           </div>
           <HomeServices />
@@ -33,7 +43,7 @@ export default function Home() {
       </ContainerContentHome>
       <SecctionNewAutos>
         <h2>Conoce nuestra flota</h2>
-        <p>Las mejores opciones para que reserves y aproveches</p>
+        <p>Las mejores opciones para tu comodidad</p>
         <ContainerNewAutosHome />
       </SecctionNewAutos>
       <SectionDetails></SectionDetails>

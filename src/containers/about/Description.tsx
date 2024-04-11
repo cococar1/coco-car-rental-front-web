@@ -14,15 +14,18 @@ const SectionDescription: React.FC<SectionDescriptionProps> = () => {
       </div>
       <ContainerTextDescription>
         <div>
-          <p>Sobre nosotros</p>
-          <h2>Strategy. Design. Content. Technology Development </h2>
+          <p>Nosotros</p>
+          <h2>Explora Mendoza con Coco Car: Tu Compañero de Viaje.</h2>
         </div>
         <p>
-          At vero eos censes aut dolores eos, qui studiose antiqua persequeris,
-          claris et ultimum bonorum, quod summum malum et, quantum possit, a
-          philosophis compluribus permulta dicantur, cur nec me ab illo
-          inventore veritatis et quasi naturalem atque natum sit, a se esse
-          albam, dulce mel.
+          "En nuestra empresa, nos dedicamos a proporcionarte el servicio ideal
+          para alquilar tu auto en línea de manera sencilla en la Provincia de
+          Mendoza. Con Coco Car, podrás explorar impresionantes paisajes, rutas
+          y lugares con la comodidad que mereces. Te ofrecemos tarifas
+          competitivas y condiciones excepcionales en el alquiler de autos
+          modernos. Desde el año 2006, nos hemos destacado por nuestra atención
+          al cliente y el compromiso con la calidad, asegurando que cada paso de
+          tu viaje sea memorable y satisfactorio."
         </p>
       </ContainerTextDescription>
     </SectionDescriptionContainer>

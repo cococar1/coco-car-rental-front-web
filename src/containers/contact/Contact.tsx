@@ -43,14 +43,18 @@ const SectionContact: React.FC<SectionContactProps> = () => {
   return (
     <ContainerContact>
       <ElementContact>
-        <h2>Let’s collaborate and make an amazing project</h2>
-        <ElementContainerText>
-          <h3>Phone</h3>
-          <p>+ 72 4500 1240</p>
+        <h2>¿Listo para tu próxima aventura sobre ruedas?</h2>
+        <p>
+          ¡Contáctanos hoy mismo para resolver tus dudas y reservar tu auto
+          ideal! Estamos aquí para ayudarte en cada paso del camino
+        </p>
+        <ElementContainerText >
+          <h3>Teléfono</h3>
+          <p style={{color:"#E96F45"}}>+ 72 4500 1240</p>
         </ElementContainerText>
         <ElementContainerText>
-          <h3>Address</h3>
-          <p>123 Lorem Ipsum Street Jakarta, Indonesia</p>
+          <h3>Dirección</h3>
+          <p>Mendoza, Argentina</p>
         </ElementContainerText>
         <WrapperIconNetworks>
           <ContainerIconNetwork>

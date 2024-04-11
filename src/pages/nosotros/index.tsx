@@ -12,7 +12,7 @@ const AboutPage: React.FC<AboutPageProps> = () => {
     <MainLayout>
       <SectionBanner
         title="Sobre nosotros "
-        text="Discover our car rental options with Rent a Car Select from a range of car options and local specials."
+        text="En Coco Car, proporcionamos alquiler de autos confiable y transparente. Tu satisfacción es nuestra prioridad."
         Button={<ButtonPrincipalUI>Conocenos</ButtonPrincipalUI>}
       />
       <SectionDescription />

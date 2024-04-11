@@ -5,7 +5,7 @@ export const ContainerCardService = styled.div`
   position: relative;
   flex-shrink: 0;
   width: 350px;
-  height: 336px;
+  height: 360px;
   border-radius: 16px;
   align-items: center;
 
@@ -18,14 +18,17 @@ export const ContainerTextCardService = styled.div`
   height: 80%;
   h2 {
     margin-top: 65px;
-    width: 276px;
+    width: 290px;
+    /* background-color: red; */
     font-size: 20px;
+    font-weight: bold;
   }
   p {
     color: #444444 !important;
     width: 276px;
     font-size: 16px;
     margin-top: 15px;
+    margin-bottom: 10px;
   }
 `;
 export const ContainerIcon = styled.div`

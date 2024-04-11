@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { colors, font } from '../../styles/theme'
+import styled from "styled-components";
+import { colors, font } from "../../styles/theme";
 export const ContainerMainFrom = styled.div`
   position: relative;
   height: 480px;
@@ -8,12 +8,12 @@ export const ContainerMainFrom = styled.div`
   @media (width>= 1024px) {
     height: 790px;
   }
-`
+`;
 
 export const ContainerMainFromImage = styled.div`
   position: absolute;
   top: 0;
-  background-image: url('/images/background-card-principal.png');
+  background-image: url("/images/background-card-principal.png");
   background-position: bottom;
   background-size: cover;
   padding: 0;
@@ -22,7 +22,7 @@ export const ContainerMainFromImage = styled.div`
   @media (width>= 1024px) {
     height: 790px;
   }
-`
+`;
 
 export const ContainerBackground = styled.div`
   position: absolute;
@@ -45,19 +45,19 @@ export const ContainerBackground = styled.div`
       rgba(0, 0, 0, 0) 69.95%
     );
   }
-`
+`;
 
 export const ContainerContentHome = styled.div`
   padding: 20px 30px;
   @media (width>= 1024px) {
     padding: 70px 250px;
   }
-`
+`;
 
 export const ContainerContentServiceHome = styled.div`
   div {
     text-align: center;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     font-weight: 400;
     line-height: normal;
 
@@ -87,7 +87,7 @@ export const ContainerContentServiceHome = styled.div`
       }
     }
   }
-`
+`;
 
 export const ContainerFormHome = styled.div`
   position: absolute;
@@ -109,12 +109,11 @@ export const ContainerFormHome = styled.div`
   }
 
   @media (width >= 1024px) {
-    width: 464px;
     transform: translate(50%, 30%);
     height: 80%;
     top: 0;
   }
-`
+`;
 
 export const ContainerTextFormHome = styled.div`
   width: 90%;
@@ -131,7 +130,7 @@ export const ContainerTextFormHome = styled.div`
   }
   p {
     display: inline-block;
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 10px;
     color: #ffffff;
     font-weight: 200;
@@ -139,8 +138,11 @@ export const ContainerTextFormHome = styled.div`
 
   @media (width >= 1024px) {
     width: 100%;
+    width: 500px !important;
+    /* background-color: red; */
+    margin-right: -100px;
   }
-`
+`;
 
 export const ContainerFormHomeInputs = styled.form`
   display: flex;
@@ -149,13 +151,13 @@ export const ContainerFormHomeInputs = styled.form`
   div {
     margin-top: 5px;
   }
-`
+`;
 
 export const FormHomeContainerSelect = styled.div`
   margin-top: 20px !important;
   margin: 10px auto;
   width: 100%;
-`
+`;
 export const FormHomeContainerColumn = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -174,7 +176,7 @@ export const FormHomeContainerColumn = styled.div`
       }
     }
   }
-`
+`;
 
 export const ContainerButtonForm = styled.div`
   width: 100%;
@@ -184,4 +186,4 @@ export const ContainerButtonForm = styled.div`
     height: 790px;
     width: 100%;
   }
-`
+`;

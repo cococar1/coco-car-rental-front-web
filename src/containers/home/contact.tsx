@@ -36,11 +36,10 @@ const SectionContact: React.FC<SectionContactProps> = () => {
   return (
     <ContainerSectionContact>
       <ContainerDescriptionContact>
-        <h2>Subscribe to Our Newsletter for Weekly Article Update.</h2>
+        <h2>¿Listo para empezar tu viaje en el auto perfecto?</h2>
         <p>
-          We have organization-related blog so we can share our thought and
-          rutinity in our blog that updated weekly. We will not spam you, we
-          promise.
+          Contáctanos ahora para obtener más detalles, resolver tus dudas y
+          asegurar la reserva de tu auto ideal.
         </p>
       </ContainerDescriptionContact>
       <ContainerForm>

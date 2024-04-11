@@ -14,17 +14,17 @@ const servicesData = [
   {
     SvgIcon: SearchIcon,
     title: "Búsqueda personalizada ",
-    text: "Certe, inquam, pertinax non recusandae itaque earum motus et quale sit aut officiis debitis aut in sanguinem suum tam crudelis fuisse, nihil molestiae non quo ignorare vos arbitrer.",
+    text: "Nuestra búsqueda personalizada te permite encontrar el auto perfecto que se adapte a tus necesidades específicas. Filtra por características como modelo, tamaño, y más, para garantizar una experiencia de alquiler personalizada y satisfactoria.",
   },
   {
     SvgIcon: UsersIcon,
     title: "Búsqueda personalizada ",
-    text: "Certe, inquam, pertinax non recusandae itaque earum motus et quale sit aut officiis debitis aut in sanguinem suum tam crudelis fuisse, nihil molestiae non quo ignorare vos arbitrer.",
+    text: "La confianza y la transparencia son nuestros pilares. Te garantizamos tarifas honestas y condiciones claras. Con nosotros, puedes estar seguro de que recibirás un servicio confiable y transparente en cada paso del proceso, para que puedas viajar con total tranquilidad y seguridad.",
   },
   {
     SvgIcon: DocumentIcon,
     title: "Reserva desde cualquier lugar",
-    text: "Certe, inquam, pertinax non recusandae itaque earum motus et quale sit aut officiis debitis aut in sanguinem suum tam crudelis fuisse, nihil molestiae non quo ignorare vos arbitrer.",
+    text: "Nuestra plataforma te permite hacer reservas rápidas y seguras desde la comodidad de tu hogar o mientras estás en movimiento. Ya sea desde tu computadora, tablet o teléfono, puedes acceder a nuestro sistema las 24 horas del día, los 7 días de la semana, para asegurar tu auto en cualquier momento.",
   },
 ];
 interface SectionServicesProps {}
@@ -39,11 +39,11 @@ const SectionServices: React.FC<SectionServicesProps> = () => {
         </ContainerTitles>
         <ContainerText>
           <p>
-            At vero eos censes aut dolores eos, qui studiose antiqua
-            persequeris, claris et ultimum bonorum, quod summum malum et,
-            quantum possit, a philosophis compluribus permulta dicantur, cur nec
-            me ab illo inventore veritatis et quasi naturalem atque natum sit, a
-            se esse albam, dulce mel.
+            En Coco Car, nos esforzamos por ofrecerte la mejor experiencia de
+            alquiler de autos posible. Desde la búsqueda personalizada hasta la
+            transparencia en cada paso del proceso de reserva, estamos aquí para
+            facilitar tu viaje. Tu comodidad y satisfacción son nuestra
+            prioridad número uno
           </p>
         </ContainerText>
         <ContainerServices>

@@ -48,10 +48,11 @@ const MainForm: React.FC<MainFormProps> = () => {
       <ContainerBackground></ContainerBackground>
       <ContainerFormHome>
         <ContainerTextFormHome>
-          <h1>Alquiler de vehículos y servicio de expertos</h1>
+          <h1>¡Prepárate para tu próximo viaje desde aquí!</h1>
           <p>
-            Discover our car rental options with Rent a Car Select from a range
-            of car options and local specials.
+            Encuentra tu auto ideal ingresando las fechas de tu viaje y
+            seleccionando la categoría de los vehículos. ¡Reserva ahora y
+            comienza tu aventura!
           </p>
         </ContainerTextFormHome>
         <ContainerFormHomeInputs>
@@ -72,7 +73,9 @@ const MainForm: React.FC<MainFormProps> = () => {
                 value={getDateFromFinalDate(filter.booking.pickupDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const newDate = e.target.value;
-                  const existingTime = getTimeFromFinalDate(filter.booking.pickupDate);
+                  const existingTime = getTimeFromFinalDate(
+                    filter.booking.pickupDate
+                  );
                   setFilter({
                     ...filter,
                     booking: {
@@ -99,7 +102,9 @@ const MainForm: React.FC<MainFormProps> = () => {
                 value={getDateFromFinalDate(filter.booking.returnDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const newDate = e.target.value;
-                  const existingTime = getTimeFromFinalDate(filter.booking.returnDate);
+                  const existingTime = getTimeFromFinalDate(
+                    filter.booking.returnDate
+                  );
                   setFilter({
                     ...filter,
                     booking: {
@@ -127,7 +132,9 @@ const MainForm: React.FC<MainFormProps> = () => {
                 value={getTimeFromFinalDate(filter.booking.pickupDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const newTime = e.target.value;
-                  const existingDate = getDateFromFinalDate(filter.booking.pickupDate);
+                  const existingDate = getDateFromFinalDate(
+                    filter.booking.pickupDate
+                  );
                   setFilter({
                     ...filter,
                     booking: {
@@ -153,7 +160,9 @@ const MainForm: React.FC<MainFormProps> = () => {
                 value={getTimeFromFinalDate(filter.booking.returnDate) ?? ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const newTime = e.target.value;
-                  const existingDate = getDateFromFinalDate(filter.booking.returnDate);
+                  const existingDate = getDateFromFinalDate(
+                    filter.booking.returnDate
+                  );
                   setFilter({
                     ...filter,
                     booking: {
@@ -182,13 +191,21 @@ const MainForm: React.FC<MainFormProps> = () => {
         <ContainerButtonForm>
           <ButtonPrincipalUI
             onClick={() => {
-              if (filter.booking.pickupDate != "T" && filter.booking.returnDate != "T") {
+              if (
+                filter.booking.pickupDate != "T" &&
+                filter.booking.returnDate != "T"
+              ) {
                 return route.push(
                   `/reservas?pickupDate=${filter.booking.pickupDate}&returnDate=${filter.booking.returnDate}`
                 );
               }
-              if (filter.booking.pickupDate != "T" && filter.booking.returnDate == "T") {
-                return route.push(`/reservas?pickupDate=${filter.booking.pickupDate}`);
+              if (
+                filter.booking.pickupDate != "T" &&
+                filter.booking.returnDate == "T"
+              ) {
+                return route.push(
+                  `/reservas?pickupDate=${filter.booking.pickupDate}`
+                );
               }
               route.push(`/reservas`);
             }}
