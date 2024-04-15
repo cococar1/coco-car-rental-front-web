@@ -21,6 +21,17 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
   const { width } = useScreen();
   const [user, setUser] = useState<User>({} as User);
   const { loggedUser } = useAuthContext();
+
+  console.log("loggerrrrrrrr");
+
+  console.log(loggedUser);
+
+  const handleUpdateUser = () => {
+    
+    console.log("updateeee")
+    console.log(user)
+  };
+
   useEffect(() => {
     setUser(loggedUser);
     setFile({
@@ -28,6 +39,7 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
       file: null,
     });
   }, [loggedUser]);
+
   return (
     <div>
       <ContainerDataPersonal>
@@ -52,7 +64,9 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           justifyContent: width < 1024 ? "center" : "start",
         }}
       >
-        <ButtonPrincipalUI sx={{ width: "200px" }}>Guardar</ButtonPrincipalUI>
+        <ButtonPrincipalUI sx={{ width: "200px" }} onClick={handleUpdateUser}>
+          Guardar
+        </ButtonPrincipalUI>
       </div>
     </div>
   );

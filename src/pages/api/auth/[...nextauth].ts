@@ -1,5 +1,7 @@
+import GoogleProvider from "next-auth/providers/google";
 import { AUTH_LOGIN } from "@/gql/auth/auth.query";
 import { setCookie } from "@/helpers/cookie";
+import { fetchGoogleData } from "@/services/auth";
 import { initializeApollo } from "@/services/client";
 import { ApolloClient } from "@apollo/client";
 import NextAuth, { NextAuthOptions } from "next-auth";
@@ -10,6 +12,10 @@ import { redirect } from "next/dist/server/api-utils";
 export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID!,
+      clientSecret: process.env.GOOGLE_SECRET!,
+    }),
     CredentialsProvider({
       name: "credentials",
       async authorize(credentials: Record<string, string> | undefined) {
@@ -32,8 +38,8 @@ export const authOptions: NextAuthOptions = {
           const { user } = authLogin || {};
 
           if (user) {
-            setCookie("access_token", authLogin.accessToken);
-            setCookie("refresh_token", authLogin.refreshToken);
+            // setCookie("access_token", authLogin.accessToken);
+            // setCookie("refresh_token", authLogin.refreshToken);
             return {
               _id: user._id,
               fullName: user.fullName,
@@ -62,7 +68,14 @@ export const authOptions: NextAuthOptions = {
       }
       if (user) {
         if (account) {
-          if ((account.provider = "credentials")) {
+          if (account.provider === "google") {
+            // console.log("validate googleeeeeee", account.access_token)
+            token.graphqlData = await fetchGoogleData(
+              account.access_token!,
+              user.name,
+              account.provider
+            );
+          } else if (account.provider === "credentials") {
             token.graphqlData = user;
           }
         }

@@ -14,6 +14,8 @@ export const ContainerContact = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 40px;
+    gap:90px
+
   }
 `;
 

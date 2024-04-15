@@ -14,6 +14,8 @@ import { Car } from "@/types/Car.type";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import { LoaderUI } from "@/ui/LoaderUI";
 import { useLazyQuery } from "@apollo/client";
+import { signOut, useSession } from "next-auth/react";
+import { User } from "@/types/user.type";
 
 // interface CarIdPageProps {}
 
@@ -22,10 +24,12 @@ const CarIdPage: React.FC = () => {
   const { id } = route.query;
   const [getCar, getCarRes] = useLazyQuery(ONE_CAR);
   // const [bookingCarFn, bookingCarRes] = useMutation(CREATE_BOOKING);
+  const { data: session } = useSession();
 
   const {
     newBooking,
     createBooking,
+    setNewBooking,
     createOptions: { data, loading, error },
   } = useBookingContext();
 
@@ -57,6 +61,22 @@ const CarIdPage: React.FC = () => {
     getData();
   }, [getCar, getCarRes.data, id]);
 
+  useEffect(() => {
+    if (session) {
+      setNewBooking({
+        ...newBooking,
+        client: {
+          ...newBooking.client,
+          fullName: session.user?.fullName,
+          email: session.user?.email,
+          phoneNumber:(session.user as User)?.phoneNumber ,
+          address: (session.user as User)?.address,
+          gender: (session.user as User)?.gender,
+          userId: (session?.user as User)?._id,
+        },
+      });
+    }
+  }, []);
   return (
     <MainLayout changeColorNavBar={true}>
       <CarDetailPage>

@@ -10,17 +10,19 @@ import UserIcon from "@/assets/svgs/UserIcon";
 import TypeAutoIcon from "@/assets/svgs/TypeAuto";
 import KilometerLimitIcon from "@/assets/svgs/KilometerLimit";
 import GasIcon from "@/assets/svgs/GasAuto";
+import { Booking } from "@/types/Booking";
+import { FormatDate } from "@/helpers/formatDate.helper";
 
-interface CardBookingProps {}
+interface CardBookingProps {
+  booking: Booking;
+}
 
-const CardBooking: React.FC<CardBookingProps> = () => {
+const CardBooking: React.FC<CardBookingProps> = ({ booking }) => {
   return (
     <ContainerCardBooking>
       <ContainerImage>
         <Image
-          src={
-            "https://res.cloudinary.com/dfifwhrxn/image/upload/v1697128986/test-web/sv2wvoq689rl7vsxtd3l.png"
-          }
+          src={booking.car?.image}
           width={400}
           height={400}
           alt=""
@@ -28,36 +30,48 @@ const CardBooking: React.FC<CardBookingProps> = () => {
       </ContainerImage>
       <ContainerInfo>
         <div>
-          <span>Pendiente</span>
+          <span>{booking?.status.toLocaleUpperCase()}</span>
         </div>
         <div>
-          <h1>Carro ferrary d0dfd23</h1>
+          <h1>{`${booking.car.brand} ${booking.car.licensePlate}`}</h1>
         </div>
         <div>
           <p>
-            <span>2024/01/01</span>-<span>2024/02/02</span>
+            <span>{`${FormatDate(booking.pickupDate).replace(
+              /-/g,
+              "/"
+            )}`}</span>
+            -
+            <span>{`${FormatDate(booking.returnDate).replace(
+              /-/g,
+              "/"
+            )}`}</span>
           </p>
         </div>
         <div>
-          <CashIcon></CashIcon> <span>3232</span>
+          <CashIcon /> <span>{booking.price}</span>
         </div>
 
         <ButtonContainerInfo>
           <div>
             <UserIcon />
-            <p>5</p>
+            <p>{booking.car.car?.countPerson}</p>
           </div>
           <div>
             <TypeAutoIcon />
-            <p>Manual</p>
+            <p>
+              {booking.car.car?.typeChange &&
+                booking.car.car.typeChange[0].toUpperCase() +
+                  booking.car.car.typeChange.substring(1)}
+            </p>
           </div>
           <div>
             <KilometerLimitIcon />
-            <p> 562 L</p>
+            <p> {booking.car.car?.maxTankQuantity} L</p>
           </div>
           <div>
             <GasIcon />
-            <p>Nafta</p>
+            <p>{booking.car.car?.fullType}</p>
           </div>
         </ButtonContainerInfo>
       </ContainerInfo>

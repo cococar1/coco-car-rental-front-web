@@ -1,3 +1,5 @@
+import { Car } from "./Car.type";
+
 export interface BookingHookType {
   newBooking: CreateBooking;
   setNewBooking: any;
@@ -10,6 +12,11 @@ export interface BookingHookType {
   //     error: any;
   //   };
   createOptions: {
+    data: Booking[] | any;
+    loading: boolean;
+    error: any;
+  };
+  bookingsOptions: {
     data: Booking[] | any;
     loading: boolean;
     error: any;
@@ -27,17 +34,19 @@ export interface Booking {
   returnDate: string;
   price: number;
   client: Client;
-  car: Car;
+  car: CarDetail;
   status: "pending" | "confirmed" | "cancelled";
   paymentMethod: string;
   image: null;
   paymentId: null | string;
 }
 
-export interface Car {
+export interface CarDetail {
   licensePlate: string;
   model: string;
   brand: string;
+  image: string;
+  car?: Car;
 }
 
 export interface Client {
@@ -46,6 +55,7 @@ export interface Client {
   phoneNumber: string;
   address: string;
   gender: string;
+  userId?: string;
 }
 
 export interface CreateBooking {

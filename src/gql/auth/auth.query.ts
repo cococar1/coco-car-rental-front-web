@@ -34,3 +34,19 @@ export const REFRESH_TOKEN = gql`
     }
   }
 `;
+
+export const GOOGLE_AUTH = gql`
+  query GOOGLE_AUTH($id_token: String, $firstName: String) {
+    googleAuth(id_token: $id_token, firstName: $firstName) {
+      user {
+      _id
+      fullName
+      username
+      email
+      photo
+    }
+    accessToken
+    refreshToken
+    }
+  }
+`;

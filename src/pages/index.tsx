@@ -12,6 +12,9 @@ import SectionContact from "@/containers/home/contact";
 import { useBooking } from "@/hooks/useBooking";
 import { useEffect } from "react";
 import { CreateBooking } from "@/types/Booking";
+import { useAuthContext } from "@/context/AuthContext";
+import { signOut, useSession } from "next-auth/react";
+import { LoaderUI } from "@/ui/LoaderUI";
 
 export default function Home() {
   const { newBooking, setNewBooking } = useBooking();
@@ -19,6 +22,9 @@ export default function Home() {
     //TODO: REvisar esto no se reinicia las propiedades de filtro , booking
     setNewBooking({} as CreateBooking);
   }, []);
+
+
+
   return (
     <MainLayout>
       <MainForm />

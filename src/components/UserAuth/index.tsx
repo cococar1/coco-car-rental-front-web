@@ -39,10 +39,10 @@ const UserAuth: React.FC<UserAuthProps> = ({
           </TitleOptions>
           <div>
             <ContainerOptionItem>
-              <Link href={""}>Mis Reservas</Link>
+              <Link href={"/cuenta/booking"}>Mis Reservas</Link>
             </ContainerOptionItem>
             <ContainerOptionItem>
-              <Link href={""}>Configuración</Link>
+              <Link href={"/cuenta/personal-information"}>Configuración</Link>
             </ContainerOptionItem>
           </div>
         </OptionsContainer>
@@ -55,7 +55,7 @@ const UserAuth: React.FC<UserAuthProps> = ({
         onClick={() => {
           setStatusMenu(!statusMenu);
         }}
-        style={{cursor: "pointer"}}
+        style={{ cursor: "pointer" }}
       >
         <OptionsNavIcon width={32} height={32} />
       </div>

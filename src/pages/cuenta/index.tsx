@@ -1,7 +1,5 @@
-import InternalNavigation from "@/components/internalNavigation";
 import { InternalLayout } from "@/layouts/Internal.layout";
 import { MainLayout } from "@/layouts/Main.layout";
-import { ContainerPageAccount } from "@/styles/pages/account.style";
 
 interface AccountPageProps {}
 

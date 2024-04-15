@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
 import { useAuthContext } from "@/context/AuthContext";
 import { User } from "@/types/user.type";
+import { useSession } from "next-auth/react";
 import { useContext } from "react";
 import styled from "styled-components";
 
@@ -17,19 +18,20 @@ export const MainLayout = ({
   children: React.ReactNode;
   changeColorNavBar?: boolean;
 }) => {
-  const { loggedUser } = useAuthContext();
-  console.log("-----------");
-  console.log(loggedUser)
+  const { data: session, status: statusNexth } = useSession();
+
+  console.log("-----layout ------");
+  console.log(session);
   return (
     <>
       {changeColorNavBar ? (
         <NavBar
           changeColor={changeColorNavBar}
-          user={loggedUser as User}
+          user={session as User}
           // role={loggedUser ? loggedUser.role : ""}
         />
       ) : (
-        <NavBar user={loggedUser as User}></NavBar>
+        <NavBar user={session as User}></NavBar>
       )}
       <MainLayoutContainer>{children}</MainLayoutContainer>
       {/* {!nofooter && <Footer />} */}

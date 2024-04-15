@@ -3,6 +3,7 @@ import { useMutation, useLazyQuery } from "@apollo/client";
 import { toast } from "react-toastify";
 import { CREATE_BOOKING } from "@/gql/booking/booking.mutation";
 import { CreateBooking } from "@/types/Booking";
+import { MY_BOOKING } from "@/gql/booking/booking.query";
 
 export const useBooking = () => {
   const [newBooking, setNewBooking] = useState<CreateBooking>(
@@ -10,6 +11,8 @@ export const useBooking = () => {
   );
 
   const [createBookingFn, createBookingRes] = useMutation(CREATE_BOOKING);
+
+  const [getAllBookingFn, getAllBookingRes] = useLazyQuery(MY_BOOKING);
 
   const createBooking = (
     data: CreateBooking,
@@ -33,10 +36,21 @@ export const useBooking = () => {
       },
     });
   };
+  useEffect(() => {
+    if (!getAllBookingRes.data) {
+      getAllBookingFn();
+    }
+  }, []);
+
   return {
     newBooking,
     setNewBooking,
     createBooking,
+    bookingsOptions: {
+      data: getAllBookingRes.data?.myBookings,
+      loading: getAllBookingRes.loading,
+      error: getAllBookingRes.error,
+    },
     createOptions: {
       data: createBookingRes.data?.createBooking,
       loading: createBookingRes.loading,

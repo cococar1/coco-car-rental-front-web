@@ -48,9 +48,9 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           ¡Contáctanos hoy mismo para resolver tus dudas y reservar tu auto
           ideal! Estamos aquí para ayudarte en cada paso del camino
         </p>
-        <ElementContainerText >
+        <ElementContainerText>
           <h3>Teléfono</h3>
-          <p style={{color:"#E96F45"}}>+ 72 4500 1240</p>
+          <p style={{ color: "#E96F45" }}>+ 72 4500 1240</p>
         </ElementContainerText>
         <ElementContainerText>
           <h3>Dirección</h3>
@@ -78,7 +78,7 @@ const SectionContact: React.FC<SectionContactProps> = () => {
               email: e.target.value,
             });
           }}
-          placeholder="E-mail address"
+          placeholder="Correo electrónico"
           backgroundcolor="#ffffff"
           stylesContainer={{
             padding: "20px 0px",
@@ -86,7 +86,8 @@ const SectionContact: React.FC<SectionContactProps> = () => {
             maxWidth: "100%",
             borderRadius: "0px",
             height: "30px",
-            border: "1px solid #AEB7C1",
+            border: "0px solid #AEB7C1",
+            borderBottom: "1px solid #EDEDED",
           }}
           SvgIcon={<></>}
         />
@@ -108,12 +109,13 @@ const SectionContact: React.FC<SectionContactProps> = () => {
             padding: "20px 0px",
             borderRadius: "0px",
             height: "30px",
-            border: "1px solid #AEB7C1",
+            border: "0px solid #AEB7C1",
+            borderBottom: "1px solid #EDEDED",
           }}
           SvgIcon={<></>}
         />
         <TextAreaUI
-          placeholder="Your message here…"
+          placeholder="Escribe tu consulta aquí"
           stylesContainer={{ width: "100%" }}
           value={statusContact.content ?? ""}
           onChange={(e: EventChange) => {
@@ -123,7 +125,7 @@ const SectionContact: React.FC<SectionContactProps> = () => {
             });
           }}
           stylesInput={{
-            border: "1px solid #AEB7C1",
+            fontSize:"16px",
             width: "100%",
             borderRadius: "0px",
             marginLeft: "0px",
@@ -131,6 +133,8 @@ const SectionContact: React.FC<SectionContactProps> = () => {
             minWidth: "100%",
             maxHeight: "100px",
             minHeight: "100px",
+            border: "0px solid #AEB7C1",
+            borderBottom: "1px solid #EDEDED",
           }}
         />
         <ContainerButton>

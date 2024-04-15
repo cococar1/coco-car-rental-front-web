@@ -13,6 +13,7 @@ export interface Authentication {
   // ) => void;
   // changePasswordRes: MutationResult<Record<"changePassword", ResponseUser>>;
   userLogin: (email: string, password: string, redirectTo?: string) => void;
+  userLoginGoogle: () => void;
   getAuthData: () => void;
   userRegister: (data: CreateUserInput, redirectTo?: string) => void;
   token: string;

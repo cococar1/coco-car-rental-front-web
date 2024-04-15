@@ -90,6 +90,10 @@ export const useAuth = () => {
     // });
   };
 
+  const userLoginGoogle = async () => {
+    const result = await signIn("google", { callbackUrl: "/" });
+    console.log(result);
+  };
   const userRegister = (data: CreateUserInput, redirectTo?: string) => {
     createUserFn({
       variables: {
@@ -136,11 +140,9 @@ export const useAuth = () => {
       return router.push("/");
     }, 10);
   };
-
   useEffect(() => {
     const token = getCookie("access_token");
-    console.log("tokennnnnnnn -------");
-    console.log(token);
+    console.log("get tokennn",token)
     if (token) {
       setToken(token);
       getAuthData();
@@ -160,6 +162,7 @@ export const useAuth = () => {
     // changePasswordRes,
     loggedUser: getLoggedUserRes.data?.dataWithToken,
     loadingUser: getLoggedUserRes.loading,
+    userLoginGoogle,
     userLogin,
     getAuthData,
     userRegister,
