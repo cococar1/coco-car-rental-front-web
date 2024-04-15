@@ -67,7 +67,7 @@ const CarIdPage: React.FC = () => {
         ...newBooking,
         client: {
           ...newBooking.client,
-          fullName: session.user?.fullName,
+          fullName:(session.user as User)?.fullName,
           email: session.user?.email,
           phoneNumber:(session.user as User)?.phoneNumber ,
           address: (session.user as User)?.address,
