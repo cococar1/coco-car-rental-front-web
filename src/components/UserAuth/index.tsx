@@ -11,6 +11,8 @@ import { useAuthContext } from "@/context/AuthContext";
 import OptionsNavIcon from "@/assets/svgs/optionsNavIcon";
 import Link from "next/link";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { User } from "@/types/user.type";
 
 interface UserAuthProps {
   colorprincipal: string;
@@ -21,6 +23,8 @@ const UserAuth: React.FC<UserAuthProps> = ({
 }) => {
   const [statusMenu, setStatusMenu] = useState(false);
   const { logout } = useAuthContext();
+  const { data: session } = useSession();
+
   return (
     <ContainerUserAuth>
       <ContainerImageUser>
@@ -48,7 +52,7 @@ const UserAuth: React.FC<UserAuthProps> = ({
         </OptionsContainer>
       )}
       <ContainerInfoUser style={{ color: colorPrincipal }}>
-        <h2>Joaquin Torres</h2>
+        <h2>{(session?.user as User)?.fullName}</h2>
         <a onClick={logout}>Cerrar sesión</a>
       </ContainerInfoUser>
       <div

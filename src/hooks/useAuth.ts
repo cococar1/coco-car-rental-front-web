@@ -29,6 +29,19 @@ export const useAuth = () => {
     getLoggedUserFn({});
   };
 
+  const updateUser = async (data: User, file: File | null) => {
+    // updateUserFn({
+    //   variables: {
+    //     data: { ...data },
+    //     file,
+    //   },
+    //   onCompleted() {
+    //     toast.success(`Datos actualizados correctamente`, {
+    //       position: "bottom-right",
+    //     });
+    //   },
+    // });
+  };
   // const changePassword = (
   //   password: string,
   //   newPassword: string,
@@ -94,6 +107,12 @@ export const useAuth = () => {
     const result = await signIn("google", { callbackUrl: "/" });
     console.log(result);
   };
+
+
+  const userLoginFacebook = async () =>{
+    const result = await signIn("facebook", { callbackUrl: "/" });
+    console.log(result);
+  }
   const userRegister = (data: CreateUserInput, redirectTo?: string) => {
     createUserFn({
       variables: {
@@ -163,6 +182,7 @@ export const useAuth = () => {
     loggedUser: getLoggedUserRes.data?.dataWithToken,
     loadingUser: getLoggedUserRes.loading,
     userLoginGoogle,
+    userLoginFacebook,
     userLogin,
     getAuthData,
     userRegister,

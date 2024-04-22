@@ -9,18 +9,19 @@ export async function fetchGoogleData(
 ) {
   const apolloClient = initializeApollo();
   try {
-    // console.log("fetch google", accessToken,user,provider)
+    console.log("fetch google", accessToken);
+    console.log("user", user);
+    console.log("provider", provider);
     const data = await apolloClient.query({
       query: GOOGLE_AUTH,
       variables: {
         id_token: accessToken,
-        firstName: user?.split(" ")[0],
-        lastName: user?.split(" ")[1],
+        firstName: user,
+        // lastName: user?.split(" ")[1],
       },
-      
-    },);
+    });
 
-    // console.log("response fetch google", data)
+    console.log("response fetch google", data);
     const userProfile = {
       ...data.data.googleAuth.user,
       accessToken: data.data.googleAuth.accessToken,

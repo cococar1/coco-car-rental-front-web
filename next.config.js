@@ -8,6 +8,8 @@ const nextConfig = {
     NEXT_AUTH_SECRET: process.env.NEXT_AUTH_SECRET,
     GOOGLE_SECRET: process.env.GOOGLE_SECRET,
     GOOGLE_ID: process.env.GOOGLE_ID,
+    FACEBOOK_CLIENT_ID: process.env.FACEBOOK_CLIENT_ID,
+    FACEBOOK_CLIENT_SECRET: process.env.FACEBOOK_CLIENT_SECRET,
   },
 
   images: {
@@ -36,4 +38,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-

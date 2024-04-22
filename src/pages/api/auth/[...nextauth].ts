@@ -1,13 +1,16 @@
+import { ApolloClient } from "@apollo/client";
+import { JWT } from "next-auth/jwt";
+import NextAuth, { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
+
 import { AUTH_LOGIN } from "@/gql/auth/auth.query";
-import { setCookie } from "@/helpers/cookie";
+// import { setCookie } from "@/helpers/cookie";
 import { fetchGoogleData } from "@/services/auth";
 import { initializeApollo } from "@/services/client";
-import { ApolloClient } from "@apollo/client";
-import NextAuth, { NextAuthOptions } from "next-auth";
-import { JWT } from "next-auth/jwt";
-import CredentialsProvider from "next-auth/providers/credentials";
-import { redirect } from "next/dist/server/api-utils";
+
+// import { redirect } from "next/dist/server/api-utils";
 
 export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
@@ -15,6 +18,10 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID!,
       clientSecret: process.env.GOOGLE_SECRET!,
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID as string,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
     }),
     CredentialsProvider({
       name: "credentials",
@@ -68,6 +75,7 @@ export const authOptions: NextAuthOptions = {
       }
       if (user) {
         if (account) {
+          console.log(token)
           if (account.provider === "google") {
             // console.log("validate googleeeeeee", account.access_token)
             token.graphqlData = await fetchGoogleData(

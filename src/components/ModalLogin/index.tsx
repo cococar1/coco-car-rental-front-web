@@ -16,7 +16,7 @@ interface ModalLoginProps {
 
 const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
   const [viewPassword, setViewPassword] = useState(false);
-  const { userLogin, userLoginGoogle } = useAuthContext();
+  const { userLogin, userLoginGoogle, userLoginFacebook } = useAuthContext();
 
   const [fromLogin, setFormLogin] = useState({
     email: "",
@@ -101,7 +101,13 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
           <GoogleIcon width={30} height={30} />
         </div>
         <div style={{ cursor: "pointer" }}>
-          <FacebookSecondaryIcon width={30} height={30} />
+          <FacebookSecondaryIcon
+            onClick={() => {
+              userLoginFacebook();
+            }}
+            width={30}
+            height={30}
+          />
         </div>
       </div>
     </Modal>

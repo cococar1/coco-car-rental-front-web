@@ -14,6 +14,7 @@ export interface Authentication {
   // changePasswordRes: MutationResult<Record<"changePassword", ResponseUser>>;
   userLogin: (email: string, password: string, redirectTo?: string) => void;
   userLoginGoogle: () => void;
+  userLoginFacebook: () => void;
   getAuthData: () => void;
   userRegister: (data: CreateUserInput, redirectTo?: string) => void;
   token: string;
