@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
 export const CREATE_USER = gql`
   mutation CREATE_USER($createUserInput: CreateUserInput!) {
@@ -7,79 +7,45 @@ export const CREATE_USER = gql`
       refreshToken
       user {
         _id
-        firstName
-        lastName
+        fullName
         username
         email
-        dateBirth
-        genre
-        school {
-          _id
-          name
-        }
-        university {
-          _id
-          name
-        }
-        area {
-          _id
-          name
-        }
-        career {
-          _id
-          name
-        }
-        phoneNumber
-        dni
         role
-        favoriteCourses {
-          _id
-          name
-          description
-          image
-        }
-        coursesPurchased {
-          _id
-          name
-          description
-          image
-        }
-        allCourses {
-          university
-          area
-        }
-        allSimulations {
-          university
-          area
-        }
+        photo
+        gender
+        phoneNumber
+        address
       }
     }
   }
-`
+`;
 
 export const CHANGE_PASSWORD = gql`
-  mutation CHANGE_PASSWORD($password: String!, $newPassword: String!) {
-    changePassword(password: $password, newPassword: $newPassword) {
-      accessToken
-      refreshToken
-      user {
-        _id
-        firstName
-        lastName
-        username
-        email
-        dateBirth
-        role
-        genre
-        simulationsPurchased {
-          _id
-          name
-        }
-        allSimulations {
-          university
-          area
-        }
-      }
+  mutation CHANGE_PASSWORD(
+    $oldPassword: String!
+    $newPassword: String!
+    $repeatPassword: String!
+  ) {
+    changePassword(
+      oldPassword: $oldPassword
+      newPassword: $newPassword
+      repeatPassword: $repeatPassword
+    )
+  }
+`;
+
+export const UPDATE_USER = gql`
+  mutation UPDATE_USER($data: UpdateUserInput!, $file: Upload) {
+    updateUser(updateUserInput: $data, file: $file) {
+      _id
+      fullName
+      username
+      email
+      role
+      photo
+      gender
+      phoneNumber
+      address
     }
   }
-`
+`;

@@ -28,6 +28,7 @@ export const ContainerImageUser = styled.div`
 export const ContainerInfoUser = styled.div`
   & h2 {
     font-weight: bold;
+    font-size: 16px;
   }
   & a {
     cursor: pointer;

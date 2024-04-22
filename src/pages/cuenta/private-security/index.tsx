@@ -1,5 +1,6 @@
 import EyeClosedIcon from "@/assets/svgs/eyeClosedIcon";
 import EyeOpenIcon from "@/assets/svgs/eyeOpenIcon";
+import { useAuthContext } from "@/context/AuthContext";
 import useScreen from "@/hooks/useScreen";
 import { InternalLayout } from "@/layouts/Internal.layout";
 import { MainLayout } from "@/layouts/Main.layout";
@@ -9,14 +10,17 @@ import {
   GridPrivatePassword,
 } from "@/styles/pages/account-private";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
-import InpuntUI from "@/ui/InputUI";
+import InputUI from "@/ui/InputUI";
 import { useEffect, useState } from "react";
 
 interface SecurityPageProps {}
 
 const SecurityPage: React.FC<SecurityPageProps> = () => {
   const [viewPassword, setViewPassword] = useState(false);
+  const [newPassword, setNewPassword] = useState(false);
+  const [repeatPassword, setRepeatPassword] = useState(false);
 
+  const { changePassword: changePasswordApi } = useAuthContext();
   const { width } = useScreen();
   const [errorRepeat, setErrorRepeat] = useState(false);
   const [changePassword, setChangePassword] = useState({
@@ -24,6 +28,21 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
     newPassword: "",
     repeatPassword: "",
   });
+
+  const submitChangePassword = async () => {
+    await changePasswordApi(
+      changePassword.oldPassword,
+      changePassword.newPassword,
+      changePassword.repeatPassword,
+      () => {
+        setChangePassword({
+          oldPassword: "",
+          newPassword: "",
+          repeatPassword: "",
+        });
+      }
+    );
+  };
 
   useEffect(() => {
     if (
@@ -33,19 +52,26 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
     ) {
       setErrorRepeat(true);
     }
+    if (
+      changePassword.newPassword == "" &&
+      changePassword.repeatPassword == ""
+    ) {
+      setErrorRepeat(false);
+    }
   }, [changePassword.newPassword, changePassword.repeatPassword]);
+
   return (
     <MainLayout changeColorNavBar={true}>
       <InternalLayout>
         <ContainerTitle>
           <h1>Contraseña y seguridad</h1>
-          <p>Controla tu constaseña y revisa tus dispositivos</p>
+          <p>Controla tu constaseña y restaura contraseña</p>
           <h2>Contraseña</h2>
         </ContainerTitle>
         <GridPrivatePassword>
           <ContainerItemGrid>
             <label htmlFor="old-password"> Contraseña actual</label>
-            <InpuntUI
+            <InputUI
               type={viewPassword ? "text" : "password"}
               placeholder="Password"
               placeholderColor="#7E7E7E"
@@ -76,8 +102,8 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
           </ContainerItemGrid>
           <ContainerItemGrid>
             <label htmlFor="old-password"> Nueva Contraseña</label>
-            <InpuntUI
-              type={viewPassword ? "text" : "password"}
+            <InputUI
+              type={newPassword ? "text" : "password"}
               placeholder="Password"
               placeholderColor="#7E7E7E"
               value={changePassword.newPassword}
@@ -93,7 +119,7 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
                 <div
                   style={{ cursor: "pointer" }}
                   onClick={() => {
-                    setViewPassword(!viewPassword);
+                    setNewPassword(!newPassword);
                     console.log(viewPassword);
                   }}
                 >
@@ -105,8 +131,8 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
           <ContainerItemGrid>
             {" "}
             <label htmlFor="old-password"> Repite la contraseña</label>
-            <InpuntUI
-              type={viewPassword ? "text" : "password"}
+            <InputUI
+              type={repeatPassword ? "text" : "password"}
               placeholder="Password"
               placeholderColor="#7E7E7E"
               value={changePassword.repeatPassword}
@@ -122,7 +148,7 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
                 <div
                   style={{ cursor: "pointer" }}
                   onClick={() => {
-                    setViewPassword(!viewPassword);
+                    setRepeatPassword(!repeatPassword);
                     console.log(viewPassword);
                   }}
                 >
@@ -144,7 +170,14 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
           {errorRepeat && (
             <p style={{ color: "red" }}>contraseña nueva no coincide</p>
           )}
-          <ButtonPrincipalUI sx={{ width: "300px", marginTop: "50px" }}>
+          <ButtonPrincipalUI
+            sx={{ width: "300px", marginTop: "50px" }}
+            onClick={submitChangePassword}
+            styles={{
+              opacity: errorRepeat ? 0.5 : 1,
+              pointerEvents: errorRepeat ? "none" : "auto",
+            }}
+          >
             Guardar
           </ButtonPrincipalUI>
         </div>

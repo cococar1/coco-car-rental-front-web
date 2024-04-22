@@ -33,6 +33,11 @@ const nextConfig = {
         hostname: "coco-car-rental2.s3.amazonaws.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "**",
+      },
     ],
   },
 };

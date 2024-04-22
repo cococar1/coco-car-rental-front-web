@@ -156,7 +156,9 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
             </ul>
           ) : (
             <UserAuth
-              colorprincipal={scrollPosition ? colors.titleBlack : "#ffffff"}
+              colorprincipal={
+                scrollPosition || changeColor ? colors.titleBlack : "#ffffff"
+              }
             ></UserAuth>
           )}
         </nav>

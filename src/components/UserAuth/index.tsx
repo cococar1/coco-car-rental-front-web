@@ -22,19 +22,14 @@ const UserAuth: React.FC<UserAuthProps> = ({
   colorprincipal: colorPrincipal,
 }) => {
   const [statusMenu, setStatusMenu] = useState(false);
-  const { logout } = useAuthContext();
-  const { data: session } = useSession();
+  const { logout,loggedUser:user } = useAuthContext();
+  // const { data: session } = useSession();
+
 
   return (
     <ContainerUserAuth>
       <ContainerImageUser>
-        <Image
-          src={
-            "/_next/image?url=https%3A%2F%2Fcoco-car-rental.s3.us-east-2.amazonaws.com%2Fcars%2F1704381699377-MAZDA-NEWCX5.jpg&w=3840&q=75"
-          }
-          alt=""
-          fill
-        ></Image>
+        <Image src={(user as any)?.photo ?? ""} alt="" fill></Image>
       </ContainerImageUser>
       {statusMenu && (
         <OptionsContainer>
@@ -52,7 +47,7 @@ const UserAuth: React.FC<UserAuthProps> = ({
         </OptionsContainer>
       )}
       <ContainerInfoUser style={{ color: colorPrincipal }}>
-        <h2>{(session?.user as User)?.fullName}</h2>
+        <h2>{(user as User)?.fullName}</h2>
         <a onClick={logout}>Cerrar sesión</a>
       </ContainerInfoUser>
       <div

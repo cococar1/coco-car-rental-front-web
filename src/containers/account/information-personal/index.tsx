@@ -20,16 +20,26 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
 
   const { width } = useScreen();
   const [user, setUser] = useState<User>({} as User);
-  const { loggedUser } = useAuthContext();
+  const { loggedUser, updateUser } = useAuthContext();
 
   console.log("loggerrrrrrrr");
 
   console.log(loggedUser);
 
-  const handleUpdateUser = () => {
-    
-    console.log("updateeee")
-    console.log(user)
+  const handleUpdateUser = async () => {
+    console.log("updateeee");
+    console.log(user);
+    updateUser(
+      {
+        fullName: user.fullName,
+        username: user.username,
+        email: user.email,
+        gender: user.gender,
+        phoneNumber: user.phoneNumber,
+        address: user.address,
+      } as User,
+      file.file ?? null
+    );
   };
 
   useEffect(() => {

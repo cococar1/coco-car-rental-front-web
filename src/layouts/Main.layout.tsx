@@ -20,8 +20,7 @@ export const MainLayout = ({
 }) => {
   const { data: session, status: statusNexth } = useSession();
 
-  console.log("-----layout ------");
-  console.log(session);
+  
   return (
     <>
       {changeColorNavBar ? (

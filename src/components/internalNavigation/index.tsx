@@ -22,7 +22,7 @@ const InternalNavigation: React.FC<InternalNavigationProps> = () => {
   console.log(mainRoute, "mainRoute");
   return (
     <InternalNavigationContainer>
-      <ContainerInfoUser>
+      {/* <ContainerInfoUser>
         <h2>Annette Black</h2>
         <div style={{ display: "flex", gap: "10px" }}>
           {" "}
@@ -33,7 +33,7 @@ const InternalNavigation: React.FC<InternalNavigationProps> = () => {
           <EmailIcon width={25} height={25} />
           <p>annette_black@gmail.com</p>
         </div>
-      </ContainerInfoUser>
+      </ContainerInfoUser> */}
       <div>
         <NavItem isActive={mainRoute === "personal-information"}>
           <UserIcon

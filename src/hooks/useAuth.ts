@@ -3,7 +3,11 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { getCookie, removeCookie, setCookie } from "@/helpers/cookie";
 import { AUTH_LOGIN, LOGGED_USER } from "@/gql/auth/auth.query";
-import { CREATE_USER } from "../gql/auth/auth.mutation";
+import {
+  CHANGE_PASSWORD,
+  CREATE_USER,
+  UPDATE_USER,
+} from "../gql/auth/auth.mutation";
 import { useLazyQuery, useMutation } from "@apollo/client";
 
 import { useEffect, useState } from "react";
@@ -20,54 +24,69 @@ export const useAuth = () => {
   const router = useRouter();
   const [token, setToken] = useState("");
   const [authLoginFn, authLoginRes] = useLazyQuery(AUTH_LOGIN);
-  // const [changePasswordFn, changePasswordRes] =
-  //   useMutation<Record<"changePassword", ResponseUser>>(CHANGE_PASSWORD);
+  const [changePasswordFn, changePasswordRes] = useMutation(CHANGE_PASSWORD);
   const [createUserFn, createUserRes] = useMutation(CREATE_USER);
   const [getLoggedUserFn, getLoggedUserRes] = useLazyQuery(LOGGED_USER);
+
+  const [updateUserFn, updateUserRes] = useMutation(UPDATE_USER);
 
   const getAuthData = () => {
     getLoggedUserFn({});
   };
 
   const updateUser = async (data: User, file: File | null) => {
-    // updateUserFn({
-    //   variables: {
-    //     data: { ...data },
-    //     file,
-    //   },
-    //   onCompleted() {
-    //     toast.success(`Datos actualizados correctamente`, {
-    //       position: "bottom-right",
-    //     });
-    //   },
-    // });
+    console.log("update server");
+    updateUserFn({
+      variables: {
+        data: { ...data },
+        file,
+      },
+      onCompleted() {
+        toast.success(`Datos actualizados correctamente`, {
+          position: "bottom-right",
+        });
+      },
+    });
   };
-  // const changePassword = (
-  //   password: string,
-  //   newPassword: string,
-  //   onSuccess?: MutationCompleteType<ResponseUser>
-  // ) => {
-  //   changePasswordFn({
-  //     variables: {
-  //       password,
-  //       newPassword,
-  //     },
-  //     onCompleted(data) {
-  //       if (data) {
-  //         toast.success("Contraseña cambiada!");
-  //         onSuccess && onSuccess(data.changePassword);
-  //       }
-  //     },
-  //     onError(error) {
-  //       const isNotAuthorized =
-  //         error.message.includes("Unauthorized") &&
-  //         "Contraseña actual incorrecta";
-  //       toast.error(
-  //         isNotAuthorized || error.message || "Error al cambiar contraseña"
-  //       );
-  //     },
-  //   });
-  // };
+  const changePassword = async (
+    oldPassword: string,
+    newPassword: string,
+    repeatPassword: string,
+    onSuccess?: (data: any) => void
+  ) => {
+    if (newPassword !== repeatPassword) {
+      toast.error("Contaseña no coincide", {
+        position: "bottom-right",
+      });
+    }
+    await changePasswordFn({
+      variables: {
+        oldPassword,
+        newPassword,
+        repeatPassword,
+      },
+      onCompleted(data: any) {
+        console.log(data);
+        if (data) {
+          toast.success("Contraseña cambiada!", {
+            position: "bottom-right",
+          });
+          onSuccess && onSuccess(data?.changePassword);
+        }
+      },
+      onError(error) {
+        const isNotAuthorized =
+          error.message.includes("Unauthorized") &&
+          "Contraseña actual incorrecta";
+        toast.error(
+          isNotAuthorized || error.message || "Error al cambiar contraseña",
+          {
+            position: "bottom-right",
+          }
+        );
+      },
+    });
+  };
 
   const userLogin = async (
     email: string,
@@ -108,11 +127,10 @@ export const useAuth = () => {
     console.log(result);
   };
 
-
-  const userLoginFacebook = async () =>{
+  const userLoginFacebook = async () => {
     const result = await signIn("facebook", { callbackUrl: "/" });
     console.log(result);
-  }
+  };
   const userRegister = (data: CreateUserInput, redirectTo?: string) => {
     createUserFn({
       variables: {
@@ -161,7 +179,7 @@ export const useAuth = () => {
   };
   useEffect(() => {
     const token = getCookie("access_token");
-    console.log("get tokennn",token)
+    console.log("get tokennn", token);
     if (token) {
       setToken(token);
       getAuthData();
@@ -177,8 +195,9 @@ export const useAuth = () => {
   return {
     logout,
     token,
-    // changePassword,
+    changePassword,
     // changePasswordRes,
+    updateUser,
     loggedUser: getLoggedUserRes.data?.dataWithToken,
     loadingUser: getLoggedUserRes.loading,
     userLoginGoogle,
@@ -192,6 +211,11 @@ export const useAuth = () => {
       data: authLoginRes.data?.authLogin as UserResponse,
       loading: authLoginRes.loading,
       error: authLoginRes.error,
+    },
+    updateUserOptions: {
+      data: updateUserRes.data?.updateUser,
+      loading: updateUserRes.loading,
+      error: updateUserRes.error,
     },
     registerOptions: {
       data: createUserRes.data?.createUser as UserResponse,

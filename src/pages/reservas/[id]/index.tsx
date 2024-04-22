@@ -16,6 +16,7 @@ import { LoaderUI } from "@/ui/LoaderUI";
 import { useLazyQuery } from "@apollo/client";
 import { signOut, useSession } from "next-auth/react";
 import { User } from "@/types/user.type";
+import { useAuthContext } from "@/context/AuthContext";
 
 // interface CarIdPageProps {}
 
@@ -24,7 +25,9 @@ const CarIdPage: React.FC = () => {
   const { id } = route.query;
   const [getCar, getCarRes] = useLazyQuery(ONE_CAR);
   // const [bookingCarFn, bookingCarRes] = useMutation(CREATE_BOOKING);
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
+
+  const { loggedUser: user } = useAuthContext();
 
   const {
     newBooking,
@@ -62,17 +65,17 @@ const CarIdPage: React.FC = () => {
   }, [getCar, getCarRes.data, id]);
 
   useEffect(() => {
-    if (session) {
+    if (user) {
       setNewBooking({
         ...newBooking,
         client: {
           ...newBooking.client,
-          fullName:(session.user as User)?.fullName,
-          email: session.user?.email,
-          phoneNumber:(session.user as User)?.phoneNumber ,
-          address: (session.user as User)?.address,
-          gender: (session.user as User)?.gender,
-          userId: (session?.user as User)?._id,
+          fullName: (user as User)?.fullName,
+          email: user?.email,
+          phoneNumber: user?.phoneNumber,
+          address: (user as User)?.address,
+          gender: (user as User)?.gender,
+          userId: (user as User)?._id,
         },
       });
     }

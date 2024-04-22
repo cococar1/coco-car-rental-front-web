@@ -12,6 +12,7 @@ export const ContainerSectionAccordions = styled.div`
 export const ContainerColumn = styled.div`
   /* background-color: red; */
 
+  width: 25%;
   @media (width<=1024px) {
     /* background-color: red; */
     & div {

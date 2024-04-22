@@ -3,15 +3,18 @@ import { createContext, useContext } from "react";
 import { ApolloError } from "@apollo/client";
 
 import { CreateUserInput, UserResponse, useAuth } from "@/hooks/useAuth";
+import { User } from "@/types/user.type";
 
 export interface Authentication {
   logout: () => void;
-  // changePassword: (
-  //   password: string,
-  //   newPassword: string,
-  //   onSuccess?: MutationCompleteType<ResponseUser>
-  // ) => void;
-  // changePasswordRes: MutationResult<Record<"changePassword", ResponseUser>>;
+  changePassword: (
+    oldPassword: string,
+    newPassword: string,
+    repeatPassword: string,
+    onSuccess?: (data: any) => void
+  ) => void;
+
+  updateUser: (data: User | any, file: File | null) => void;
   userLogin: (email: string, password: string, redirectTo?: string) => void;
   userLoginGoogle: () => void;
   userLoginFacebook: () => void;
@@ -30,6 +33,11 @@ export interface Authentication {
   loginOptions: {
     loading: boolean;
     data: UserResponse;
+    error?: ApolloError;
+  };
+  updateUserOptions: {
+    loading: boolean;
+    data: User;
     error?: ApolloError;
   };
   registerOptions: {

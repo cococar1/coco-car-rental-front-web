@@ -5,7 +5,13 @@ export const AUTH_LOGIN = gql`
       user {
         _id
         fullName
+        username
         email
+        role
+        photo
+        gender
+        phoneNumber
+        address
       }
       accessToken
       refreshToken
@@ -22,6 +28,9 @@ export const LOGGED_USER = gql`
       email
       role
       photo
+      gender
+      phoneNumber
+      address
     }
   }
 `;
@@ -39,14 +48,18 @@ export const GOOGLE_AUTH = gql`
   query GOOGLE_AUTH($id_token: String, $firstName: String) {
     googleAuth(id_token: $id_token, firstName: $firstName) {
       user {
-      _id
-      fullName
-      username
-      email
-      photo
-    }
-    accessToken
-    refreshToken
+        _id
+        fullName
+        username
+        email
+        role
+        photo
+        gender
+        phoneNumber
+        address
+      }
+      accessToken
+      refreshToken
     }
   }
 `;
