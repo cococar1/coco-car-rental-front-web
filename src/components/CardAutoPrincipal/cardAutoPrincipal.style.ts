@@ -10,7 +10,6 @@ export const ContainerCard = styled.div`
 `;
 
 export const ContainerImageTitle = styled.div`
-  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -36,14 +35,12 @@ export const ContainerImagePrincipal = styled.div`
     width: 100%;
     height: auto;
   }
-  /* background-color: red; */
   height: 300px;
 `;
 
 export const ContainerCharacteristics = styled.div`
   display: flex;
   align-items: center;
-  /* background-color: red; */
   justify-content: space-between;
   margin-top: 10px;
 

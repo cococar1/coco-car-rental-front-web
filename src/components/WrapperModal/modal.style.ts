@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
   z-index: 100000;
-  background-color: #0000002b;
+  background-color: rgba(20, 20, 20, 0.45);
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ContainerCardReviewClient = styled.div`
-  /* background-color: red; */
   width: 380px;
   padding: 25px;
   display: flex;

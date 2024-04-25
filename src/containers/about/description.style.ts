@@ -48,7 +48,6 @@ export const ContainerTextDescription = styled.div`
   }
   @media (width <= 924px) {
     align-items: center;
-    /* background-color: red; */
 
     width: 100%;
     & p {

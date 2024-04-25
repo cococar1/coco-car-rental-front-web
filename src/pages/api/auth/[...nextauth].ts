@@ -7,7 +7,7 @@ import FacebookProvider from "next-auth/providers/facebook";
 
 import { AUTH_LOGIN } from "@/gql/auth/auth.query";
 // import { setCookie } from "@/helpers/cookie";
-import { fetchGoogleData } from "@/services/auth";
+import { fetchFacebookData, fetchGoogleData } from "@/services/auth";
 import { initializeApollo } from "@/services/client";
 
 // import { redirect } from "next/dist/server/api-utils";
@@ -75,7 +75,7 @@ export const authOptions: NextAuthOptions = {
       }
       if (user) {
         if (account) {
-          console.log(token)
+          console.log(token);
           if (account.provider === "google") {
             // console.log("validate googleeeeeee", account.access_token)
             token.graphqlData = await fetchGoogleData(
@@ -83,6 +83,15 @@ export const authOptions: NextAuthOptions = {
               user.name,
               account.provider
             );
+          } else if (account.provider == "facebook") {
+            console.log("validate facebook", account)
+
+            token.graphqlData = await fetchFacebookData(
+              account.access_token!,
+              user,
+              account.provider
+            );
+            // console.log("")
           } else if (account.provider === "credentials") {
             token.graphqlData = user;
           }

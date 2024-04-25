@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components'
-import { colors } from '@/styles/theme'
+import styled, { css } from "styled-components";
+import { colors } from "@/styles/theme";
 
 export const NavbarContainer = styled.header<{
-  scrollPosition: boolean
-  $isActive: boolean
+  scrollPosition: boolean;
+  $isActive: boolean;
 }>`
   background-color: #fff;
   transition: 0.5s;
@@ -22,7 +22,7 @@ export const NavbarContainer = styled.header<{
     `};
   box-shadow: ${({ scrollPosition }) =>
     scrollPosition &&
-    '0px 2px 8px -4px rgba(31,27,45,0.12), 0px 4px 16px rgba(31,27,45,0.5)'};
+    "0px 2px 8px -4px rgba(31,27,45,0.12), 0px 4px 16px rgba(31,27,45,0.5)"};
 
   position: sticky;
   width: 100%;
@@ -59,7 +59,7 @@ export const NavbarContainer = styled.header<{
     align-content: center;
     justify-content: space-between;
 
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -74,7 +74,6 @@ export const NavbarContainer = styled.header<{
     ul {
       align-items: center;
       display: flex;
-      /* background-color: blue; */
       list-style: none;
       gap: 50px;
       display: flex;
@@ -94,16 +93,15 @@ export const NavbarContainer = styled.header<{
       justify-content: center;
     }
   }
-`
+`;
 export const ContainerImageLogo = styled.div`
-width: 100px;
-height: 40px;
-position: relative;
-& img{
-object-fit: contain;
-}
-
-`
+  width: 100px;
+  height: 40px;
+  position: relative;
+  & img {
+    object-fit: contain;
+  }
+`;
 export const NavItem = styled.li<{ isActive?: boolean }>`
   position: relative;
 
@@ -118,10 +116,12 @@ export const NavItem = styled.li<{ isActive?: boolean }>`
     isActive &&
     css`
       a {
-        color: #e96f45 !important;
+        color: #fb7f57 !important;
+        font-weight: 800;
+        font-size: 16px;
       }
     `}
-`
+`;
 
 export const HeaderMenu = styled.div`
   display: flex;
@@ -131,7 +131,7 @@ export const HeaderMenu = styled.div`
   picture {
     width: 40px;
   }
-`
+`;
 
 export const BodyMenu = styled.div<{ $isActive: boolean }>`
   visibility: hidden;
@@ -152,12 +152,12 @@ export const BodyMenu = styled.div<{ $isActive: boolean }>`
       visibility: visible;
       transition: all 1s ease-out 0s;
     `}
-`
+`;
 export const NavMobile = styled.div`
   display: grid;
   gap: 20px;
   margin-top: 30px;
-`
+`;
 
 export const CallActionButtons = styled.div`
   display: flex;
@@ -167,7 +167,7 @@ export const CallActionButtons = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const ContainerInfoUserMobile = styled.div`
   display: flex;
@@ -179,8 +179,7 @@ export const ContainerInfoUserMobile = styled.div`
   }
 `;
 
-export const ContainerSubNavMobile = styled.div`
-`
+export const ContainerSubNavMobile = styled.div``;
 
 export const ItemSubNavMobile = styled.div<{ isActive?: boolean }>`
   border-top: 2px solid #efecf3;

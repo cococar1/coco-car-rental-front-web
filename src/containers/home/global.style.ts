@@ -6,9 +6,12 @@ export const SecctionNewAutos = styled.section`
   display: flex;
   flex-direction: column;
   background: #fafafa;
+  justify-content: center;
+  align-items: center;
 
   text-align: center;
   h2 {
+    margin-top: 10px;
     font-size: 20px;
     color: ${colors.titleBlack};
     font-weight: ${font.fontWeightTitle};

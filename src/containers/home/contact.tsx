@@ -3,6 +3,7 @@ import InpuntUI from "@/ui/InputUI";
 import {
   ContainerDescriptionContact,
   ContainerForm,
+  ContainerImageFinal,
   ContainerSectionContact,
 } from "./contact.style";
 import TextAreaUI from "@/ui/TextAreaUI";
@@ -11,6 +12,7 @@ import { ContactInput } from "@/types/Contact.type";
 import { useContactContext } from "@/context/ContactContext";
 import { toast } from "react-toastify";
 import { EventChange } from "@/types/general";
+import Image from "next/image";
 
 interface SectionContactProps {}
 
@@ -41,6 +43,13 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           Contáctanos ahora para obtener más detalles, resolver tus dudas y
           asegurar la reserva de tu auto ideal.
         </p>
+        <ContainerImageFinal>
+          <Image
+            src={"/images/logo-without-background.png"}
+            fill
+            alt="Auto de alquiler en Argentina"
+          />
+        </ContainerImageFinal>
       </ContainerDescriptionContact>
       <ContainerForm>
         <InpuntUI
@@ -52,10 +61,14 @@ const SectionContact: React.FC<SectionContactProps> = () => {
               email: e.target.value,
             });
           }}
-          placeholder="E-mail address"
+          placeholder="E-mail "
           backgroundcolor="#ffffff"
+          stylesInput={{
+            fontSize: "16px",
+            fontFamily: "Nunito Sans, sans-serif",
+          }}
           stylesContainer={{
-            padding: "20px 0px",
+            padding: "20px 10px",
             // width: "400px !important",
             maxWidth: "100%",
             borderRadius: "0px",
@@ -75,11 +88,16 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           }}
           backgroundcolor="#ffffff"
           placeholder="Asunto"
+          stylesInput={{
+            fontSize: "16px",
+            fontFamily: "Nunito Sans, sans-serif",
+            // color:"#AEB7C1"
+          }}
           stylesContainer={{
             // width: "400px !important",    padding:"20px 0px",
-            // padding: "20px 0px",
+
             maxWidth: "100%",
-            padding: "20px 0px",
+            padding: "20px 10px",
             borderRadius: "0px",
             height: "30px",
             // border: "1px solid #AEB7C1",
@@ -87,7 +105,7 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           SvgIcon={<></>}
         />
         <TextAreaUI
-          placeholder="Your message here…"
+          placeholder="Escribe tu consulta aquí …"
           stylesContainer={{ width: "100%" }}
           value={statusContact.content ?? ""}
           onChange={(e: EventChange) => {
@@ -98,6 +116,8 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           }}
           stylesInput={{
             // border: "1px solid #AEB7C1",
+            padding: "10px 10px",
+
             width: "100%",
             borderRadius: "0px",
             marginLeft: "0px",
@@ -105,6 +125,8 @@ const SectionContact: React.FC<SectionContactProps> = () => {
             minWidth: "100%",
             maxHeight: "100px",
             minHeight: "100px",
+            fontSize: "16px",
+            fontFamily: "Nunito Sans, sans-serif",
           }}
         />{" "}
         <ButtonPrincipalUI onClick={handleSubmitContact}>

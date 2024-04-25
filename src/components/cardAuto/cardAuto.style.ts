@@ -6,11 +6,14 @@ export const ContainerCard = styled.div`
   flex-direction: column;
   background-color: #ffffff;
   padding: 30px;
-  max-width: 400px;
+  width: 400px;
+  @media (width <= 1024px) {
+    display: flex;
+    width: 100%;
+  }
 `;
 
 export const ContainerImageTitle = styled.div`
-  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   text-align: center;

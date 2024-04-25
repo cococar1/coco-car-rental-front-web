@@ -76,12 +76,10 @@ export const ContainerTextAbout = styled.div`
     left: 25%;
   }
   @media screen and (max-width: 1022px) {
-    /* background-color: red; */
 
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* background: yellow; */
     padding: 0px 30px;
     & h1 {
       font-size: 35px;
@@ -89,15 +87,12 @@ export const ContainerTextAbout = styled.div`
     & p {
       font-size: 15px;
       padding: 10px 60px;
-      /* background: red; */
-      /* width:90%; */
-      /* margin: 0px 10px; */
+
       text-align: center;
     }
   }
   & button {
     @media screen and (max-width: 1022px) {
-      /* background-color: red; */
 
       width: 300px;
     }

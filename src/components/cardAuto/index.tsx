@@ -52,8 +52,10 @@ const CardAuto: React.FC<CardAutoProps> = ({ car }) => {
       </ContainerCharacteristics>
       <ContainerContent>
         <h3>{car?.subTitle}</h3>
-        <p>
-          {car?.description.length>200?car?.description.slice(0,200):car?.description}
+        <p style={{ height: "50px" }}>
+          {car?.description.length > 150
+            ? car?.description.slice(0, 150) + "..."
+            : car?.description}
         </p>
       </ContainerContent>
       <ContainerPrice>

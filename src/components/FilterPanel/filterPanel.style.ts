@@ -10,12 +10,8 @@ export const ContainerFilterPanel = styled.section`
   }
 
   @media (max-width: 1024px) {
-    /* background-color: red; */
-    /* padding:0px 20px; */
-
     width: 90%;
     padding: 0px;
-    /* Estilos específicos para el primer h2 */
   }
 `;
 
@@ -45,7 +41,6 @@ export const ContainerDate = styled.div`
 `;
 
 export const ContainerFilterSecondary = styled.div`
-  /* background: yellow; */
 `;
 
 export const ButtonFilterOption = styled.button`
@@ -59,7 +54,6 @@ export const ButtonFilterOption = styled.button`
   cursor: pointer;
 `;
 export const OptionFilter = styled.div`
-  /* background: red; */
   margin-bottom: 10px;
 `;
 

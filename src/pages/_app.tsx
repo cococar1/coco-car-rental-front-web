@@ -20,13 +20,20 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <ApolloProvider client={client}>
       <SessionProvider>
         <Head>
-          <title>Car Plus</title>
+          <title>Coco Car </title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
+          <meta name="robots" content="index, follow" />
+
+          <meta
+            name="description"
+            content="Coco Car Rental ofrece el mejor servicio de alquiler de autos en Argentina. Encuentra una amplia selección de vehículos y tarifas competitivas para tu próximo viaje."
+          />
+          <link rel="canonical" href="https://www.cococarental.com/" />
+
           <link rel="icon" href="/favicon.ico" />
-          <meta name="robots" content="noindex, nofollow" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"

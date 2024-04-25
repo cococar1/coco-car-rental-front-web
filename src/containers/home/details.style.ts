@@ -11,6 +11,7 @@ export const ContainerDetails = styled.div`
   justify-content: space-around;
   align-items: center;
   h2 {
+    margin-top: 10px;
     color: ${colors.titleBlack};
     font-weight: ${font.fontWeightTitle};
     font-size: 20px;

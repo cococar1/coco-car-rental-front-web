@@ -38,23 +38,29 @@ export const ContainerBackground = styled.div`
 
   @media (width>= 1024px) {
     height: 790px;
-    background: linear-gradient(
+    /* background: linear-gradient(
       121deg,
       rgba(0, 0, 0, 0.1) 41.28%,
       rgba(0, 0, 0, 0) 80.46%,
       rgba(0, 0, 0, 0) 69.95%
-    );
+    ); */
   }
 `;
 
 export const ContainerContentHome = styled.div`
-  padding: 20px 30px;
+  display: flex;
+  padding: 20px 0px;
   @media (width>= 1024px) {
-    padding: 70px 250px;
+    display: flex;
+    padding: 70px 0px;
   }
 `;
 
 export const ContainerContentServiceHome = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   div {
     text-align: center;
     font-family: "Nunito Sans", sans-serif;
@@ -139,7 +145,6 @@ export const ContainerTextFormHome = styled.div`
   @media (width >= 1024px) {
     width: 100%;
     width: 500px !important;
-    /* background-color: red; */
     margin-right: -100px;
   }
 `;

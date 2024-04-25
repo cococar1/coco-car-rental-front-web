@@ -3,12 +3,10 @@ import styled from "styled-components";
 export const ContainerUserAuth = styled.div`
   position: relative;
   display: flex;
-  /* background-color: red; */
   width: 18%;
   gap: 20px;
   height: 100%;
   align-items: center;
-  /* background-color: yellow; */
   justify-content: space-between;
 `;
 export const ContainerImageUser = styled.div`
@@ -16,7 +14,6 @@ export const ContainerImageUser = styled.div`
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  /* background-color: red; */
   overflow: hidden;
   & img {
     width: 100%;

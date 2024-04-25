@@ -66,7 +66,7 @@ const arrayDataDetailIconRight = [
 const SectionDetails: React.FC<DetailsProps> = () => {
   return (
     <ContainerDetails>
-      <h2>¿Qué distingue a Carplus?</h2>
+      <h2>¿Qué distingue a Coco Car ?</h2>
       <ContainerDetailsContent>
         <DetailsContent>
           {arrayDataDetailIconLeft.map((e, index) => (

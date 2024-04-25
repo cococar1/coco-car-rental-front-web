@@ -8,7 +8,7 @@ export const NewModal = styled.div`
   z-index: 10000;
   /* right: 0; */
   /* top: 0; */
-  padding: 10px 20px;
+  padding: 50px 30px;
 `;
 
 export const ContainerHeaderOptions = styled.div`
@@ -16,6 +16,7 @@ export const ContainerHeaderOptions = styled.div`
   height: 25px;
   align-content: center;
   justify-content: end;
+
 `;
 
 export const ContainerContent = styled.div`

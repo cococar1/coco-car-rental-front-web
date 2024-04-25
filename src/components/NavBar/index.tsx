@@ -76,9 +76,9 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
                     <Image
                       src={
                         scrollPosition
-                          ? "/images/logo-dark.png"
+                          ? "/images/logo-without-background.png"
                           : changeColor
-                          ? "/images/logo-dark.png"
+                          ? "/images/logo-without-background.png"
                           : "/images/logo-light.png"
                       }
                       fill
@@ -129,7 +129,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
                     setStatusModalLogin(!statusModalLogin);
                   }}
                 >
-                  Iniciar Sessión
+                  Iniciar sesión
                 </ButtonPrincipalContainer>
               </li>
               <li>
@@ -193,7 +193,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
             {user ? (
               <CallActionButtons>
                 <ButtonPrincipalContainer>
-                  Iniciar Sessión
+                  Iniciar sesión
                 </ButtonPrincipalContainer>
 
                 <ButtonSecondaryContainer>Registrate</ButtonSecondaryContainer>

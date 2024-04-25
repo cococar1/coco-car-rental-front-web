@@ -52,11 +52,26 @@ export const GOOGLE_AUTH = gql`
         fullName
         username
         email
-        role
         photo
         gender
         phoneNumber
         address
+      }
+      accessToken
+      refreshToken
+    }
+  }
+`;
+
+export const FACEBOOK_AUTH = gql`
+  query FACEBOOK_AUTH($id_token: String!) {
+    facebookAuth(id_token: $id_token) {
+      user {
+        _id
+        fullName
+        username
+        email
+        photo
       }
       accessToken
       refreshToken

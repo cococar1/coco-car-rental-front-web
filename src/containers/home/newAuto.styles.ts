@@ -1,11 +1,13 @@
-import { font } from '@/styles/theme'
-import styled from 'styled-components'
+import { font } from "@/styles/theme";
+import styled from "styled-components";
 
 export const ContainerNewAutos = styled.div`
   display: grid;
-  justify-content: center;
+  justify-content: space-between;
   justify-items: center;
   gap: 20px;
+
+  width: 90%;
   h2 {
     font-weight: ${font.fontWeightTitle};
   }
@@ -15,6 +17,6 @@ export const ContainerNewAutos = styled.div`
   }
   @media (width >= 1024px) {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
-`
+`;

@@ -9,10 +9,6 @@ export const CarDetailPage = styled.div`
   /* align-content: center; */
   margin-bottom: 50px;
 
-  /* @media screen and (max-width: 1022px) {
-    background-color: red;
-    flex-direction: column;
-  } */
 `;
 
 export const ContainerContent = styled.div`

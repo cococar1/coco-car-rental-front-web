@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ContainerCardBooking = styled.div`
   display: flex;
-  /* background-color: red; */
   width: 700px;
   justify-content: space-between;
   align-items: center;

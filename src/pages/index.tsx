@@ -39,7 +39,7 @@ export default function Home() {
             }}
           >
             <h2>
-              Encuentra la confianza que necesitas al elegirnos para tu próximo
+              Encuentra la confianza que necesitas al elegirnos <br></br> para tu próximo
               alquiler de auto
             </h2>
             <p>Las mejores opciones para que reserves y aproveches</p>

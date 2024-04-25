@@ -31,12 +31,17 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
       onclickClose={onclickClose}
       styleModal={{ width: "33%", borderRadius: "15px" }}
       styleContent={{ display: "flex", flexDirection: "column", gap: "25px" }}
+      title={"Iniciar sesión"}
     >
-      <h1>Iniciar sesión</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur. Adipiscing venenatis morbi at
-        accumsan commodo.
-      </p>
+      <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+        <p style={{ color: "#B4B4B4" }}>
+          Nuevo usuario?{" "}
+          <a style={{ color: "#E96F45", cursor: "pointer" }}>
+            Create una cuenta aquí
+          </a>
+        </p>
+      </div>
+
       <InpuntUI
         value={fromLogin.email}
         backgroundcolor="#fff"
@@ -92,15 +97,27 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
         <p>O iniciar sesión con social media</p>
       </div>
       <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-        <div
-          style={{ cursor: "pointer" }}
+        <ButtonPrincipalUI
+          sx={{
+            background: "#fff",
+            color: "#202020",
+            fontWeight: "bold",
+            border: "1px solid #DCDBDD",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "20px",
+            padding: "10px",
+          }}
           onClick={() => {
             userLoginGoogle();
           }}
         >
-          <GoogleIcon width={30} height={30} />
-        </div>
-        <div style={{ cursor: "pointer" }}>
+          <GoogleIcon width={25} height={25} />
+          Google
+        </ButtonPrincipalUI>
+
+        {/* <div style={{ cursor: "pointer" }}>
           <FacebookSecondaryIcon
             onClick={() => {
               userLoginFacebook();
@@ -108,7 +125,7 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
             width={30}
             height={30}
           />
-        </div>
+        </div> */}
       </div>
     </Modal>
   );

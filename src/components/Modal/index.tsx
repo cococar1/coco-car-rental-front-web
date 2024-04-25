@@ -1,6 +1,10 @@
 import { MouseEventHandler, ReactNode } from "react";
 import CloseIcon from "../../assets/svgs/closeIcon";
-import { ContainerContent, ContainerHeaderOptions, NewModal } from "./modal.style";
+import {
+  ContainerContent,
+  ContainerHeaderOptions,
+  NewModal,
+} from "./modal.style";
 
 interface ModalProps {
   children: ReactNode;
@@ -20,7 +24,16 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <NewModal style={styleModal ?? {}}>
       <ContainerHeaderOptions
-        style={title ? { justifyContent: "space-between" } : {}}
+        style={
+          title
+            ? {
+                justifyContent: "space-between",
+                alignItems: "center",
+                textAlign: "center",
+                fontSize:"18px"
+              }
+            : {}
+        }
       >
         {title && <h1>{title}</h1>}
         <div

@@ -19,7 +19,6 @@ export const ContainerTextCardService = styled.div`
   h2 {
     margin-top: 65px;
     width: 290px;
-    /* background-color: red; */
     font-size: 20px;
     font-weight: bold;
   }

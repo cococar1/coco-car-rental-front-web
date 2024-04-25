@@ -10,14 +10,10 @@ export const ContainerSectionAccordions = styled.div`
 `;
 
 export const ContainerColumn = styled.div`
-  /* background-color: red; */
-
   width: 25%;
   @media (width<=1024px) {
-    /* background-color: red; */
     & div {
       //containerAccordion
-      /* background-color: yellow; */
       width: 100%;
       & div {
         //detailsAccordion
@@ -29,15 +25,12 @@ export const ContainerColumn = styled.div`
         }
         & div {
           //summary
-          /* background-color: green; */
           padding: 10px 20px;
-          /* padding-right: 40px; */
           & h3 {
             /* color: red; */
             width: 95%;
           }
           & div {
-            /* background-color: blue; */
             //containerIconArrow
             width: 20px;
           }

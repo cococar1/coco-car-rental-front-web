@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ContainerItem = styled.div`
   display: flex;
   justify-content: space-between;
-  /* background-color: red; */
   width: 100%;
   padding: 10px 5px;
 

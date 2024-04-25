@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const ContainerSectionContact = styled.section`
   display: grid;
@@ -16,13 +16,24 @@ export const ContainerSectionContact = styled.section`
   @media (width >= 1440px) {
     display: flex;
   }
-`
+`;
 
+export const ContainerImageFinal = styled.div`
+  position: relative;
+  height: 60px;
+  width: 110px;
+
+  margin-top: 10px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+`;
 export const ContainerDescriptionContact = styled.div`
   width: 90%;
   max-width: 500px;
   margin: 0 auto;
-  /* background-color: red; */
   h2 {
     color: #e96f45;
     font-size: 30px;
@@ -47,14 +58,12 @@ export const ContainerDescriptionContact = styled.div`
       font-size: 18px;
     }
   }
-`
+`;
 
 export const ContainerForm = styled.div`
   width: 100%;
   max-width: 500px;
-  /* height: 20px; */
   background: #fafafa;
-  /* background-color: red; */
   border-radius: 20px;
   padding: 25px;
   button {
@@ -70,4 +79,4 @@ export const ContainerForm = styled.div`
     max-height: 300px;
     max-width: 98%;
   }
-`
+`;
