@@ -173,7 +173,7 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
           <ButtonPrincipalUI
             sx={{ width: "300px", marginTop: "50px" }}
             onClick={submitChangePassword}
-            styles={{
+            style={{
               opacity: errorRepeat ? 0.5 : 1,
               pointerEvents: errorRepeat ? "none" : "auto",
             }}
