@@ -30,8 +30,8 @@ export const useAuth = () => {
 
   const [updateUserFn, updateUserRes] = useMutation(UPDATE_USER);
 
-  const getAuthData = () => {
-    getLoggedUserFn({});
+  const getAuthData = async () => {
+    await getLoggedUserFn({});
   };
 
   const updateUser = async (data: User, file: File | null) => {

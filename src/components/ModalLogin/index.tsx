@@ -9,6 +9,7 @@ import FacebookIcon from "@/assets/svgs/facebookIcon";
 import FacebookSecondaryIcon from "@/assets/svgs/FacebookSecondaryIcon";
 import GoogleIcon from "@/assets/svgs/googleIcon";
 import { useAuthContext } from "@/context/AuthContext";
+import useScreen from "@/hooks/useScreen";
 
 interface ModalLoginProps {
   onclickClose: any;
@@ -17,7 +18,7 @@ interface ModalLoginProps {
 const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
   const [viewPassword, setViewPassword] = useState(false);
   const { userLogin, userLoginGoogle, userLoginFacebook } = useAuthContext();
-
+  const {width} = useScreen();
   const [fromLogin, setFormLogin] = useState({
     email: "",
     password: "",
@@ -29,7 +30,10 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
   return (
     <Modal
       onclickClose={onclickClose}
-      styleModal={{ width: "33%", borderRadius: "15px" }}
+      styleModal={{
+        width: width < 1024 ? "100%" : "33%",
+        borderRadius: "15px",
+      }}
       styleContent={{ display: "flex", flexDirection: "column", gap: "25px" }}
       title={"Iniciar sesión"}
     >

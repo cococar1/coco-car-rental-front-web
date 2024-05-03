@@ -32,6 +32,7 @@ export const ContainerTitles = styled.div`
   h2 {
     color: #ffffff;
     font-size: 30px;
+     font-weight: 600;
   }
   @media (width < 1022px) {
     width: 100%;

@@ -171,7 +171,7 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
             <p style={{ color: "red" }}>contraseña nueva no coincide</p>
           )}
           <ButtonPrincipalUI
-            sx={{ width: "300px", marginTop: "50px" }}
+            sx={{ width: "300px !important", marginTop: "50px" }}
             onClick={submitChangePassword}
             style={{
               opacity: errorRepeat ? 0.5 : 1,

@@ -9,6 +9,7 @@ export const SectionReviewClientsContainer = styled.section`
   gap: 40px;
   h2 {
     font-size: 38px;
+    font-weight: 600;
   }
   text-align: center;
 `;

@@ -9,9 +9,7 @@ import Accordion from "@/components/Accordion";
 import { useBookingContext } from "@/context/BookingContext";
 import { useEffect } from "react";
 
-interface InformationPersonalProps {
-  
-}
+interface InformationPersonalProps {}
 
 const InformationPersonal: React.FC<InformationPersonalProps> = () => {
   const { newBooking, setNewBooking } = useBookingContext();
@@ -27,6 +25,13 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           Input={
             <input
               type="text"
+              style={{
+                padding: "8px",
+                fontSize: "14px",
+                border: "1px solid #CACACA",
+                borderRadius: "5px",
+                width: "50%",
+              }}
               value={newBooking.client?.fullName ?? ""}
               onChange={(e) => {
                 setNewBooking({
@@ -46,6 +51,7 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
             <SelectInputUI
+              styleSelect={{ border: "1px solid #CACACA", width: "50%" }}
               arrayOptions={[
                 { id: "MALE", value: "Masculino" },
                 { id: "FEMALE", value: "Femenino" },
@@ -73,19 +79,28 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           value={newBooking.client?.email ?? ""}
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
-            <input
-              type="email"
-              value={newBooking.client?.email ?? ""}
-              onChange={(e) => {
-                setNewBooking({
-                  ...newBooking,
-                  client: {
-                    ...newBooking.client,
-                    email: e.target.value,
-                  },
-                });
-              }}
-            />
+            <div style={{ width: "100%" }}>
+              <input
+                type="email"
+                style={{
+                  padding: "8px",
+                  fontSize: "14px",
+                  border: "1px solid #CACACA",
+                  borderRadius: "5px",
+                  width: "50%",
+                }}
+                value={newBooking.client?.email ?? ""}
+                onChange={(e) => {
+                  setNewBooking({
+                    ...newBooking,
+                    client: {
+                      ...newBooking.client,
+                      email: e.target.value,
+                    },
+                  });
+                }}
+              />
+            </div>
           }
         ></EditableField>
         <EditableField
@@ -94,7 +109,8 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
             <PhoneInput
-              country={"us"}
+              inputStyle={{ width: "50%" }}
+              country={"ar"}
               value={newBooking.client?.phoneNumber ?? ""}
               onChange={(phone) => {
                 setNewBooking({
@@ -110,11 +126,19 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           //   styleContainer={{  }}
         ></EditableField>
         <EditableField
+          styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           label="Address"
           value={newBooking.client?.address ?? ""}
           Input={
             <input
               type="text"
+              style={{
+                padding: "8px",
+                fontSize: "14px",
+                border: "1px solid #CACACA",
+                borderRadius: "5px",
+                width: "50%",
+              }}
               value={newBooking.client?.address ?? ""}
               onChange={(e) => {
                 setNewBooking({
@@ -125,6 +149,34 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
                   },
                 });
               }}
+            />
+          }
+        ></EditableField>{" "}
+        <EditableField
+          label="Lugar de recogida"
+          value={newBooking.pickupLocation ?? ""}
+          Input={
+            <SelectInputUI
+              styleSelect={{ border: "1px solid #CACACA", width: "50%" }}
+              arrayOptions={[
+                { id: "AREOPUERTO", value: "Aeropuerto" },
+                {
+                  id: "AXION DE PETI Y GUTIERREZ",
+                  value: " axion de peti y Gutiérrez",
+                },
+                { id: "TERMINAL DE OMNIBUS", value: "Terminal de ómnibus" },
+              ]}
+              value={newBooking.pickupLocation ?? ""}
+              onChange={({ target }: React.ChangeEvent<HTMLSelectElement>) => {
+                setNewBooking({
+                  ...newBooking,
+                  pickupLocation: target.value,
+                });
+              }}
+              placeholder="Select"
+              width="100%"
+              backgroundColor="#fff"
+              stylesContainer={{ color: "#000" }}
             />
           }
         ></EditableField>{" "}

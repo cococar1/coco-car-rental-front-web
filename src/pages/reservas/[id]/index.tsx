@@ -27,7 +27,7 @@ const CarIdPage: React.FC = () => {
   // const [bookingCarFn, bookingCarRes] = useMutation(CREATE_BOOKING);
   // const { data: session } = useSession();
 
-  const { loggedUser: user } = useAuthContext();
+  const { loggedUser: user, loadingUser } = useAuthContext();
 
   const {
     newBooking,
@@ -65,6 +65,7 @@ const CarIdPage: React.FC = () => {
   }, [getCar, getCarRes.data, id]);
 
   useEffect(() => {
+    console.log("holaaa", user);
     if (user) {
       setNewBooking({
         ...newBooking,
@@ -79,11 +80,11 @@ const CarIdPage: React.FC = () => {
         },
       });
     }
-  }, []);
+  }, [user]);
   return (
     <MainLayout changeColorNavBar={true}>
       <CarDetailPage>
-        {getCarRes.loading && (
+        {(getCarRes.loading || loadingUser) && (
           <div
             style={{
               display: "flex",

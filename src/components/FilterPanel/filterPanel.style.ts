@@ -16,6 +16,7 @@ export const ContainerFilterPanel = styled.section`
 `;
 
 export const TitleFilter = styled.h2`
+ font-weight: 600;
   @media (max-width: 1024px) {
     display: none;
   }
@@ -84,6 +85,7 @@ export const ContainerFeature = styled.div`
   height: 100%;
   h2 {
     font-size: 20px;
+    font-weight: 600;
   }
 `;
 
@@ -91,6 +93,7 @@ export const ContainerSimpleElement = styled.div`
   margin-top: 10px;
   h2 {
     font-size: 20px;
+     font-weight: 600;
   }
 `;
 

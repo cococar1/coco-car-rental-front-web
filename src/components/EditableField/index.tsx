@@ -7,7 +7,7 @@ interface InformationPersonalProps {
   label: string;
   value: string;
   styleContainer?: React.CSSProperties;
-  Input:any;
+  Input: any;
 }
 
 const EditableField: React.FC<InformationPersonalProps> = ({
@@ -34,10 +34,10 @@ const EditableField: React.FC<InformationPersonalProps> = ({
 
   return (
     <ContainerItem style={styleContainer ?? {}}>
-      <div>
+      <div style={{ width: "100%" }}>
         <span>{label}</span>
         {isEditing ? (
-         {...Input}
+          { ...Input }
         ) : (
           // <input type="text" value={editedValue} onChange={handleInputChange} />
           <p> {value}</p>

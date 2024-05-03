@@ -6,6 +6,7 @@ export const ContainerContact = styled.div`
   justify-content: center;
   gap: 8%;
   margin-bottom: 120px;
+  margin-top: 80px;
 
   @media (width < 1024px) {
     display: flex;

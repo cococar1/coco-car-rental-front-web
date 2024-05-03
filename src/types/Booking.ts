@@ -62,5 +62,6 @@ export interface CreateBooking {
   car: string;
   pickupDate: string;
   returnDate: string;
+  pickupLocation: string;
   client: Client;
 }

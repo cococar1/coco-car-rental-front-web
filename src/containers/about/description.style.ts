@@ -42,7 +42,7 @@ export const ContainerTextDescription = styled.div`
     }
     h2 {
       font-size: 30px;
-      font-weight: bold;
+      font-weight: 600;
       margin-bottom: 0px;
     }
   }

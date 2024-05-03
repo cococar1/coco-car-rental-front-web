@@ -21,14 +21,15 @@ export const BannerImage = styled.div`
   background-repeat: no-repeat;
   background-position: 0px calc(100% + 400px);
   @media screen and (max-width: 1247px) {
-    background-color: red !important;
     background-size: cover;
     background-position: 0px calc(100% + 150px);
   }
   @media screen and (max-width: 1022px) {
-    background-color: red !important;
     background-size: cover;
     background-position: 0px calc(100% - 0px);
+    border-radius: 0px 0% 0% 0%;
+    height: 400px;
+    overflow: hidden;
   }
 `;
 export const ContainerBackground = styled.div`
@@ -44,6 +45,10 @@ export const ContainerBackground = styled.div`
     rgba(0, 0, 0, 0.4) 44.35%,
     rgba(69, 67, 67, 0.22) 83.92%
   );
+  @media screen and (max-width: 1022px) {
+    height: 400px;
+    border-radius: 0px 0% 0% 0%;
+  }
 `;
 
 export const ContainerTextAbout = styled.div`
@@ -76,7 +81,6 @@ export const ContainerTextAbout = styled.div`
     left: 25%;
   }
   @media screen and (max-width: 1022px) {
-
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -93,7 +97,6 @@ export const ContainerTextAbout = styled.div`
   }
   & button {
     @media screen and (max-width: 1022px) {
-
       width: 300px;
     }
   }

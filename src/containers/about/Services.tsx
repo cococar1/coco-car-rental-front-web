@@ -34,7 +34,7 @@ const SectionServices: React.FC<SectionServicesProps> = () => {
     <SectionServicesContainer>
       <ContainerTextServices>
         <ContainerTitles>
-          <p>Sercicios</p>
+          <p>Servicios</p>
           <h2>¿Que hacemos por ti?</h2>
         </ContainerTitles>
         <ContainerText>
