@@ -21,9 +21,10 @@ export const ContainerTextCardService = styled.div`
     width: 290px;
     font-size: 20px;
     font-weight: bold;
+    color:#313E50;
   }
   p {
-    color: #444444 !important;
+    color:#313E50;
     width: 276px;
     font-size: 16px;
     margin-top: 15px;

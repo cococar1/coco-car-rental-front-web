@@ -49,18 +49,26 @@ export const TitleOptions = styled.div`
   padding: 13px;
   & p {
     /* font-weight: bold; */
-    font-size: 18px;
+    font-size: 20px;
+    color:#505050;
+
   }
+ 
 `;
 
 export const ContainerOptionItem = styled.div`
   background-color: #f2f2f2;
   width: 100%;
   padding: 10px;
-  font-size: 16px;
-  color: #000;
+
+  color:#505050;
   &:hover {
     background-color: #e6e6e6;
     cursor: pointer;
   }
+  & a {
+    color:#505050;
+    text-decoration: none; /* Quita el subrayado */
+    font-size:18px;
+   }
 `;

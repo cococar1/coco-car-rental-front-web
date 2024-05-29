@@ -1,7 +1,7 @@
 import { colors, font } from '@/styles/theme'
 import styled from 'styled-components'
 
-export const SecctionNewAutos = styled.section`
+export const SectionNewAutos = styled.section`
   padding: 30px;
   display: flex;
   flex-direction: column;

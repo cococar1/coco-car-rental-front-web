@@ -53,7 +53,7 @@ const FrequentQuestionsPage: React.FC<FrequentQuestionsPageProps> = () => {
       <SectionBanner
         title="Preguntas frecuentes"
         text="Discover our car rental options with Rent a Car Select from a range of car options and local specials."
-        Button={<ButtonPrincipalUI>Consulta</ButtonPrincipalUI>}
+        Button={<></>}
       />
 
       <ContainerSectionSearch>

@@ -19,12 +19,17 @@ export const ContainerTextServices = styled.div`
     flex-direction: column;
     height: 100%;
   }
+  @media(width > 1000px){
+    gap: 220px;
+
+  }
 `;
 
 export const ContainerTitles = styled.div`
   width: 25%;
   padding: 20px;
   margin-top: 45px;
+  
   p {
     color: #888888;
     font-size: 25px;
@@ -58,6 +63,7 @@ export const ContainerServices = styled.div`
   justify-content: center;
   width: 100%;
   gap: 30px;
+  color:#313E50;
   bottom: 0;
   padding: 20px;
   @media (width < 1022px) {

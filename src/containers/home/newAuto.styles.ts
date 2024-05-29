@@ -6,7 +6,7 @@ export const ContainerNewAutos = styled.div`
   justify-content: space-between;
   justify-items: center;
   gap: 20px;
-
+  margin-top:25px;
   width: 90%;
   h2 {
     font-weight: ${font.fontWeightTitle};

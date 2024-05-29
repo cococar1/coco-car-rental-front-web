@@ -23,9 +23,7 @@ const CardAuto: React.FC<CardAutoProps> = ({ car }) => {
       <ContainerImageTitle>
         <ContainerImagePrincipal>
           <Image
-            src={
-              "https://res.cloudinary.com/dfifwhrxn/image/upload/v1697128986/test-web/sv2wvoq689rl7vsxtd3l.png"
-            }
+            src={car.image}
             alt=""
             fill
           />

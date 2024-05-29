@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { User } from "@/types/user.type";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 interface UserAuthProps {
   colorprincipal: string;
@@ -23,7 +24,8 @@ const UserAuth: React.FC<UserAuthProps> = ({
 }) => {
   const [statusMenu, setStatusMenu] = useState(false);
   const { logout,loggedUser:user } = useAuthContext();
-  // const { data: session } = useSession();
+  const scrollPosition = useScrollPosition() > 10;
+
 
 
   return (
@@ -43,6 +45,9 @@ const UserAuth: React.FC<UserAuthProps> = ({
             <ContainerOptionItem>
               <Link href={"/cuenta/personal-information"}>Configuración</Link>
             </ContainerOptionItem>
+            <ContainerOptionItem>
+              <Link href={"/" } onClick={logout}>Cerrar Sesión</Link>
+            </ContainerOptionItem>
           </div>
         </OptionsContainer>
       )}
@@ -56,7 +61,7 @@ const UserAuth: React.FC<UserAuthProps> = ({
         }}
         style={{ cursor: "pointer" }}
       >
-        <OptionsNavIcon width={32} height={32} />
+        <OptionsNavIcon width={30} height={30} color={scrollPosition?"black":"white"}/>
       </div>
     </ContainerUserAuth>
   );

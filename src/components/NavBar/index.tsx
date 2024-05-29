@@ -22,18 +22,17 @@ import { ButtonSecondaryContainer } from "@/ui/ButtonSecondary/buttonSecondary";
 import { useCarContext } from "@/context/CarContext";
 import { useBookingContext } from "@/context/BookingContext";
 import WrapperModal from "../WrapperModal";
-import Modal from "../Modal";
 import ModalLogin from "../ModalLogin";
 import { User } from "@/types/user.type";
 import UserAuth from "../UserAuth";
 import Image from "next/image";
-import InternalNavigation from "../internalNavigation";
 import PhoneIcon from "@/assets/svgs/PhoneIcon";
 import EmailIcon from "@/assets/svgs/emailIcon";
 import UserIcon from "@/assets/svgs/UserIcon";
 import PadLockIcon from "@/assets/svgs/PadLockIcon";
 import DocumentIcon from "@/assets/svgs/documentIcon";
 import LogOutIcon from "@/assets/svgs/LogOutIcon";
+import { useAuthContext } from "@/context/AuthContext";
 
 interface NavBarProps {
   user: User | null;
@@ -45,6 +44,8 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const { setFilter } = useCarContext();
   const { setNewBooking } = useBookingContext();
   const [menuMobile, setmenuMobile] = useState(false);
+  const { logout } = useAuthContext();
+
 
   const [statusModalLogin, setStatusModalLogin] = useState(false);
   const mainRoute = router.pathname.split("/")[1];
@@ -252,7 +253,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               </ItemSubNavMobile>
               <ItemSubNavMobile>
                 <LogOutIcon width={25} height={25} color="#9691A4" />
-                <Link href={""}>Cerrar sesión</Link>
+                <Link href={""} onClick={logout}>Cerrar sesión</Link>
               </ItemSubNavMobile>
             </ContainerSubNavMobile>
           </BodyMenu>

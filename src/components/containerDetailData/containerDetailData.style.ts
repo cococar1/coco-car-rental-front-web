@@ -3,9 +3,12 @@ import styled from 'styled-components'
 
 export const ContainerDetailDataElement = styled.div`
   display: flex;
-`
-export const ContainerIcon = styled.div`
+
+  
+  `
+  export const ContainerIcon = styled.div`
   margin: 0px 10px;
+  margin-top:12px
 `
 
 export const DetailDataElementText = styled.div`

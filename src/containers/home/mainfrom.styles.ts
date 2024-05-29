@@ -117,7 +117,7 @@ export const ContainerFormHome = styled.div`
   @media (width >= 1024px) {
     transform: translate(50%, 30%);
     height: 80%;
-    top: 0;
+    top: -50px;
   }
 `;
 

@@ -6,7 +6,7 @@ import {
 } from "@/containers/home/mainfrom.styles";
 import HomeServices from "@/containers/home/services";
 import ContainerNewAutosHome from "@/containers/home/NewAuto";
-import { SecctionNewAutos } from "@/containers/home/global.style";
+import { SectionNewAutos } from "@/containers/home/global.style";
 import SectionDetails from "@/containers/home/details";
 import SectionContact from "@/containers/home/contact";
 import { useBooking } from "@/hooks/useBooking";
@@ -47,11 +47,11 @@ export default function Home() {
           <HomeServices />
         </ContainerContentServiceHome>
       </ContainerContentHome>
-      <SecctionNewAutos>
+      <SectionNewAutos>
         <h2>Conoce nuestra flota</h2>
         <p>Las mejores opciones para tu comodidad</p>
         <ContainerNewAutosHome />
-      </SecctionNewAutos>
+      </SectionNewAutos>
       <SectionDetails></SectionDetails>
       <SectionContact></SectionContact>
     </MainLayout>

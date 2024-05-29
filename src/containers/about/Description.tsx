@@ -15,9 +15,9 @@ const SectionDescription: React.FC<SectionDescriptionProps> = () => {
       <ContainerTextDescription>
         <div>
           <p>Nosotros</p>
-          <h2>Explora Mendoza con Coco Car: Tu Compañero de Viaje.</h2>
+          <h2 style={{color:"#313E50"}}> Explora Mendoza con Coco Car: Tu Compañero de Viaje.</h2>
         </div>
-        <p>
+        <p style={{color:"#313E50"}}>
           "En nuestra empresa, nos dedicamos a proporcionarte el servicio ideal
           para alquilar tu auto en línea de manera sencilla en la Provincia de
           Mendoza. Con Coco Car, podrás explorar impresionantes paisajes, rutas
