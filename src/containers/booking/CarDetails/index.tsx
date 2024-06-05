@@ -49,46 +49,46 @@ const CarDetails: React.FC<CarDetailsProps> = ({ car, booking }) => {
       <SectionDetail>
         <h1>{car.name}</h1>
         <div>
-          <h3>Detalles del vehiculo</h3>
+          <h3 style={{fontSize:"18px",fontWeight: "bold"}}>Detalles del vehiculo</h3>
           <DetailCar>
             <div>
               <UserIcon />
-              <p>{car.countPerson}</p>
+              <p style={{fontSize:"16px"}}>{car.countPerson}</p>
             </div>
             <div>
               <TypeAutoIcon />
-              <p>{car.typeChange}</p>
+              <p style={{fontSize:"16px"}}>{car.typeChange}</p>
             </div>
             <div>
               <KilometerLimitIcon />
-              <p>{car.maxTankQuantity}</p>
+              <p style={{fontSize:"16px"}}>{car.maxTankQuantity}</p>
             </div>
             <div>
               <GasIcon />
-              <p>{car.fullType}</p>
+              <p style={{fontSize:"16px"}}>{car.fullType}</p>
             </div>
           </DetailCar>
         </div>
         <DetailBooking>
-          <h2>Detalles de la reserva</h2>
-          <p>
+          <h2 style={{fontSize:"20px",marginBottom:"10px",fontWeight: "bold"}}>Detalles de la reserva</h2>
+          <p style={{fontSize:"16px"}}>
             {moment(booking?.pickupDate).format("ddd, D [de] MMM - h:mm A")}
           </p>
-          <h3>Aeropuerto de Mendoza</h3>
-          <p>
+          <h3>{car.pickupTime}</h3>
+          <p style={{fontSize:"16px"}}>
             {moment(booking?.returnDate).format("ddd, D [de] MMM - h:mm A")}
           </p>
         </DetailBooking>
         <DetailPrice>
-          <h2>Desglose del precio del coche</h2>
+          <h2 style={{fontSize:"20px",fontWeight: "bold"}}>Desglose del precio del coche</h2>
           <ContainerPrice>
-            <p>Cargo por alquiler de coche</p> <span>${car.price}</span>
+            <p style={{fontSize:"16px"}}>Cargo por alquiler de coche</p> <span>${car.price}</span>
           </ContainerPrice>
           <ContainerPrice>
-            <p style={{ fontWeight: "bold" }}>Precio por {days} días:</p>{" "}
-            <span style={{ fontWeight: "bold" }}>${days * car.price}</span>
+            <p style={{ fontWeight: "bold",fontSize:"16px" }}>Precio por {days} días:</p>{" "}
+            <span style={{ fontWeight: "bold",fontSize:"16px" }}>${days * car.price}</span>
           </ContainerPrice>
-          <p>{car.description}</p>
+          <p style={{fontSize:"16px"}}>{car.description}</p>
         </DetailPrice>
       </SectionDetail>
     </ContainerCarDetail>

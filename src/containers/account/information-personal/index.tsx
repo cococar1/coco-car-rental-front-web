@@ -22,13 +22,10 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
   const [user, setUser] = useState<User>({} as User);
   const { loggedUser, updateUser } = useAuthContext();
 
-  console.log("loggerrrrrrrr");
 
-  console.log(loggedUser);
 
   const handleUpdateUser = async () => {
-    console.log("updateeee");
-    console.log(user);
+
     updateUser(
       {
         fullName: user.fullName,
@@ -54,7 +51,7 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
     <div>
       <ContainerDataPersonal>
         <SectionDataPersonal>
-          <h1>Información Persona</h1>
+          <h1 style={{marginBottom:"20px"}}>Información Persona</h1>
           <FormInfoPersonal user={user} setUser={setUser} />
         </SectionDataPersonal>
         <SectionImage>

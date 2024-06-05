@@ -37,6 +37,7 @@ export const Summary = styled.div`
 export const ContainerContent = styled.p<{ open: boolean }>`
   margin-top: 10px;
   border-top: 1px solid #d8d8d8;
+  padding-top: 20px;
   color: #6d7783;
   font-size: 16px;
   line-height: 24px; /* 160% */

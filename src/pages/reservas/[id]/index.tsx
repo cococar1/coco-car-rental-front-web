@@ -125,12 +125,14 @@ const CarIdPage: React.FC = () => {
             </div>
             <div
               style={{
+                position:"relative",
                 display: "flex",
                 justifyContent: "end",
                 marginTop: "20px",
+                width:"100%"
               }}
             >
-              <ButtonPrincipalUI onClick={handleClickBooking} loading={loading}>
+              <ButtonPrincipalUI style={{width:"200px"}} onClick={handleClickBooking} loading={loading}>
                 Continuar
               </ButtonPrincipalUI>
             </div>

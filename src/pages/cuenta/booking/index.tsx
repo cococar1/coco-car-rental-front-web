@@ -20,7 +20,7 @@ const AccountBookingPage: React.FC<AccountBookingPageProps> = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
+            alignItems: "start",
             gap: "20px",
           }}
         >

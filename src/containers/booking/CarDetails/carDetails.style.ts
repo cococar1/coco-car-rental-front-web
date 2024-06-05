@@ -81,6 +81,7 @@ export const SectionDetail = styled.div`
 `;
 
 export const DetailCar = styled.div`
+  margin-top:15px;
   display: flex;
   width: 70%;
   justify-content: space-between;

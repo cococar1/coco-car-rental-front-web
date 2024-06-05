@@ -34,7 +34,7 @@ const Accordion: React.FC<AccordionProps> = ({
         >
           <h3>{title}</h3>
           <ContainerIconArrow onClick={() => setOpen(!open)} open={open}>
-            <ArrowIcon width={30} height={30} {...styleIcon}></ArrowIcon>
+            <ArrowIcon width={25} height={25} {...styleIcon}></ArrowIcon>
           </ContainerIconArrow>
         </Summary>
         <ContainerContent open={open} style={styleContent ?? {}}>
