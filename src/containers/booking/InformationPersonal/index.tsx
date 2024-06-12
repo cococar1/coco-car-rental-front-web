@@ -51,7 +51,7 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
             <SelectInputUI
-              styleSelect={{ border: "1px solid #CACACA", width: "50%" }}
+              styleSelect={{ border: "1px solid #CACACA",borderRadius:"5px", width: "51%",padding:"8px",marginLeft:"-10px" }}
               arrayOptions={[
                 { id: "MALE", value: "Masculino" },
                 { id: "FEMALE", value: "Femenino" },
@@ -157,8 +157,8 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           value={newBooking.pickupLocation ?? ""}
           Input={
             <SelectInputUI
-              styleSelect={{ border: "1px solid #CACACA", width: "50%" }}
-              arrayOptions={[
+            styleSelect={{ border: "1px solid #CACACA",borderRadius:"5px", width: "51%",padding:"8px",marginLeft:"-10px" }}
+            arrayOptions={[
                 { id: "AREOPUERTO", value: "Aeropuerto" },
                 {
                   id: "AXION DE PETI Y GUTIERREZ",

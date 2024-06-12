@@ -16,7 +16,8 @@ export const ContainerFilterPanel = styled.section`
 `;
 
 export const TitleFilter = styled.h2`
- font-weight: 600;
+  margin-top: -10px;
+  font-weight: 600;
   @media (max-width: 1024px) {
     display: none;
   }
@@ -41,8 +42,7 @@ export const ContainerDate = styled.div`
   }
 `;
 
-export const ContainerFilterSecondary = styled.div`
-`;
+export const ContainerFilterSecondary = styled.div``;
 
 export const ButtonFilterOption = styled.button`
   margin-top: 10px;
@@ -93,7 +93,7 @@ export const ContainerSimpleElement = styled.div`
   margin-top: 10px;
   h2 {
     font-size: 20px;
-     font-weight: 600;
+    font-weight: 600;
   }
 `;
 
