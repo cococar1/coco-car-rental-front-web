@@ -1,14 +1,16 @@
 import { MainLayout } from "@/layouts/Main.layout";
 import SectionBanner from "@/components/Banner/Banner";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
-import SectionAccodion from "@/containers/frequent-questions/accordion";
 import Search from "@/components/Search";
 import { FrequentQuestion } from "@/types/FrequentQuestion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ContainerSectionSearch } from "@/styles/pages/frequentQuestion.style";
+import { useFaqContext } from "@/context/FaqContext";
+import SectionAccordions from "@/containers/frequent-questions/accordion";
 
 interface FrequentQuestionsPageProps {}
 
+/*
 const data: Array<FrequentQuestion> = [
   {
     title: "What is OrionApp for?",
@@ -46,8 +48,14 @@ const data: Array<FrequentQuestion> = [
       "Innovator angel investor branding rockstar seed round growth hacking channels business-to-consumer user experience infographic. Business-to-consumer market gamification stock analytics MVP. Agile development low hanging fruit beta influencer.",
   },
 ];
+*/
 const FrequentQuestionsPage: React.FC<FrequentQuestionsPageProps> = () => {
-  const [dataFrequentQuestions, setDataFrequentQuestions] = useState(data);
+  const {faqOptions:{
+    data
+  }}= useFaqContext()
+
+  const [search,setSearch] = useState<string>("");
+
   return (
     <MainLayout>
       <SectionBanner
@@ -58,10 +66,10 @@ const FrequentQuestionsPage: React.FC<FrequentQuestionsPageProps> = () => {
 
       <ContainerSectionSearch>
         <h2>Podemos ayudarte</h2>
-        <Search />
+        <Search  value={search} setSearch={setSearch}/>
       </ContainerSectionSearch>
 
-      <SectionAccodion data={dataFrequentQuestions} />
+      <SectionAccordions data={data??[]} filterSearch={search} />
     </MainLayout>
   );
 };

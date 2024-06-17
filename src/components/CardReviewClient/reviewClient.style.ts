@@ -28,17 +28,13 @@ export const ElementCardReviewClient = styled.div`
 export const ContainerImage = styled.div`
   width: 78.343px;
   height: 78.343px;
-
+  
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   margin-bottom: 5px;
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  
+  background:#797F8C;
 `;

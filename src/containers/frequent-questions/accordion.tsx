@@ -3,10 +3,11 @@ import {
   ContainerColumn,
   ContainerSectionAccordions,
 } from "./frequentQuestions";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FrequentQuestion } from "@/types/FrequentQuestion";
-interface SectionAccodionProps {
+interface SectionAccordionProps {
   data: Array<FrequentQuestion>;
+  filterSearch:string
 }
 
 interface DataAccordion {
@@ -14,27 +15,47 @@ interface DataAccordion {
   columnRight: Array<FrequentQuestion>;
 }
 
-const SectionAccordions: React.FC<SectionAccodionProps> = ({
+const SectionAccordions: React.FC<SectionAccordionProps> = ({
   data,
-}: SectionAccodionProps) => {
+  filterSearch
+}: SectionAccordionProps) => {
   const [dataObject, setDataObject] = useState<DataAccordion>();
 
+
+  const hasSearchFilter = Boolean(filterSearch);
+
+  //TODO: corregir filtro
+  const filteredItems = React.useMemo(() => {
+    let filteredFaq = [...data];
+
+    if (hasSearchFilter) {
+      filteredFaq = filteredFaq.filter((faq) =>
+        faq.question.toLowerCase().includes(filterSearch.toLowerCase())
+      );
+    }
+
+    return filteredFaq;
+  }, [data, filterSearch, hasSearchFilter]);
+
+
   useEffect(() => {
-    if (data) {
+    console.log("acordion",data)
+    if (filteredItems) {
       setDataObject({
-        columnLeft: data.slice(0, Math.floor(data.length / 2)),
-        columnRight: data.slice(Math.floor(data.length / 2)),
+        columnLeft: filteredItems.slice(0, Math.floor(filteredItems.length / 2)),
+        columnRight: filteredItems.slice(Math.floor(filteredItems.length / 2)),
       });
     }
-  }, [data]);
+  }, [filteredItems,data]);
+
   return (
     <ContainerSectionAccordions>
       <ContainerColumn>
         {dataObject?.columnLeft.map((element, index) => (
           <Accordion
             key={index}
-            title={element.title}
-            content={element.content}
+            title={element.question}
+            content={element.answer}
           />
         ))}
       </ContainerColumn>
@@ -43,8 +64,8 @@ const SectionAccordions: React.FC<SectionAccodionProps> = ({
         {dataObject?.columnRight.map((element, index) => (
           <Accordion
             key={index}
-            title={element.title}
-            content={element.content}
+            title={element.question}
+            content={element.answer}
           />
         ))}
       </ContainerColumn>

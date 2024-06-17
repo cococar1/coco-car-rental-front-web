@@ -2,6 +2,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { BookingProvider } from "@/context/BookingContext";
 import { CarProvider } from "@/context/CarContext";
 import { ContactProvider } from "@/context/ContactContext";
+import { FaqProvider } from "@/context/FaqContext";
 import { ReactNode } from "react";
 
 interface ProvidersProps {
@@ -13,7 +14,9 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
     <AuthProvider>
       <BookingProvider>
         <CarProvider>
-          <ContactProvider>{children}</ContactProvider>
+          <FaqProvider>
+            <ContactProvider>{children}</ContactProvider>
+          </FaqProvider>
         </CarProvider>
       </BookingProvider>
     </AuthProvider>

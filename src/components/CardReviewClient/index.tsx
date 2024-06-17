@@ -28,12 +28,7 @@ const CardReviewClient: React.FC<CardReviewClientProps> = ({
     <ContainerCardReviewClient>
       <ElementCardReviewClient>
         <ContainerImage>
-          <Image
-            src={user.photo}
-            alt={user.name}
-            width={200}
-            height={200}
-          ></Image>
+         
         </ContainerImage>
         <div>
           <CommentIcon />
