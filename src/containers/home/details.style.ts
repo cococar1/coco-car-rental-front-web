@@ -32,7 +32,7 @@ export const ContainerDetails = styled.div`
 export const ContainerDetailsContent = styled.div`
   display: grid;
 
-  margin-top: 20px;
+  margin-top: 50px;
   @media (width >= 1024px) {
     display: flex;
   }

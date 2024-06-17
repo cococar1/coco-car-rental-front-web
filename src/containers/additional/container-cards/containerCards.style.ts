@@ -6,5 +6,5 @@ flex-wrap: wrap;
 gap: 25px;
 row-gap: 50px;
 width: 80%;
-justify-content:center;
+justify-content:flex-start;
 `

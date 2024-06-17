@@ -12,7 +12,7 @@ export const ContainerSearchResult = styled.section`
 
 export const ContainerCards = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content:flex-start;
   flex-wrap: wrap;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 25px;

@@ -5,7 +5,7 @@ export const ContainerSectionContact = styled.section`
   justify-content: space-evenly;
 
   align-items: center;
-  margin-top: 40px;
+  margin-top: 150px;
 
   @media (width >= 1024px) {
     display: flex;
