@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI";
+import InputUI from "@/ui/InputUI";
 import { ContainerSearch } from "./search.style";
 import SearchIcon from "@/assets/svgs/searchIcon";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
@@ -14,7 +14,7 @@ const Search: React.FC<SearchProps> = ({ stylesContainer,setSearch,value }) => {
   return (
     <ContainerSearch style={stylesContainer ? stylesContainer : {}}>
       {" "}
-      <InpuntUI
+      <InputUI
             value={value}
 
         SvgIcon={<SearchIcon color="#AEB7C1"></SearchIcon>}
@@ -27,7 +27,7 @@ const Search: React.FC<SearchProps> = ({ stylesContainer,setSearch,value }) => {
         placeholderColor="#B4B4B4"
         onChange={(e:any)=>{setSearch(e.target.value)}}
         
-      ></InpuntUI>
+      ></InputUI>
       <ButtonPrincipalUI
         sx={{
           borderRadius: "50px",

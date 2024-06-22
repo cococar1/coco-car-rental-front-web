@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI";
+import InputUI from "@/ui/InputUI";
 import Modal from "../Modal";
 import { ButtonPrincipalUI } from "@/ui/ButtonPrincipalUi";
 import { useEffect, useState } from "react";
@@ -46,7 +46,7 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
         </p>
       </div>
 
-      <InpuntUI
+      <InputUI
         value={fromLogin.email}
         backgroundcolor="#fff"
         type="email"
@@ -62,7 +62,7 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
         }}
       />
 
-      <InpuntUI
+      <InputUI
         type={viewPassword ? "text" : "password"}
         placeholder="Password"
         placeholderColor="#7E7E7E"

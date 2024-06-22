@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI";
+import InputUI from "@/ui/InputUI";
 import {
   ContainerDataPersonal,
   SectionDataPersonal,

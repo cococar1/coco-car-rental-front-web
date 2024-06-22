@@ -23,7 +23,7 @@ export const ElementContact = styled.div`
   flex-direction: column;
   align-items: start;
   width: 474px;
-  height: 320px;
+  height: 420px;
   gap: 10px;
   justify-content: space-around;
   h2 {

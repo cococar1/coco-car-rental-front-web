@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI";
+import InputUI from "@/ui/InputUI";
 import {
   ContainerButton,
   ContainerContact,
@@ -69,7 +69,7 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         </WrapperIconNetworks>
       </ElementContact>
       <ElementContact>
-        <InpuntUI
+        <InputUI
           type="email"
           value={statusContact.email ?? ""}
           onChange={(e: EventChange) => {
@@ -91,7 +91,7 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           }}
           SvgIcon={<></>}
         />
-        <InpuntUI
+        <InputUI
           type="text"
           value={statusContact.subject ?? ""}
           onChange={(e: EventChange) => {

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import InpuntUI from "@/ui/InputUI";
+import InputUI from "@/ui/InputUI";
 import {
   ContainerBackground,
   ContainerButtonForm,
@@ -58,7 +58,7 @@ const MainForm: React.FC<MainFormProps> = () => {
         <ContainerFormHomeInputs>
           <FormHomeContainerColumn>
             <div>
-              <InpuntUI
+              <InputUI
                 type={"date"}
                 placeholder="Fecha de retiro"
                 placeholderColor="#fff"
@@ -85,8 +85,8 @@ const MainForm: React.FC<MainFormProps> = () => {
                   });
                 }}
                 SvgIcon={<CalendarIcon width={25} height={25} />}
-              ></InpuntUI>
-              <InpuntUI
+              ></InputUI>
+              <InputUI
                 type={"date"}
                 placeholder="Fecha de entrega"
                 placeholderColor="#fff"
@@ -113,10 +113,10 @@ const MainForm: React.FC<MainFormProps> = () => {
                     },
                   });
                 }}
-              ></InpuntUI>
+              ></InputUI>
             </div>
             <div>
-              <InpuntUI
+              <InputUI
                 type={"time"}
                 placeholder="Hora"
                 placeholderColor="#fff"
@@ -143,8 +143,8 @@ const MainForm: React.FC<MainFormProps> = () => {
                     },
                   });
                 }}
-              ></InpuntUI>
-              <InpuntUI
+              ></InputUI>
+              <InputUI
                 type={"time"}
                 placeholder="Hora"
                 placeholderColor="#fff"
@@ -171,7 +171,7 @@ const MainForm: React.FC<MainFormProps> = () => {
                     },
                   });
                 }}
-              ></InpuntUI>
+              ></InputUI>
             </div>
           </FormHomeContainerColumn>
           <FormHomeContainerSelect>

@@ -24,7 +24,6 @@ const SectionAccordions: React.FC<SectionAccordionProps> = ({
 
   const hasSearchFilter = Boolean(filterSearch);
 
-  //TODO: corregir filtro
   const filteredItems = React.useMemo(() => {
     let filteredFaq = [...data];
 
@@ -39,11 +38,10 @@ const SectionAccordions: React.FC<SectionAccordionProps> = ({
 
 
   useEffect(() => {
-    console.log("acordion",data)
     if (filteredItems) {
       setDataObject({
-        columnLeft: filteredItems.slice(0, Math.floor(filteredItems.length / 2)),
-        columnRight: filteredItems.slice(Math.floor(filteredItems.length / 2)),
+        columnRight: filteredItems.slice(0, Math.floor(filteredItems.length / 2)),
+        columnLeft: filteredItems.slice(Math.floor(filteredItems.length / 2)),
       });
     }
   }, [filteredItems,data]);

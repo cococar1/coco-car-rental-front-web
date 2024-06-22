@@ -1,4 +1,4 @@
-import InpuntUI from "@/ui/InputUI";
+import InputUI from "@/ui/InputUI";
 import {
   ButtonFilterOption,
   ContainerCheckBoxScroll,
@@ -93,7 +93,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
       <TitleFilter>Filtros</TitleFilter>
       <ContainerDate>
         <div>
-          <InpuntUI
+          <InputUI
             stylesContainer={{ width: "60%" }}
             type={"date"}
             placeholder="Fecha de retiro"
@@ -113,8 +113,8 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
               });
             }}
             SvgIcon={<CalendarIcon width={25} height={25} />}
-          ></InpuntUI>
-          <InpuntUI
+          ></InputUI>
+          <InputUI
             stylesContainer={{ width: "40%" }}
             value={getTimeFromFinalDate(filter.booking?.pickupDate) ?? ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -136,10 +136,10 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             placeholder="Hora"
             backgroundcolor="#ffffff"
             SvgIcon={<ClockIcon width={25} height={25} />}
-          ></InpuntUI>
+          ></InputUI>
         </div>
         <div>
-          <InpuntUI
+          <InputUI
             stylesContainer={{ width: "60%" }}
             type={"date"}
             placeholder="Fecha de entrega"
@@ -159,8 +159,8 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
               });
             }}
             SvgIcon={<CalendarIcon width={25} height={25} />}
-          ></InpuntUI>
-          <InpuntUI
+          ></InputUI>
+          <InputUI
             stylesContainer={{ width: "40%" }}
             //   stylesInput={{width:"30%"}}
             type={"time"}
@@ -181,7 +181,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
               });
             }}
             SvgIcon={<ClockIcon width={25} height={25} />}
-          ></InpuntUI>
+          ></InputUI>
         </div>
         <div>
           <SelectInputUI
