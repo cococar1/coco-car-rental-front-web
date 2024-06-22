@@ -27,9 +27,7 @@ const CardReviewClient: React.FC<CardReviewClientProps> = ({
   return (
     <ContainerCardReviewClient>
       <ElementCardReviewClient>
-        <ContainerImage>
-         
-        </ContainerImage>
+      
         <div>
           <CommentIcon />
         </div>
