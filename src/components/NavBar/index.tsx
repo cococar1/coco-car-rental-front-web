@@ -212,7 +212,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               </CallActionButtons>
             ) : (
               <ContainerInfoUserMobile>
-                <h2>{loggedUser.fullName}</h2>
+                <h2>{loggedUser.fullName??"Actualizar datos"}</h2>
                 {/* <div style={{ display: "flex", gap: "10px" }}>
                   {" "}
                   <PhoneIcon width={22} height={22} />
