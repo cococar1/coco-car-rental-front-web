@@ -225,46 +225,52 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               </ContainerInfoUserMobile>
             )}
 
-            <ContainerSubNavMobile>
-              <ItemSubNavMobile isActive={mainRoute === "personal-information"}>
-                <UserIcon
-                  width={25}
-                  height={25}
-                  color={
-                    mainRoute === "personal-information" ? "#E96F45" : "#9691A4"
-                  }
-                />
-                <Link href={"/cuenta/personal-information"}>
-                  Información personal
-                </Link>
-              </ItemSubNavMobile>
-              <ItemSubNavMobile isActive={mainRoute === "private-security"}>
-                <PadLockIcon
-                  width={23}
-                  height={23}
-                  color={
-                    mainRoute === "private-security" ? "#E96F45" : "#9691A4"
-                  }
-                />
-                <Link href={"/cuenta/private-security"}>
-                  Contraseña y seguridad
-                </Link>
-              </ItemSubNavMobile>
-              <ItemSubNavMobile isActive={mainRoute === "booking"}>
-                <DocumentIcon
-                  width={25}
-                  height={25}
-                  color={mainRoute === "booking" ? "#E96F45" : "#9691A4"}
-                />
-                <Link href={"/cuenta/booking"}>Reservas</Link>
-              </ItemSubNavMobile>
-              <ItemSubNavMobile>
-                <LogOutIcon width={25} height={25} color="#9691A4" />
-                <Link href={""} onClick={logout}>
-                  Cerrar sesión
-                </Link>
-              </ItemSubNavMobile>
-            </ContainerSubNavMobile>
+            {loggedUser && (
+              <ContainerSubNavMobile>
+                <ItemSubNavMobile
+                  isActive={mainRoute === "personal-information"}
+                >
+                  <UserIcon
+                    width={25}
+                    height={25}
+                    color={
+                      mainRoute === "personal-information"
+                        ? "#E96F45"
+                        : "#9691A4"
+                    }
+                  />
+                  <Link href={"/cuenta/personal-information"}>
+                    Información personal
+                  </Link>
+                </ItemSubNavMobile>
+                <ItemSubNavMobile isActive={mainRoute === "private-security"}>
+                  <PadLockIcon
+                    width={23}
+                    height={23}
+                    color={
+                      mainRoute === "private-security" ? "#E96F45" : "#9691A4"
+                    }
+                  />
+                  <Link href={"/cuenta/private-security"}>
+                    Contraseña y seguridad
+                  </Link>
+                </ItemSubNavMobile>
+                <ItemSubNavMobile isActive={mainRoute === "booking"}>
+                  <DocumentIcon
+                    width={25}
+                    height={25}
+                    color={mainRoute === "booking" ? "#E96F45" : "#9691A4"}
+                  />
+                  <Link href={"/cuenta/booking"}>Reservas</Link>
+                </ItemSubNavMobile>
+                <ItemSubNavMobile>
+                  <LogOutIcon width={25} height={25} color="#9691A4" />
+                  <Link href={""} onClick={logout}>
+                    Cerrar sesión
+                  </Link>
+                </ItemSubNavMobile>
+              </ContainerSubNavMobile>
+            )}
           </BodyMenu>
         </nav>
       </NavbarContainer>
