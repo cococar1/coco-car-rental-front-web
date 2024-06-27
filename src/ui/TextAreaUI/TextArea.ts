@@ -6,7 +6,8 @@ export const ContainerTextArea = styled.div`
     border-bottom: 1px solid #ededed;
     outline: none;
     border-radius: 10px;
-   
   }
- 
+  textarea::placeholder {
+    color: #313e50;
+  }
 `;

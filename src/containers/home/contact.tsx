@@ -106,6 +106,7 @@ const SectionContact: React.FC<SectionContactProps> = () => {
         />
         <TextAreaUI
           placeholder="Escribe tu consulta aquí …"
+          
           stylesContainer={{ width: "100%" }}
           value={statusContact.content ?? ""}
           onChange={(e: EventChange) => {
@@ -117,7 +118,6 @@ const SectionContact: React.FC<SectionContactProps> = () => {
           stylesInput={{
             // border: "1px solid #AEB7C1",
             padding: "10px 10px",
-
             width: "100%",
             borderRadius: "0px",
             marginLeft: "0px",

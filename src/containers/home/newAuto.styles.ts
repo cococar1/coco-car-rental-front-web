@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 export const ContainerNewAutos = styled.div`
   display: grid;
-  justify-content: space-between;
+  justify-content: center;
   justify-items: center;
-  gap: 20px;
+  gap: 50px;
   margin-top:25px;
   width: 90%;
   h2 {
@@ -17,6 +17,7 @@ export const ContainerNewAutos = styled.div`
   }
   @media (width >= 1024px) {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 50px;
   }
 `;

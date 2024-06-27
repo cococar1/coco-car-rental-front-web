@@ -6,7 +6,7 @@ export const ContainerService = styled.section`
   gap: 30px;
   width: 86%;
 
-  justify-content: space-between;
+  justify-content: center;
   top: 0;
   @media (width >= 375px) {
     grid-template-columns: 1fr 1fr;

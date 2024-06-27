@@ -46,7 +46,6 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const [menuMobile, setmenuMobile] = useState(false);
   const { logout } = useAuthContext();
 
-
   const [statusModalLogin, setStatusModalLogin] = useState(false);
   const mainRoute = router.pathname.split("/")[1];
   const scrollPosition = useScrollPosition() > 10;
@@ -103,7 +102,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
             <NavItem isActive={mainRoute === "adicionales"}>
               <Link href="/adicionales"> Adicionales</Link>
             </NavItem>
-
+            {/* 
             <NavItem
               isActive={mainRoute === "reservas"}
               onClick={() => {
@@ -112,7 +111,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               }}
             >
               <Link href="/reservas">Reservas</Link>
-            </NavItem>
+            </NavItem> */}
 
             <NavItem isActive={mainRoute === "preguntas-frecuentes"}>
               <Link href="/preguntas-frecuentes"> FAQ</Link>
@@ -187,7 +186,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               <StackMenu href="/" nameSection="Inicio" />
               <StackMenu href="/nosotros" nameSection="Nosotros" />
               <StackMenu href="/adicionales" nameSection="Adicionales" />
-              <StackMenu href="/reservas" nameSection="Reservas" />
+              {/* <StackMenu href="/reservas" nameSection="Reservas" /> */}
               <StackMenu href="/preguntas-frecuentes" nameSection="FAQ" />
               <StackMenu href="/contacto" nameSection="Contacto" />
             </NavMobile>
@@ -249,11 +248,13 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
                   height={25}
                   color={mainRoute === "booking" ? "#E96F45" : "#9691A4"}
                 />
-                <Link href={"booking"}>Reservas</Link>
+                <Link href={"/cuenta/booking"}>Reservas</Link>
               </ItemSubNavMobile>
               <ItemSubNavMobile>
                 <LogOutIcon width={25} height={25} color="#9691A4" />
-                <Link href={""} onClick={logout}>Cerrar sesión</Link>
+                <Link href={""} onClick={logout}>
+                  Cerrar sesión
+                </Link>
               </ItemSubNavMobile>
             </ContainerSubNavMobile>
           </BodyMenu>

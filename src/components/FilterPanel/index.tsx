@@ -214,7 +214,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
         </div>
         <div>
           <ButtonPrincipalUI
-            sx={{ width: "100%", fontSize: " 16px" }}
+            sx={{ width: "100%", fontSize: " 16px", marginTop: "10px" }}
             onClick={handleUpdateButton}
           >
             Actualizar
@@ -222,9 +222,11 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
         </div>
       </ContainerDate>
       <OptionFilter>
-        <ButtonFilterOption onClick={()=>{
-          setStateViewFilter(!stateViewFilter)
-        }}>
+        <ButtonFilterOption
+          onClick={() => {
+            setStateViewFilter(!stateViewFilter);
+          }}
+        >
           <FilterIcon />
           filter
         </ButtonFilterOption>
@@ -232,7 +234,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
       {stateViewFilter && (
         <ContainerFilterSecondary>
           <ContainerFeature>
-            <h2>Caracteristicas</h2>
+            <h2 style={{ margin: "10px 0px" }}>Caracteristicas</h2>
             <ContainerCheckBoxScroll>
               {featuresFilter &&
                 featuresFilter.map((feature, index) => (
@@ -247,7 +249,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             </ContainerCheckBoxScroll>
           </ContainerFeature>
           <ContainerSimpleElement>
-            <h2>Modelo</h2>
+            <h2 style={{ margin: "10px 0px" }}>Modelo</h2>
 
             <SelectInputUI
               backgroundColor={"#ffffff"}
@@ -307,7 +309,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
         </ContainerContentElementCheckBook>
       </ContainerSimpleElement> */}
           <ContainerSimpleElement>
-            <h2>Combustible</h2>
+            <h2 style={{ margin: "10px 0px" }}>Combustible</h2>
             <ContainerContentElementCheckBook>
               {fullTypesFilter &&
                 fullTypesFilter.map((data, index) => (
@@ -323,7 +325,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
           </ContainerSimpleElement>
 
           <ContainerSimpleElement>
-            <h2>Transmisión</h2>
+            <h2 style={{ margin: "10px 0px" }}>Transmisión</h2>
             <ContainerContentElementCheckBook>
               {Object.keys(TypeChange).map((key) => (
                 <CheckBoxUI

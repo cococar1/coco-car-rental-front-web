@@ -174,7 +174,7 @@ const MainForm: React.FC<MainFormProps> = () => {
               ></InputUI>
             </div>
           </FormHomeContainerColumn>
-          <FormHomeContainerSelect>
+          {/* <FormHomeContainerSelect>
             <SelectInputUI
               value={""}
               backgroundColor="rgba(255, 255, 255, 0.25)"
@@ -186,7 +186,7 @@ const MainForm: React.FC<MainFormProps> = () => {
               placeholder="Categoria del auto"
               arrayOptions={optionsArray}
             ></SelectInputUI>
-          </FormHomeContainerSelect>
+          </FormHomeContainerSelect> */}
         </ContainerFormHomeInputs>
         <ContainerButtonForm>
           <ButtonPrincipalUI

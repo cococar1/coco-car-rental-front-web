@@ -8,17 +8,17 @@ interface ContainerCardsProps {
 
 const SectionContainerCards: React.FC<ContainerCardsProps> = ({ data }) => {
   return (
-    <ContainerCards>
-      {data?.map((e, index) => (
-        <CardAdditional
-          key={index}
-          type={e.type}
-          date={e.createdAt}
-          title={e.title}
-          content={e.description}
-        />
-      ))}
-    </ContainerCards>
+      <ContainerCards>
+        {data?.map((e, index) => (
+          <CardAdditional
+            key={index}
+            type={e.type}
+            date={e.createdAt}
+            title={e.title}
+            content={e.description}
+          />
+        ))}
+      </ContainerCards>
   );
 };
 

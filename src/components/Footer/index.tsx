@@ -27,9 +27,9 @@ const Footer: React.FC<FooterProps> = () => {
           <Link href="/adicionales"> Adicionales</Link>
         </NavItemNavFooter>
 
-        <NavItemNavFooter>
+        {/* <NavItemNavFooter>
           <Link href="/reservas">Reservas</Link>
-        </NavItemNavFooter>
+        </NavItemNavFooter> */}
 
         <NavItemNavFooter>
           <Link href="/faq"> FAQ</Link>

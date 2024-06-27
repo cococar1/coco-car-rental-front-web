@@ -5,6 +5,7 @@ export const ContainerFilterPanel = styled.section`
   width: 330px;
   height: 100%;
   background-color: #ffffff;
+  color: #313E50;
   h2 {
     font-size: 20px;
   }
@@ -90,7 +91,7 @@ export const ContainerFeature = styled.div`
 `;
 
 export const ContainerSimpleElement = styled.div`
-  margin-top: 10px;
+  /* margin-top: 10px; */
   h2 {
     font-size: 20px;
     font-weight: 600;

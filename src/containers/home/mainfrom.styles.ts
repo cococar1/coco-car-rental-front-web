@@ -185,7 +185,7 @@ export const FormHomeContainerColumn = styled.div`
 
 export const ContainerButtonForm = styled.div`
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
 
   @media (width>= 1024px) {
     height: 790px;
