@@ -36,7 +36,7 @@ export const InternalLayout = ({ children }: { children: React.ReactNode }) => {
 };
 
 const MainLayoutContainer = styled.section`
-  width: 78%;
+  /* width: 80%; */
   /* max-width: 90rem; */
   min-width: 250px;
   margin: 0 0;
@@ -65,5 +65,6 @@ const ContainerElement = styled.div`
   /* display: flex;
 
   flex-direction: column;
-  background-color: yellow; */
+  */
+  /* background-color: yellow;  */
 `;

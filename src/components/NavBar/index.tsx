@@ -44,7 +44,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const { setFilter } = useCarContext();
   const { setNewBooking } = useBookingContext();
   const [menuMobile, setmenuMobile] = useState(false);
-  const { logout } = useAuthContext();
+  const { logout, loggedUser } = useAuthContext();
 
   const [statusModalLogin, setStatusModalLogin] = useState(false);
   const mainRoute = router.pathname.split("/")[1];
@@ -168,14 +168,22 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
             <picture>
               <div>
                 <Link href="/">
-                  {/* <Image
-              src="/img/logo.png"
-              width={160}
-              height={100}
-              alt="Logo "
-              priority
-            /> */}
-                  Logo
+                  <ContainerImageLogo>
+                    <Image
+                      src={
+                        scrollPosition
+                          ? "/images/logo-without-background.png"
+                          : changeColor
+                          ? "/images/logo-without-background.png"
+                          : menuMobile
+                          ? "/images/logo-without-background.png"
+                          : "/images/logo-light.png"
+                      }
+                      fill
+                      alt="coco car rental "
+                      // priority
+                    />
+                  </ContainerImageLogo>
                 </Link>
               </div>
             </picture>
@@ -204,15 +212,15 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               </CallActionButtons>
             ) : (
               <ContainerInfoUserMobile>
-                <h2>Annette Black</h2>
-                <div style={{ display: "flex", gap: "10px" }}>
+                <h2>{loggedUser.fullName}</h2>
+                {/* <div style={{ display: "flex", gap: "10px" }}>
                   {" "}
                   <PhoneIcon width={22} height={22} />
-                  <p>(302) 555-0107</p>
-                </div>
+                  <p>{loggedUser}</p>
+                </div> */}
                 <div style={{ display: "flex", gap: "10px" }}>
                   <EmailIcon width={25} height={25} />
-                  <p>annette_black@gmail.com</p>
+                  <p>{loggedUser.email}</p>
                 </div>
               </ContainerInfoUserMobile>
             )}

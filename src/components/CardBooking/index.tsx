@@ -65,7 +65,7 @@ const CardBooking: React.FC<CardBookingProps> = ({ booking }) => {
                   booking.car.car.typeChange.substring(1)}
             </p>
           </div>
-          <div>
+          <div style={{marginLeft:"10px"}}>
             <KilometerLimitIcon />
             <p> {booking.car.car?.maxTankQuantity} L</p>
           </div>
