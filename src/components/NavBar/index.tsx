@@ -220,7 +220,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
                 </div> */}
                 <div style={{ display: "flex", gap: "10px" }}>
                   <EmailIcon width={25} height={25} />
-                  <p>{loggedUser.email}</p>
+                  <p>{loggedUser?.email??""}</p>
                 </div>
               </ContainerInfoUserMobile>
             )}
