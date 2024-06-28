@@ -53,8 +53,9 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
       setErrorRepeat(true);
     }
     if (
-      changePassword.newPassword == "" &&
-      changePassword.repeatPassword == ""
+      (changePassword.newPassword == "" &&
+        changePassword.repeatPassword == "") ||
+      changePassword.newPassword == changePassword.repeatPassword
     ) {
       setErrorRepeat(false);
     }
@@ -171,12 +172,12 @@ const SecurityPage: React.FC<SecurityPageProps> = () => {
             <p style={{ color: "red" }}>contraseña nueva no coincide</p>
           )}
           <ButtonPrincipalUI
-            
             onClick={submitChangePassword}
             style={{
               opacity: errorRepeat ? 0.5 : 1,
               pointerEvents: errorRepeat ? "none" : "auto",
-              width: "200px ", marginTop: "50px",
+              width: "200px ",
+              marginTop: "50px",
             }}
           >
             Guardar
