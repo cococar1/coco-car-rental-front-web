@@ -31,6 +31,7 @@ import { EventChange } from "@/types/general";
 import FilterIcon from "@/assets/svgs/FilterIcon";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import useScreen from "@/hooks/useScreen";
+import { capitalizeFirstLetter } from "@/helpers/capitalize";
 
 interface FilterPanelProps {}
 
@@ -69,7 +70,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
     event: React.ChangeEvent<HTMLInputElement>,
     typeProperty: keyof CarFilter
   ) => {
-    const checkboxName = event.target.name?.toString();
+    const checkboxName = event.target.name?.toString().toLocaleLowerCase();
 
     if (checkboxName && filter[typeProperty]?.includes(checkboxName)) {
       setFilter({
@@ -239,7 +240,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
               {featuresFilter &&
                 featuresFilter.map((feature, index) => (
                   <CheckBoxUI
-                    name={feature}
+                    name={capitalizeFirstLetter(feature)}
                     key={index}
                     onChange={(e: EventChange) =>
                       handleSelectTypeChange(e, "features" as keyof CarFilter)
@@ -330,7 +331,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
               {Object.keys(TypeChange).map((key) => (
                 <CheckBoxUI
                   key={key}
-                  name={key}
+                  name={capitalizeFirstLetter(key)}
                   onChange={(e: EventChange) =>
                     handleSelectTypeChange(e, "typeChange" as keyof CarFilter)
                   }

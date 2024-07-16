@@ -14,7 +14,7 @@ const SectionSearchResult: React.FC<SectionSearchResultProps> = ({ data }) => {
 console.log( "data",data)
   return (
     <ContainerSearchResult>
-      <TitleResult>Resultados de tu búsqueda</TitleResult>
+      {/* <TitleResult>Resultados de tu búsqueda</TitleResult> */}
       <ContainerCards>
         {data?.map((car, index) => (
           <CardAutoPrincipal car={car} key={index} />

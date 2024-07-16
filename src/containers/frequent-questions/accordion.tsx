@@ -8,6 +8,7 @@ import { FrequentQuestion } from "@/types/FrequentQuestion";
 interface SectionAccordionProps {
   data: Array<FrequentQuestion>;
   filterSearch:string
+  styles?: any;
 }
 
 interface DataAccordion {
@@ -17,7 +18,8 @@ interface DataAccordion {
 
 const SectionAccordions: React.FC<SectionAccordionProps> = ({
   data,
-  filterSearch
+  filterSearch,
+  styles
 }: SectionAccordionProps) => {
   const [dataObject, setDataObject] = useState<DataAccordion>();
 
@@ -47,7 +49,7 @@ const SectionAccordions: React.FC<SectionAccordionProps> = ({
   }, [filteredItems,data]);
 
   return (
-    <ContainerSectionAccordions>
+    <ContainerSectionAccordions style={styles??{}}>
       <ContainerColumn>
         {dataObject?.columnLeft.map((element, index) => (
           <Accordion

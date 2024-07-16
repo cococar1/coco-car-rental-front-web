@@ -54,7 +54,7 @@ const MainLayoutContainer = styled.section`
 const MainPrincipal = styled.main`
   padding: 30px 40px;
   margin: 0 0;
-
+  min-height: 73vh;
   @media (width < 1024px) {
     padding: 30px;
     /* padding: 0px; */

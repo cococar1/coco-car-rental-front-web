@@ -28,7 +28,11 @@ const FrequentQuestionsPage: React.FC<FrequentQuestionsPageProps> = () => {
         <Search value={search} setSearch={setSearch} />
       </ContainerSectionSearch>
 
-      <SectionAccordions data={data ?? []} filterSearch={search} />
+      <SectionAccordions
+        data={data ?? []}
+        styles={{ paddingBottom: "50px" }}
+        filterSearch={search}
+      />
     </MainLayout>
   );
 };

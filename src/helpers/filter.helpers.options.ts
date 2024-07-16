@@ -15,7 +15,7 @@ export const categoriesFilterData = [
 ];
 
 export const fullTypesFilterData = [
-  "Gasolina",
+  "Nafta",
   "Diesel",
   "Gas",
   "Electricidad",
@@ -41,9 +41,12 @@ export const brandFilterData = [
   { key: "tesla", value: "Tesla" },
   { key: "renault", value: "Renault" },
   { key: "peugeot", value: "Peugeot" },
+  { key: "fiat", value: "Fiat" },
+  { key: "citroen", value: "Citroen" },
+  { key: "volvo", value: "Volvo" },
+  { key: "dodge", value: "Dodge" },
   { key: "todos", value: "Todos" },
 ];
-
 export function buildQueryString(objeto: any) {
   const part = [];
 

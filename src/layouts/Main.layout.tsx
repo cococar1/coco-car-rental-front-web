@@ -33,7 +33,7 @@ export const MainLayout = ({
         <NavBar user={session as User}></NavBar>
       )}
       <MainLayoutContainer>{children}</MainLayoutContainer>
-      {/* {!nofooter && <Footer />} */}
+      {!nofooter && <Footer />}
     </>
   );
 };
