@@ -23,7 +23,10 @@ const CardAuto: React.FC<CardAutoProps> = ({ car }) => {
       <ContainerImageTitle>
         <ContainerImagePrincipal>
           <Image
-            src={car.image}
+            src={
+              car.image ??
+              "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
+            }
             alt=""
             fill
           />
