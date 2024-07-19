@@ -43,6 +43,11 @@ const nextConfig = {
         hostname: "platform-lookaside.fbsbx.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "static.vecteezy.com",
+        pathname: "**",
+      },
     ],
   },
 };
