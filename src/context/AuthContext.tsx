@@ -19,6 +19,7 @@ export interface Authentication {
   userLoginGoogle: () => void;
   userLoginFacebook: () => void;
   getAuthData: () => void;
+  recoveryPassword: (email: string) => void;
   userRegister: (data: CreateUserInput, redirectTo?: string) => void;
   token: string;
   loadingUser: boolean;

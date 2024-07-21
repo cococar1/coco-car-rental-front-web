@@ -6,6 +6,7 @@ import { AUTH_LOGIN, LOGGED_USER } from "@/gql/auth/auth.query";
 import {
   CHANGE_PASSWORD,
   CREATE_USER,
+  RECOVER_PASSWORD,
   UPDATE_USER,
 } from "../gql/auth/auth.mutation";
 import { useLazyQuery, useMutation } from "@apollo/client";
@@ -27,8 +28,9 @@ export const useAuth = () => {
   const [changePasswordFn, changePasswordRes] = useMutation(CHANGE_PASSWORD);
   const [createUserFn, createUserRes] = useMutation(CREATE_USER);
   const [getLoggedUserFn, getLoggedUserRes] = useLazyQuery(LOGGED_USER);
-
   const [updateUserFn, updateUserRes] = useMutation(UPDATE_USER);
+
+  const [recoverPasswordFn, recoverPasswordRes] = useMutation(RECOVER_PASSWORD);
 
   const getAuthData = async () => {
     await getLoggedUserFn({});
@@ -152,6 +154,25 @@ export const useAuth = () => {
     });
   };
 
+  const recoveryPassword = async (email: string) => {
+    recoverPasswordFn({
+      variables: {
+        email,
+      },
+      onCompleted(data) {
+        console.log(data);
+        toast.success("Correo enviado", {
+          position: "bottom-right",
+        });
+      },
+      onError(error) {
+        toast.error(error.message || "Error al enviar correo", {
+          position: "bottom-right",
+        });
+      },
+    });
+  };
+
   const logout = async () => {
     removeCookie("access_token");
     removeCookie("refresh_token");
@@ -207,6 +228,7 @@ export const useAuth = () => {
     userRegister,
     setAuth,
     refetchUser,
+    recoveryPassword,
     loginOptions: {
       data: authLoginRes.data?.authLogin as UserResponse,
       loading: authLoginRes.loading,
@@ -222,5 +244,6 @@ export const useAuth = () => {
       loading: createUserRes.loading,
       error: createUserRes.error,
     },
+    
   };
 };

@@ -33,6 +33,7 @@ import PadLockIcon from "@/assets/svgs/PadLockIcon";
 import DocumentIcon from "@/assets/svgs/documentIcon";
 import LogOutIcon from "@/assets/svgs/LogOutIcon";
 import { useAuthContext } from "@/context/AuthContext";
+import ModalRecoveryPassword from "../ModalRecoveryPassword";
 
 interface NavBarProps {
   user: User | null;
@@ -47,9 +48,14 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const { logout, loggedUser } = useAuthContext();
 
   const [statusModalLogin, setStatusModalLogin] = useState(false);
+  const [statusRecoveryPassword, setStatusRecoveryPassword] = useState(false);
   const mainRoute = router.pathname.split("/")[1];
   const scrollPosition = useScrollPosition() > 10;
 
+  const changeRecoveryPassword = () => {
+    setStatusModalLogin(false);
+    setStatusRecoveryPassword(!statusRecoveryPassword);
+  }
   return (
     <>
       {statusModalLogin && (
@@ -58,6 +64,18 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
             <ModalLogin
               onclickClose={() => {
                 setStatusModalLogin(!statusModalLogin);
+              }}
+              changeRecoveryPassword={changeRecoveryPassword}
+            />
+          </WrapperModal>
+        </>
+      )}
+      {statusRecoveryPassword && (
+        <>
+          <WrapperModal onclick={() => {}} styleWrapper={{}}>
+            <ModalRecoveryPassword
+              onclickClose={() => {
+                setStatusRecoveryPassword(!statusRecoveryPassword);
               }}
             />
           </WrapperModal>
@@ -212,7 +230,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               </CallActionButtons>
             ) : (
               <ContainerInfoUserMobile>
-                <h2>{loggedUser?.fullName??"Actualizar datos"}</h2>
+                <h2>{loggedUser?.fullName ?? "Actualizar datos"}</h2>
                 {/* <div style={{ display: "flex", gap: "10px" }}>
                   {" "}
                   <PhoneIcon width={22} height={22} />
@@ -220,7 +238,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
                 </div> */}
                 <div style={{ display: "flex", gap: "10px" }}>
                   <EmailIcon width={25} height={25} />
-                  <p>{loggedUser?.email??""}</p>
+                  <p>{loggedUser?.email ?? ""}</p>
                 </div>
               </ContainerInfoUserMobile>
             )}

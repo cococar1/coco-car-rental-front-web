@@ -49,3 +49,14 @@ export const UPDATE_USER = gql`
     }
   }
 `;
+
+export const RECOVER_PASSWORD = gql`
+  mutation RECOVERY_PASSWORD($email: String!) {
+    requestRecoverPassword(email: $email) {
+      address
+      _id
+      email
+      fullName
+    }
+  }
+`;

@@ -13,12 +13,16 @@ import useScreen from "@/hooks/useScreen";
 
 interface ModalLoginProps {
   onclickClose: any;
+  changeRecoveryPassword: () => void;
 }
 
-const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
+const ModalLogin: React.FC<ModalLoginProps> = ({
+  onclickClose,
+  changeRecoveryPassword,
+}) => {
   const [viewPassword, setViewPassword] = useState(false);
   const { userLogin, userLoginGoogle, userLoginFacebook } = useAuthContext();
-  const {width} = useScreen();
+  const { width } = useScreen();
   const [fromLogin, setFormLogin] = useState({
     email: "",
     password: "",
@@ -94,7 +98,9 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ onclickClose }) => {
           fontSize: "14px",
         }}
       >
-        <a href="">Olvidaste la contraseña?</a>
+        <a href="#" onClick={changeRecoveryPassword}>
+          Olvidaste la contraseña?
+        </a>
       </div>
       <ButtonPrincipalUI onClick={submit}>Iniciar Sesión</ButtonPrincipalUI>
       <div style={{ fontSize: "14px", textAlign: "center" }}>

@@ -7,7 +7,6 @@ export const AUTH_LOGIN = gql`
         fullName
         username
         email
-        role
         photo
         gender
         phoneNumber
@@ -26,7 +25,6 @@ export const LOGGED_USER = gql`
       fullName
       username
       email
-      role
       photo
       gender
       phoneNumber
