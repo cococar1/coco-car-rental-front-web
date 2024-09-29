@@ -21,6 +21,8 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
   } = useCarContext();
   const query = route.query;
   useEffect(() => {
+    //TODO: Mejorar esto, cuando ingreso con la url no se actualiza en el state
+
     console.log("queryyy");
     console.log(query);
     if (query.pickupDate || query.returnDate) {
@@ -39,8 +41,6 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
         returnDate: filter.booking?.returnDate,
       });
     }
-
-
   }, [query]);
 
   return (

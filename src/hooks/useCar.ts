@@ -11,7 +11,9 @@ import {
 
 export const useCar = () => {
   const [filter, setFilter] = useState<CarFilter>({} as CarFilter);
-  const [getCars, getCarRes] = useLazyQuery(ALL_CAR);
+  const [getCars, getCarRes] = useLazyQuery(ALL_CAR, {
+    // fetchPolicy: "network-only",
+  });
 
   const [allCars, setAllCars] = useState<Array<Car>>([] as Array<Car>);
   const [getFeatureFilterFn, getFeatureFilterRes] =

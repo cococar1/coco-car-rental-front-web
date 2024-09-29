@@ -22,6 +22,8 @@ import {
 } from "@/helpers/dateTime.helper";
 import Link from "next/link";
 import { CarFilter } from "@/types/Car.type";
+import moment from "moment";
+import { toast } from "react-toastify";
 interface MainFormProps {}
 const optionsArray = [
   {
@@ -105,13 +107,36 @@ const MainForm: React.FC<MainFormProps> = () => {
                   const existingTime = getTimeFromFinalDate(
                     filter.booking.returnDate
                   );
-                  setFilter({
-                    ...filter,
-                    booking: {
-                      ...filter.booking,
-                      returnDate: `${newDate}T${existingTime}`,
-                    },
-                  });
+
+                  const returnDateTime = `${newDate}T${existingTime}`;
+                  let initialDate = moment(
+                    filter.booking.pickupDate.toString().split("T")[0]
+                  ).format("YYYY-MM-DD");
+                  let endDate = moment(
+                    `${newDate}T${existingTime}`.split("T")[0]
+                  ).format("YYYY-MM-DD");
+
+                  if (endDate < initialDate) {
+                    console.log("error");
+                    setFilter({
+                      ...filter,
+                      booking: {
+                        ...filter.booking,
+                        returnDate: "",
+                      },
+                    });
+                    toast.warning(`Usted seleccionó una fecha no válida`, {
+                      position: "bottom-left",
+                    });
+                  } else {
+                    setFilter({
+                      ...filter,
+                      booking: {
+                        ...filter.booking,
+                        returnDate: returnDateTime,
+                      },
+                    });
+                  }
                 }}
               ></InputUI>
             </div>

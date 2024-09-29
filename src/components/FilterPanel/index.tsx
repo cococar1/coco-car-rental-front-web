@@ -32,6 +32,8 @@ import FilterIcon from "@/assets/svgs/FilterIcon";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import useScreen from "@/hooks/useScreen";
 import { capitalizeFirstLetter } from "@/helpers/capitalize";
+import moment from "moment";
+import { toast } from "react-toastify";
 
 interface FilterPanelProps {}
 
@@ -151,13 +153,36 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
               const existingTime = getTimeFromFinalDate(
                 filter.booking?.returnDate
               );
-              setFilter({
-                ...filter,
-                booking: {
-                  ...filter.booking,
-                  returnDate: `${newDate}T${existingTime}`,
-                },
-              });
+
+              const returnDateTime = `${newDate}T${existingTime}`;
+              let initialDate = moment(
+                filter.booking.pickupDate.toString().split("T")[0]
+              ).format("YYYY-MM-DD");
+              let endDate = moment(
+                `${newDate}T${existingTime}`.split("T")[0]
+              ).format("YYYY-MM-DD");
+
+              if (endDate < initialDate) {
+                console.log("error");
+                setFilter({
+                  ...filter,
+                  booking: {
+                    ...filter.booking,
+                    returnDate: "",
+                  },
+                });
+                toast.warning(`Usted seleccionó una fecha no válida`, {
+                  position: "bottom-left",
+                });
+              } else {
+                setFilter({
+                  ...filter,
+                  booking: {
+                    ...filter.booking,
+                    returnDate: returnDateTime,
+                  },
+                });
+              }
             }}
             SvgIcon={<CalendarIcon width={25} height={25} />}
           ></InputUI>
