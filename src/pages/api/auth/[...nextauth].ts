@@ -9,6 +9,7 @@ import { AUTH_LOGIN } from "@/gql/auth/auth.query";
 // import { setCookie } from "@/helpers/cookie";
 import { fetchFacebookData, fetchGoogleData } from "@/services/auth";
 import { initializeApollo } from "@/services/client";
+import { setCookie } from "@/helpers/cookie";
 
 // import { redirect } from "next/dist/server/api-utils";
 
@@ -45,8 +46,8 @@ export const authOptions: NextAuthOptions = {
           const { user } = authLogin || {};
 
           if (user) {
-            // setCookie("access_token", authLogin.accessToken);
-            // setCookie("refresh_token", authLogin.refreshToken);
+            await setCookie("access_token", authLogin.accessToken);
+            await setCookie("refresh_token", authLogin.refreshToken);
             return {
               _id: user._id,
               fullName: user.fullName,
@@ -77,14 +78,14 @@ export const authOptions: NextAuthOptions = {
         if (account) {
           console.log(token);
           if (account.provider === "google") {
-            // console.log("validate googleeeeeee", account.access_token)
+            console.log("validate googleeeeeee", account.access_token);
             token.graphqlData = await fetchGoogleData(
               account.access_token!,
               user.name,
               account.provider
             );
           } else if (account.provider == "facebook") {
-            console.log("validate facebook", account)
+            console.log("validate facebook", account);
 
             token.graphqlData = await fetchFacebookData(
               account.access_token!,
