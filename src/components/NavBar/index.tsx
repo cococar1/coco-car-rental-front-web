@@ -42,8 +42,6 @@ interface NavBarProps {
 }
 export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const router = useRouter();
-  const { setFilter } = useCarContext();
-  const { setNewBooking } = useBookingContext();
   const [menuMobile, setmenuMobile] = useState(false);
   const { logout, loggedUser } = useAuthContext();
 
