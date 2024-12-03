@@ -17,13 +17,22 @@ export const ContainerFooter = styled.footer`
     color: ${colors.textBlack};
   }
 `;
-
 export const ContainerNavFooter = styled.ul`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   width: 45%;
   list-style: none;
+  gap: 10px;
   color: #222a41;
+  justify-content: space-evenly;
+
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+  }
 `;
 
 export const NavItemNavFooter = styled.li<{ isActive?: boolean }>`
@@ -36,6 +45,7 @@ export const NavItemNavFooter = styled.li<{ isActive?: boolean }>`
       color: #e96f45;
     }
   }
+
   ${({ isActive }) =>
     isActive &&
     css`
@@ -43,11 +53,25 @@ export const NavItemNavFooter = styled.li<{ isActive?: boolean }>`
         color: #e96f45;
       }
     `}
+
+  @media (max-width: 768px) {
+    font-size: 14px; /* Ajustar tamaño de texto */
+    margin: 5px; /* Ajustar espacio entre elementos */
+  }
 `;
+
 export const ContainerNetworks = styled.div`
   display: flex;
   width: 15%;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    width: 100%; /* Ajustar el ancho al contenedor */
+    justify-content: center; /* Centrar los íconos */
+    gap: 5px; /* Reducir el espacio entre los íconos */
+  }
 `;
 
 export const ContainerIconNetworks = styled.div`
@@ -59,7 +83,11 @@ export const ContainerIconNetworks = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  svg {
-    /* height: 34; */
+
+  @media (max-width: 768px) {
+    width: 35px; /* Reducir el tamaño del botón en pantallas pequeñas */
+    height: 35px;
+
+   
   }
 `;

@@ -21,17 +21,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "coco-car-rental.s3.us-east-2.amazonaws.com",
-      },
-      {
-        protocol: "https",
-        hostname: "coco-car-rental2.s3.us-east-1.amazonaws.com",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "coco-car-rental2.s3.amazonaws.com",
-        pathname: "**",
+        hostname: "cocorental.s3.us-east-1.amazonaws.com",
       },
       {
         protocol: "https",
