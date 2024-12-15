@@ -23,7 +23,7 @@ const ContainerDetailData: React.FC<ContainerDetailDataProps> = ({
   return (
     <ContainerDetailDataElement>
       {positionIcon == "right" && (
-        <ContainerIcon>
+        <ContainerIcon  style={{ marginTop:"17px"}}>
           <SvgIcon />
         </ContainerIcon>
       )}
@@ -49,7 +49,7 @@ const ContainerDetailData: React.FC<ContainerDetailDataProps> = ({
         </p>
       </DetailDataElementText>
       {positionIcon == "left" && (
-        <ContainerIcon>
+        <ContainerIcon style={{ marginTop:"17px"}}>
           <SvgIcon />
         </ContainerIcon>
       )}
