@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const ContainerDetailDataElement = styled.div`
   display: flex;
-
+/* background-color: ; */
   
   `
   export const ContainerIcon = styled.div`

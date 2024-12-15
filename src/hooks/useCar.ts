@@ -12,7 +12,7 @@ import {
 export const useCar = () => {
   const [filter, setFilter] = useState<CarFilter>({} as CarFilter);
   const [getCars, getCarRes] = useLazyQuery(ALL_CAR, {
-    // fetchPolicy: "network-only",
+    fetchPolicy: "network-only",
   });
 
   const [allCars, setAllCars] = useState<Array<Car>>([] as Array<Car>);
@@ -26,12 +26,27 @@ export const useCar = () => {
   const [categoryFilter, setCategoryFilter] = useState(categoriesFilterData);
 
   useEffect(() => {
+    console.log("update cars statements");
     if (!getCarRes.data) {
-      getCars();
+      console.log("statements cars https");
+
+      // getCars();
     }
   }, [filter, setFilter, getCarRes.data, getCars]);
 
   useEffect(() => {
+    console.log("final refact, ", filter);
+    if (!getCarRes.data) {
+      getCars({
+        variables: {
+          filter,
+        },
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("peticion http", filter);
     if (getCarRes.data) {
       setAllCars(getCarRes.data?.cars);
     }
@@ -43,7 +58,17 @@ export const useCar = () => {
     }
   }, [getFeatureFilterFn, getFeatureFilterRes.data]);
 
-  const applyFilter = async () => {
+  const applyFilter = async (firstPetition?: any) => {
+    if (firstPetition) {
+      await getCars({
+        variables: {
+          filter: {
+            ...firstPetition,
+          },
+        },
+      });
+      return;
+    }
     console.log("filterrrr", filter);
     console.log(filter);
     await getCars({

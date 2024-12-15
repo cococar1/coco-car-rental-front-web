@@ -36,7 +36,7 @@ export const ContainerImage = styled.div`
 `;
 export const ContainerFeatures = styled.div`
   margin-top: 10px;
-  width: 80%;
+  width: 100%;
   h2 {
     padding: 10px 0px;
   }
@@ -44,7 +44,7 @@ export const ContainerFeatures = styled.div`
 
 export const ContainerFeaturesElements = styled.div`
   width: 100%;
-  max-height: 150px;
+  max-height: 200px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -55,12 +55,11 @@ export const SectionDetail = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 20px 10px 20px;
-  /* background-color: yellow; */
+  padding: 0px 20px 10px 20px;
   width: 40%;
   h1 {
     font-size: 33.565px;
-    padding-top: 10px;
+    /* padding-top: 10px; */
   }
   & > div {
     /* background-color: blue; */

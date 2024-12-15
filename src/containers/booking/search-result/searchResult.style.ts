@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerSearchResult = styled.section`
   width: calc(100% - 300px);
+  padding:0px 15px;
   @media (max-width: 1024px) {
   background-color: #F7F7FA;
     width: calc(100% );

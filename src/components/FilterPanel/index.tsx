@@ -7,9 +7,7 @@ import {
   ContainerFeature,
   ContainerFilterPanel,
   ContainerFilterSecondary,
-  ContainerInputYears,
   ContainerSimpleElement,
-  LineYear,
   OptionFilter,
   TitleFilter,
 } from "./filterPanel.style";
@@ -29,7 +27,6 @@ import { useRouter } from "next/router";
 import { CarFilter, TypeChange } from "@/types/Car.type";
 import { EventChange } from "@/types/general";
 import FilterIcon from "@/assets/svgs/FilterIcon";
-import { useScrollPosition } from "@/hooks/useScrollPosition";
 import useScreen from "@/hooks/useScreen";
 import { capitalizeFirstLetter } from "@/helpers/capitalize";
 import moment from "moment";

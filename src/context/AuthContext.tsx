@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 import { ApolloError } from "@apollo/client";
 
 import { CreateUserInput, UserResponse, useAuth } from "@/hooks/useAuth";
-import { User } from "@/types/user.type";
+import { User, UserRegistrationData } from "@/types/user.type";
 
 export interface Authentication {
   logout: () => void;
@@ -20,7 +20,11 @@ export interface Authentication {
   userLoginFacebook: () => void;
   getAuthData: () => void;
   recoveryPassword: (email: string) => void;
-  userRegister: (data: CreateUserInput, redirectTo?: string) => void;
+  userRegister: (
+    data: UserRegistrationData,
+    call: () => void,
+    redirectTo?: string
+  ) => void;
   token: string;
   loadingUser: boolean;
   setAuth: (

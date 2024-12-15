@@ -12,7 +12,7 @@ import {
 import { useLazyQuery, useMutation } from "@apollo/client";
 
 import { useEffect, useState } from "react";
-import { TokenResponse, User } from "@/types/user.type";
+import { TokenResponse, User, UserRegistrationData } from "@/types/user.type";
 import { signIn, signOut } from "next-auth/react";
 
 export type UserResponse = TokenResponse & {
@@ -133,7 +133,12 @@ export const useAuth = () => {
     const result = await signIn("facebook", { callbackUrl: "/" });
     console.log(result);
   };
-  const userRegister = (data: CreateUserInput, redirectTo?: string) => {
+  const userRegister = (
+    data: UserRegistrationData,
+    call: () => void,
+    redirectTo?: string
+  ) => {
+    console.log(data);
     createUserFn({
       variables: {
         createUserInput: data,
@@ -144,7 +149,11 @@ export const useAuth = () => {
 
         if (data) {
           if (accessToken) {
+            call();
             setAuth(accessToken, refreshToken, user?.role ?? "", redirectTo);
+            return toast.success(`cuenta creada correctamente`, {
+              position: "bottom-right",
+            });
           }
         }
       },
@@ -244,6 +253,5 @@ export const useAuth = () => {
       loading: createUserRes.loading,
       error: createUserRes.error,
     },
-    
   };
 };

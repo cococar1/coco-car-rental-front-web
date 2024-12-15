@@ -24,14 +24,19 @@ import { CreateBooking } from "../../../types/Booking";
 interface CarDetailsProps {
   car: Car;
   booking: Booking | CreateBooking;
+  styleContainer?: React.CSSProperties;
 }
 
-const CarDetails: React.FC<CarDetailsProps> = ({ car, booking }) => {
+const CarDetails: React.FC<CarDetailsProps> = ({
+  car,
+  booking,
+  styleContainer,
+}) => {
   const days =
     moment(booking?.returnDate).diff(moment(booking?.pickupDate), "days") ?? 0;
 
   return (
-    <ContainerCarDetail>
+    <ContainerCarDetail style={styleContainer ?? {}}>
       <SectionImage>
         <ContainerImage>
           <Image src={car.image} fill alt="" />
@@ -49,46 +54,63 @@ const CarDetails: React.FC<CarDetailsProps> = ({ car, booking }) => {
       <SectionDetail>
         <h1>{car.name}</h1>
         <div>
-          <h3 style={{fontSize:"18px",fontWeight: "bold"}}>Detalles del vehiculo</h3>
+          <h3 style={{ fontSize: "18px", fontWeight: "bold" }}>
+            Detalles del vehiculo
+          </h3>
           <DetailCar>
             <div>
               <UserIcon />
-              <p style={{fontSize:"16px"}}>{car.countPerson}</p>
+              <p style={{ fontSize: "16px" }}>{car.countPerson}</p>
             </div>
             <div>
               <TypeAutoIcon />
-              <p style={{fontSize:"16px"}}>{car.typeChange}</p>
+              <p style={{ fontSize: "16px" }}>{car.typeChange}</p>
             </div>
             <div>
               <KilometerLimitIcon />
-              <p style={{fontSize:"16px"}}>{car.maxTankQuantity}</p>
+              <p style={{ fontSize: "16px" }}>{car.maxTankQuantity}</p>
             </div>
             <div>
               <GasIcon />
-              <p style={{fontSize:"16px"}}>{car.fullType}</p>
+              <p style={{ fontSize: "16px" }}>{car.fullType}</p>
             </div>
           </DetailCar>
         </div>
         <DetailBooking>
-          <h2 style={{fontSize:"20px",marginBottom:"10px",fontWeight: "bold"}}>Detalles de la reserva</h2>
-          <p style={{fontSize:"16px"}}>
+          <h2
+            style={{
+              fontSize: "20px",
+              marginBottom: "10px",
+              fontWeight: "bold",
+            }}
+          >
+            Detalles de la reserva
+          </h2>
+          <p style={{ fontSize: "16px" }}>
             {moment(booking?.pickupDate).format("ddd, D [de] MMM - h:mm A")}
           </p>
           <h3>{car.pickupTime}</h3>
-          <p style={{fontSize:"16px"}}>
+          <p style={{ fontSize: "16px" }}>
             {moment(booking?.returnDate).format("ddd, D [de] MMM - h:mm A")}
           </p>
         </DetailBooking>
         <DetailPrice>
-          <h2 style={{fontSize:"20px",fontWeight: "bold"}}>Desglose del precio del coche</h2>
+          <h2 style={{ fontSize: "20px", fontWeight: "bold" }}>
+            Desglose del precio del coche
+          </h2>
           <ContainerPrice>
-            <p style={{fontSize:"16px"}}>Cargo por alquiler de coche</p> <span>${car.price}</span>
+            <p style={{ fontSize: "16px" }}>Cargo por alquiler de coche</p>{" "}
+            <span>${car.price}</span>
           </ContainerPrice>
           <ContainerPrice>
-            <p style={{ fontWeight: "bold",fontSize:"16px" }}>Precio por {days} días:</p>{" "}
-            <span style={{ fontWeight: "bold",fontSize:"16px" }}>${days * car.price}</span>
+            <p style={{ fontWeight: "bold", fontSize: "16px" }}>
+              Precio por {days} días:
+            </p>{" "}
+            <span style={{ fontWeight: "bold", fontSize: "16px" }}>
+              ${days * car.price}
+            </span>
           </ContainerPrice>
-          <p style={{fontSize:"16px"}}>{car.description}</p>
+          <p style={{ fontSize: "16px" }}>{car.description}</p>
         </DetailPrice>
       </SectionDetail>
     </ContainerCarDetail>

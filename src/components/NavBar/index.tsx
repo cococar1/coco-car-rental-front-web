@@ -19,14 +19,12 @@ import { ButtonPrincipalContainer } from "@/ui/ButtonPrincipalUi/buttonPrincipal
 import { BarsMenu } from "@/ui/BarsMenu";
 import { StackMenu } from "@/ui/StackMenu";
 import { ButtonSecondaryContainer } from "@/ui/ButtonSecondary/buttonSecondary";
-import { useCarContext } from "@/context/CarContext";
-import { useBookingContext } from "@/context/BookingContext";
+
 import WrapperModal from "../WrapperModal";
 import ModalLogin from "../ModalLogin";
 import { User } from "@/types/user.type";
 import UserAuth from "../UserAuth";
 import Image from "next/image";
-import PhoneIcon from "@/assets/svgs/PhoneIcon";
 import EmailIcon from "@/assets/svgs/emailIcon";
 import UserIcon from "@/assets/svgs/UserIcon";
 import PadLockIcon from "@/assets/svgs/PadLockIcon";
@@ -34,6 +32,7 @@ import DocumentIcon from "@/assets/svgs/documentIcon";
 import LogOutIcon from "@/assets/svgs/LogOutIcon";
 import { useAuthContext } from "@/context/AuthContext";
 import ModalRecoveryPassword from "../ModalRecoveryPassword";
+import RegisterModal from "../RegisterModal";
 
 interface NavBarProps {
   user: User | null;
@@ -46,6 +45,7 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const { logout, loggedUser } = useAuthContext();
 
   const [statusModalLogin, setStatusModalLogin] = useState(false);
+  const [statusModalRegister, setStatusModalRegister] = useState(false);
   const [statusRecoveryPassword, setStatusRecoveryPassword] = useState(false);
   const mainRoute = router.pathname.split("/")[1];
   const scrollPosition = useScrollPosition() > 10;
@@ -53,7 +53,11 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
   const changeRecoveryPassword = () => {
     setStatusModalLogin(false);
     setStatusRecoveryPassword(!statusRecoveryPassword);
-  }
+  };
+  const changeLoginPage = () => {
+    setStatusModalRegister(false);
+    setStatusModalLogin(true);
+  };
   return (
     <>
       {statusModalLogin && (
@@ -76,6 +80,18 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
                 setStatusRecoveryPassword(!statusRecoveryPassword);
               }}
             />
+          </WrapperModal>
+        </>
+      )}
+      {statusModalRegister && (
+        <>
+          <WrapperModal onclick={() => {}} styleWrapper={{}}>
+            <RegisterModal
+              onclickClose={() => {
+                setStatusModalRegister(!statusModalRegister);
+              }}
+              changeLoginPage={changeLoginPage}
+            ></RegisterModal>
           </WrapperModal>
         </>
       )}
@@ -150,6 +166,9 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
               </li>
               <li>
                 <ButtonPrincipalContainer
+                  onClick={() => {
+                    setStatusModalRegister(!statusModalRegister);
+                  }}
                   style={
                     changeColor
                       ? {
@@ -224,7 +243,13 @@ export const NavBar: any = ({ user, role, changeColor }: NavBarProps) => {
                   Iniciar sesión
                 </ButtonPrincipalContainer>
 
-                <ButtonSecondaryContainer>Registrate</ButtonSecondaryContainer>
+                <ButtonSecondaryContainer
+                  onClick={() => {
+                    setStatusModalRegister(!statusModalRegister);
+                  }}
+                >
+                  Registrate
+                </ButtonSecondaryContainer>
               </CallActionButtons>
             ) : (
               <ContainerInfoUserMobile>

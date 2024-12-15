@@ -34,7 +34,7 @@ export interface CarHookType {
   filter: CarFilter;
   fullTypesFilter: string[];
   categoryFilter: KeyValue[];
-  applyFilter: () => void;
+  applyFilter: (firstPetition?: any) => void;
   getCars: (options: any) => void;
   carsOptions: {
     data: Car[] | any;

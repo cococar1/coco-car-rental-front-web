@@ -106,6 +106,7 @@ const CarIdPage: React.FC = () => {
               </p>
             </div>
             <CarDetails
+              styleContainer={{ marginTop: "50px" }}
               booking={newBooking}
               car={getCarRes.data?.car ?? ({} as Car)}
             />
@@ -125,14 +126,18 @@ const CarIdPage: React.FC = () => {
             </div>
             <div
               style={{
-                position:"relative",
+                position: "relative",
                 display: "flex",
                 justifyContent: "end",
                 marginTop: "20px",
-                width:"100%"
+                width: "100%",
               }}
             >
-              <ButtonPrincipalUI style={{width:"200px"}} onClick={handleClickBooking} loading={loading}>
+              <ButtonPrincipalUI
+                style={{ width: "200px" }}
+                onClick={handleClickBooking}
+                loading={loading}
+              >
                 Continuar
               </ButtonPrincipalUI>
             </div>

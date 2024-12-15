@@ -21,8 +21,6 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
   } = useCarContext();
   const query = route.query;
   useEffect(() => {
-    //TODO: Mejorar esto, cuando ingreso con la url no se actualiza en el state
-
     console.log("queryyy");
     console.log(query);
     if (query.pickupDate || query.returnDate) {
@@ -33,6 +31,18 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
           returnDate: query.returnDate ?? "",
         },
       });
+      const firstPetition = {
+        ...filter,
+        booking: {
+          pickupDate: query.pickupDate ?? "",
+          returnDate: query.returnDate ?? "",
+        },
+      };
+      console.log(
+        "🚀 ~ file: index.tsx:40 ~ useEffect ~ firstPetition:",
+        firstPetition
+      );
+      applyFilter(firstPetition as any);
     }
     if (filter.booking?.pickupDate && filter.booking?.returnDate) {
       applyFilter();
@@ -49,7 +59,12 @@ const CarBookingPage: React.FC<FrequentQuestionsPageProps> = () => {
         <FilterPanel />
         {loading ? (
           <div
-            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              width: "calc(100% - 300px)",
+              padding: "0px 15px",
+            }}
           >
             <LoaderUI></LoaderUI>
           </div>

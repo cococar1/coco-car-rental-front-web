@@ -10,7 +10,6 @@ export const CREATE_USER = gql`
         fullName
         username
         email
-        role
         photo
         gender
         phoneNumber

@@ -51,7 +51,13 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
             <SelectInputUI
-              styleSelect={{ border: "1px solid #CACACA",borderRadius:"5px", width: "51%",padding:"8px",marginLeft:"-10px" }}
+              styleSelect={{
+                border: "1px solid #CACACA",
+                borderRadius: "5px",
+                width: "51%",
+                padding: "8px",
+                marginLeft: "-10px",
+              }}
               arrayOptions={[
                 { id: "MALE", value: "Masculino" },
                 { id: "FEMALE", value: "Femenino" },
@@ -83,11 +89,12 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
               <input
                 type="email"
                 style={{
-                  padding: "8px",
+                  padding: "6px",
                   fontSize: "14px",
                   border: "1px solid #CACACA",
                   borderRadius: "5px",
                   width: "50%",
+                  marginTop: "8px" 
                 }}
                 value={newBooking.client?.email ?? ""}
                 onChange={(e) => {
@@ -108,36 +115,39 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           value={newBooking.client?.phoneNumber ?? ""}
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
           Input={
-            <PhoneInput
-              inputStyle={{ width: "50%" }}
-              country={"ar"}
-              value={newBooking.client?.phoneNumber ?? ""}
-              onChange={(phone) => {
-                setNewBooking({
-                  ...newBooking,
-                  client: {
-                    ...newBooking.client,
-                    phoneNumber: phone,
-                  },
-                });
-              }}
-            />
+            <div style={{marginTop: "8px" }}>
+              <PhoneInput
+                inputStyle={{ width: "50%" }}
+                country={"ar"}
+                value={newBooking.client?.phoneNumber ?? ""}
+                onChange={(phone) => {
+                  setNewBooking({
+                    ...newBooking,
+                    client: {
+                      ...newBooking.client,
+                      phoneNumber: phone,
+                    },
+                  });
+                }}
+              />
+            </div>
           }
           //   styleContainer={{  }}
         ></EditableField>
         <EditableField
           styleContainer={{ borderBottom: "1px solid #EFECF3" }}
-          label="Address"
+          label="Dirección"
           value={newBooking.client?.address ?? ""}
           Input={
             <input
               type="text"
               style={{
-                padding: "8px",
+                padding: "6px",
                 fontSize: "14px",
                 border: "1px solid #CACACA",
                 borderRadius: "5px",
                 width: "50%",
+                marginTop: "6px",
               }}
               value={newBooking.client?.address ?? ""}
               onChange={(e) => {
@@ -157,8 +167,14 @@ const InformationPersonal: React.FC<InformationPersonalProps> = () => {
           value={newBooking.pickupLocation ?? ""}
           Input={
             <SelectInputUI
-            styleSelect={{ border: "1px solid #CACACA",borderRadius:"5px", width: "51%",padding:"8px",marginLeft:"-10px" }}
-            arrayOptions={[
+              styleSelect={{
+                border: "1px solid #CACACA",
+                borderRadius: "5px",
+                width: "51%",
+                padding: "8px",
+                marginLeft: "-10px",
+              }}
+              arrayOptions={[
                 { id: "AREOPUERTO", value: "Aeropuerto" },
                 {
                   id: "AXION DE PETI Y GUTIERREZ",

@@ -29,3 +29,10 @@ export interface UserResponse {
   accessToken: string;
   refreshToken: string;
 }
+
+export interface UserRegistrationData {
+  fullName?: string;
+  password?: string;
+  repeatPassword?: string;
+  email?: string;
+}
