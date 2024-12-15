@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { InputContainer } from "./InputUI.style";
 
 enum PositionIcon {
@@ -6,7 +6,7 @@ enum PositionIcon {
   RIGHT = "RIGHT",
 }
 
-interface InpuntUIProps {
+interface InputUIProps {
   type: string;
   backgroundcolor: string;
   SvgIcon: any;
@@ -19,7 +19,7 @@ interface InpuntUIProps {
   onChange?: any;
 }
 
-const InputUI: React.FC<InpuntUIProps> = ({
+const InputUI: React.FC<InputUIProps> = ({
   type,
   SvgIcon,
   placeholder,
@@ -30,15 +30,22 @@ const InputUI: React.FC<InpuntUIProps> = ({
   onChange,
   backgroundcolor: backgroundColor,
   value,
-}: InpuntUIProps) => {
-  const ref = useRef<HTMLInputElement | null>(null); // Especifica el tipo HTMLInputElement
+}: InputUIProps) => {
+  const ref = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-
     if (ref.current) {
       ref.current.type = value ? type : "text";
     }
   }, [value, type]);
+
+  const handleIconClick = () => {
+    if (ref.current) {
+      ref.current.type = "date"; // Forzamos el tipo de input a "date"
+      ref.current.focus(); // Enfocamos el input
+      setTimeout(() => ref.current?.click(), 0); // Disparamos el clic después de un breve retraso
+    }
+  };
 
   return (
     <InputContainer
@@ -47,7 +54,14 @@ const InputUI: React.FC<InpuntUIProps> = ({
       style={stylesContainer ? stylesContainer : {}}
       placeholderColor={placeholderColor}
     >
-      {positionIcon === PositionIcon.LEFT && <span>{SvgIcon}</span>}
+      {positionIcon === PositionIcon.LEFT && (
+        <span
+          onClick={handleIconClick}
+          style={{ cursor: "pointer" }}
+        >
+          {SvgIcon}
+        </span>
+      )}
       <input
         type="text"
         ref={ref}
@@ -62,13 +76,18 @@ const InputUI: React.FC<InpuntUIProps> = ({
         onBlur={() => {
           if (ref.current) {
             ref.current.type = value ? type : "text";
-            console.log("onBlur type:", ref.current.type);
           }
         }}
         value={value}
-      ></input>
-      {positionIcon == PositionIcon.RIGHT ||
-        (positionIcon == null && <span>{SvgIcon}</span>)}
+      />
+      {(positionIcon === PositionIcon.RIGHT || positionIcon == null) && (
+        <span
+          onClick={handleIconClick}
+          style={{ cursor: "pointer" }}
+        >
+          {SvgIcon}
+        </span>
+      )}
     </InputContainer>
   );
 };
