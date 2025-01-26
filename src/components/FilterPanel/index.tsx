@@ -59,6 +59,25 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
   }, [width]);
 
   const handleUpdateButton = () => {
+    if (!filter.booking?.pickupDate || !filter.booking?.returnDate) {
+      return toast.error("Necesita seleccionar fecha de reserva", {
+        position: "bottom-right",
+      });
+    }
+    if (filter.booking.pickupDate) {
+      const pickupDate = new Date(filter.booking.pickupDate);
+      if (isNaN(pickupDate.getTime())) {
+        filter.booking.pickupDate += "00:00:00";
+      }
+    }
+
+    if (filter.booking.returnDate) {
+      const returnDate = new Date(filter.booking.returnDate);
+      if (isNaN(returnDate.getTime())) {
+        filter.booking.returnDate += "23:59:59";
+      }
+    }
+
     const result = buildQueryString(filter.booking);
 
     applyFilter();
@@ -208,7 +227,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
         </div>
         <div>
           <SelectInputUI
-            value={(filter.brand = "" ? "todos" : filter.brand)}
+            value={filter.brand == "" ? "todos" : filter.brand}
             width="100%"
             styleSelect={{ color: "#333" }}
             arrayOptions={brandFilter}
@@ -277,7 +296,7 @@ const FilterPanel: React.FC<FilterPanelProps> = () => {
             <SelectInputUI
               backgroundColor={"#ffffff"}
               width="100%"
-              value={(filter.model = "" ? "todos" : filter.model)}
+              value={filter.model == "" ? "todos" : filter.model}
               styleSelect={{ color: "#333" }}
               arrayOptions={categoryFilter}
               placeholder="Modelo del auto"

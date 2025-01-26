@@ -34,7 +34,7 @@ const AdditionalPage: React.FC<AdditionalPageProps> = () => {
     <MainLayout>
       <SectionBanner
         title="Servicios y promociones"
-        text="Discover our car rental options with Rent a Car Select from a range of car options and local specials."
+        text="Descubre servicios exclusivos y promociones increíbles para tu viaje"
         Button={<></>}
       />
       <div style={{ display: "flex", justifyContent: "center" }}>

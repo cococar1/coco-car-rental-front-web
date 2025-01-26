@@ -25,16 +25,16 @@ import { CarFilter } from "@/types/Car.type";
 import moment from "moment";
 import { toast } from "react-toastify";
 interface MainFormProps {}
-const optionsArray = [
-  {
-    id: "1",
-    value: "Deportivo",
-  },
-  {
-    id: "2",
-    value: "clasico",
-  },
-];
+// const optionsArray = [
+//   {
+//     id: "1",
+//     value: "Deportivo",
+//   },
+//   {
+//     id: "2",
+//     value: "clasico",
+//   },
+// ];
 const MainForm: React.FC<MainFormProps> = () => {
   const route = useRouter();
   const [filter, setFilter] = useState<CarFilter>({
@@ -216,6 +216,30 @@ const MainForm: React.FC<MainFormProps> = () => {
         <ContainerButtonForm>
           <ButtonPrincipalUI
             onClick={() => {
+              if (
+                !filter.booking?.pickupDate ||
+                !filter.booking?.returnDate ||
+                filter.booking?.pickupDate == "T" ||
+                filter.booking?.returnDate == "T"
+              ) {
+                return toast.error("Necesita seleccionar fecha de reserva", {
+                  position: "bottom-right",
+                });
+              }
+              if (filter.booking.pickupDate) {
+                const pickupDate = new Date(filter.booking.pickupDate);
+                if (isNaN(pickupDate.getTime())) {
+                  filter.booking.pickupDate += "00:00:00";
+                }
+              }
+
+              if (filter.booking.returnDate) {
+                const returnDate = new Date(filter.booking.returnDate);
+                if (isNaN(returnDate.getTime())) {
+                  filter.booking.returnDate += "23:59:59";
+                }
+              }
+
               if (
                 filter.booking.pickupDate != "T" &&
                 filter.booking.returnDate != "T"

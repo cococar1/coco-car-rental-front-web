@@ -10,33 +10,33 @@ interface SectionReviewClientsProps {}
 const dataReviewClients = [
   {
     user: {
-      name: "Marilyn Vetrovs",
-      profession: "Design Brand",
+      name: "Leonardo ",
+      profession: "",
       photo:
         "https://res.cloudinary.com/dfifwhrxn/image/upload/v1698272960/test-web/trhulz1hlbmwm2wm46b0.jpg",
     },
     commemt:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium em sequi nesciunt",
+      "Excelente servicio. Puntualidad en los horarios programados de entrega y devolución y ademas un vehículo en excelentes condiciones. Totalmente recomendado.",
   },
   {
     user: {
-      name: "Ashlynn Ekstrom Bothman",
-      profession: "Customer one",
+      name: "Juan Manuel Pérez",
+      profession: "",
       photo:
         "https://res.cloudinary.com/dfifwhrxn/image/upload/v1698272960/test-web/trhulz1hlbmwm2wm46b0.jpg",
     },
     commemt:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some",
+      "Una opción muy accesible y adaptable a las necesidades de cada uno. Muy conforme con las prestaciones. ",
   },
   {
     user: {
-      name: "Zaire Carder",
-      profession: "Customer two",
+      name: "Paula González",
+      profession: "",
       photo:
         "https://res.cloudinary.com/dfifwhrxn/image/upload/v1698272960/test-web/trhulz1hlbmwm2wm46b0.jpg",
     },
     commemt:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form",
+      "Dejo una excelente referencia de esta empresa; puntualidad, confort y accesibilidad. 100% recomendada.",
   },
 ];
 const SectionReviewClients: React.FC<SectionReviewClientsProps> = () => {

@@ -10,7 +10,7 @@ const ContactPage: React.FC<ContactPageProps> = () => {
     <MainLayout>
       <SectionBanner
         title="Contacto"
-        text="Discover our car rental options with Rent a Car Select from a range of car options and local specials."
+        text="Estamos aquí para ayudarte, contáctanos fácilmente hoy"
         Button={<></>}
       />
       <SectionContact></SectionContact>

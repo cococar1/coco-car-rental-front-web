@@ -18,7 +18,7 @@ const servicesData = [
   },
   {
     SvgIcon: UsersIcon,
-    title: "Búsqueda personalizada ",
+    title: "Confianza y transparencia ",
     text: "La confianza y la transparencia son nuestros pilares. Te garantizamos tarifas honestas y condiciones claras. Con nosotros, puedes estar seguro de que recibirás un servicio confiable y transparente en cada paso del proceso, para que puedas viajar con total tranquilidad y seguridad.",
   },
   {
